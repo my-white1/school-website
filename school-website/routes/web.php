@@ -55,9 +55,9 @@ Route::get('/blog', function () {
 })->name('blog.index');
 
 // Blog show
-// Route::get('/blog/{post}', function (Post $post) {
-//     return view('frontend.blog.show', compact('post'));
-// })->name('blog.show');
+ Route::get('/blog-show', function () {
+     return view('frontend.blog.show');
+ })->name('blog.show');
 
 // 404
 Route::get('/404', function () {
