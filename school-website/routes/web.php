@@ -23,20 +23,26 @@ Route::get('/about', function () {
     return view('frontend.about.index');
 })->name('about');
 
+
 // Classes
 Route::get('/classes', function () {
     return view('frontend.classes.index');
 })->name('classes.index');
+
+// classes single
+Route::get('/class-detail', function () {
+    return view('frontend.classes.detail');
+})->name('detail');
 
 // Teacher
 Route::get('/teachers', function () {
     return view('frontend.teachers.index');
 })->name('teachers.index');
 
-// Teacher show
-// Route::get('/teachers/{teacher}', function(Teacher $teacher) {
-//     return view('frontend.teachers.index', compact('teacher'));
-// })->name('teachers.show');
+ // Teacher show
+ Route::get('/teacher-show', function() {
+     return view('frontend.teachers.show');
+ })->name('teachers.show');
 
 // Contact
 Route::get('/contact', function () {
