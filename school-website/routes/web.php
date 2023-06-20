@@ -15,4 +15,45 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('frontend.home.index');
-});
+})->name('home');
+
+
+// About
+Route::get('/about', function () {
+    return view('frontend.about.index');
+})->name('about');
+
+// Classes
+Route::get('/classes', function () {
+    return view('frontend.classes.index');
+})->name('classes.index');
+
+// Teacher
+Route::get('/teachers', function () {
+    return view('frontend.teachers.index');
+})->name('teachers.index');
+
+// Teacher show
+// Route::get('/teachers/{teacher}', function(Teacher $teacher) {
+//     return view('frontend.teachers.index', compact('teacher'));
+// })->name('teachers.show');
+
+// Contact
+Route::get('/contact', function () {
+    return view('frontend.contact.index');
+})->name('contact');
+
+// Blog
+Route::get('/blog', function () {
+    return view('frontend.blog.index');
+})->name('blog.index');
+
+// Blog show
+// Route::get('/blog/{post}', function (Post $post) {
+//     return view('frontend.blog.show', compact('post'));
+// })->name('blog.show');
+
+// 404
+Route::get('/404', function () {
+    return view('frontend.errors.404');
+})->name('404');

@@ -42,7 +42,7 @@
                                 <!--contact-info end-->
                             </li>
                             <li>
-                                <div class="contact-info"><img src="assets/img/icon3.png" alt="">
+                                <div class="contact-info"><img src="{{ asset('assets/img/icon3.png') }}" alt="">
                                     <div class="contact-tt">
                                         <h4>Address</h4><span>Franklin St, Greenpoint Ave</span>
                                     </div>
@@ -61,20 +61,20 @@
                         <nav>
                             <ul>
                                 <li><a class="active" href="index.html" title="">Home</a></li>
-                                <li><a href="about.html" title="">About</a>
+                                <li><a href="{{ route('about') }}" title="">About</a>
                                     <ul>
                                         <li><a href="events.html" title="">Events</a></li>
                                         <li><a href="event-single.html" title="">Event Single</a></li>
                                         <li><a href="schedule.html" title="">Schedule</a></li>
-                                        <li><a href="error.html" title="">404</a></li>
+                                        <li><a href="{{ route('404') }}" title="">404</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="classes.html" title="">Classes</a>
+                                <li><a href="{{ route('classes.index') }}" title="">Classes</a>
                                     <ul>
                                         <li><a href="class-single.html" title="">Class Single</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="teachers.html" title="">Teachers</a>
+                                <li><a href="{{ route('teachers.index') }}" title="">Teachers</a>
                                     <ul>
                                         <li><a href="teacher-single.html" title="">Teacher Single</a></li>
                                     </ul>
@@ -84,7 +84,7 @@
                                         <li><a href="post.html" title="">Blog Single</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contacts.html" title="">Contacts</a></li>
+                                <li><a href="href="{{ route('contact') }}"" title="">Contacts</a></li>
                             </ul>
                         </nav>
                         <!--nav end-->
@@ -104,48 +104,22 @@
             <div class="responsive-menu">
                 <ul>
                     <li><a href="index.html" title="">Home</a></li>
-                    <li><a href="about.html" title="">About</a></li>
+                    <li><a href="{{ route('about') }}" title="">About</a></li>
                     <li><a href="events.html" title="">Events</a></li>
                     <li><a href="event-single.html" title="">Event Single</a></li>
                     <li><a href="schedule.html" title="">Schedule</a></li>
-                    <li><a href="classes.html" title="">Classes</a></li>
+                    <li><a href="{{ route('classes.index') }}" title="">Classes</a></li>
                     <li><a href="class-single.html" title="">Classe Single</a></li>
-                    <li><a href="teachers.html" title="">Teachers</a></li>
+                    <li><a href="{{ route('teachers.index') }}" title="">Teachers</a></li>
                     <li><a href="teacher-single.html" title="">Teacher Single</a></li>
                     <li><a href="blog.html" title="">Blog</a></li>
                     <li><a href="post.html" title="">Blog Single</a></li>
-                    <li><a href="contacts.html" title="">Contacts</a></li>
-                    <li><a href="error.html" title="">404</a></li>
+                    <li><a href="{{ route('contact') }}" title="">Contacts</a></li>
+                    <li><a href="{{ route('404') }}" title="">404</a></li>
                 </ul>
             </div>
             <!--responsive-menu end-->
-            <section class="main-banner">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-7 col-md-7">
-                            <div class="banner-text wow fadeInLeft" data-wow-duration="1000ms">
-                                <h2>The Smarter Way to Learn <span>Anything</span></h2>
-                                <p>Mauris malesuada enim eget blandit gravida. Duis hendrerit cursus turpis, id mollis
-                                    est rutrum nec.
-                                    Sed interdum nisi id libero tincidunt, sit amet vestibulum tortor porttitor. Cras
-                                    ligula lacus,
-                                    ullamcorper sed</p>
-                                <form class="search-form"><input type="text" name="search"
-                                        placeholder="Search Class"> <button><i class="fa fa-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-5">
-                            <div class="banner-img wow zoomIn" data-wow-duration="1000ms"><img
-                                    src="assets/img/banner-img.png" alt="">
-                            </div>
-                            <!--banner-img end-->
-                            <div class="elements-bg wow zoomIn" data-wow-duration="1000ms"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--main-banner end-->
+            
             <h2 class="main-title">Shelly</h2>
         </div>
         <!--main-section end-->

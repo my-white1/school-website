@@ -1,6 +1,33 @@
 @extends('layouts.frontend')
 
 @section('content')
+    <section class="main-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-7">
+                    <div class="banner-text wow fadeInLeft" data-wow-duration="1000ms">
+                        <h2>The Smarter Way to Learn <span>Anything</span></h2>
+                        <p>Mauris malesuada enim eget blandit gravida. Duis hendrerit cursus turpis, id mollis
+                            est rutrum nec.
+                            Sed interdum nisi id libero tincidunt, sit amet vestibulum tortor porttitor. Cras
+                            ligula lacus,
+                            ullamcorper sed</p>
+                        <form class="search-form"><input type="text" name="search" placeholder="Search Class"> <button><i
+                                    class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5">
+                    <div class="banner-img wow zoomIn" data-wow-duration="1000ms"><img src="assets/img/banner-img.png"
+                            alt="">
+                    </div>
+                    <!--banner-img end-->
+                    <div class="elements-bg wow zoomIn" data-wow-duration="1000ms"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--main-banner end-->
     <section class="about-us-section">
         <div class="container">
             <div class="section-title text-center">
@@ -450,7 +477,8 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="blog-post">
                             <div class="blog-thumbnail"><img src="assets/img/blog1.jpg" alt="" class="w-100">
-                                <span class="category">English</span></div>
+                                <span class="category">English</span>
+                            </div>
                             <div class="blog-info">
                                 <ul class="meta">
                                     <li><a href="assets/images/resources/bg4.jpg.html#" title="">17/09/2020</a></li>
@@ -473,7 +501,8 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="blog-post">
                             <div class="blog-thumbnail"><img src="assets/img/blog2.jpg" alt="" class="w-100">
-                                <span class="category">English</span></div>
+                                <span class="category">English</span>
+                            </div>
                             <div class="blog-info">
                                 <ul class="meta">
                                     <li><a href="assets/images/resources/bg4.jpg.html#" title="">17/09/2020</a></li>
@@ -496,7 +525,8 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="blog-post">
                             <div class="blog-thumbnail"><img src="assets/img/blog3.jpg" alt="" class="w-100">
-                                <span class="category">English</span></div>
+                                <span class="category">English</span>
+                            </div>
                             <div class="blog-info">
                                 <ul class="meta">
                                     <li><a href="assets/images/resources/bg4.jpg.html#" title="">17/09/2020</a></li>
