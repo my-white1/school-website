@@ -4,10 +4,10 @@
     <section class="pager-section">
         <div class="container">
             <div class="pager-content text-center">
-                <h2>About Us</h2>
+                <h2>Biz haqimizda</h2>
                 <ul>
-                    <li><a href="about.html#" title="">Home</a></li>
-                    <li><span>About</span></li>
+                    <li><a href="{{ route('about') }}" title="">Bosh sahifa</a></li>
+                    <li><span>Biz haqimizda</span></li>
                 </ul>
             </div>
             <!--pager-content end-->
@@ -21,12 +21,15 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="section-title">
-                            <h2>Welcome to<br><span>Shelly</span> School</h2>
-                            <p class="mw-100">Morbi vel augue et metus pellentesque lacinia eu non odio. Sed id purus urna.
-                                Maecenas
-                                ultrices ligula a nisi dictum tristique. Suspendisse potenti. Curabitur egestas ultrices
-                                sem, eu
-                                vestibulum leo sagittis et.</p><a href="classes.html" title=""
+                            <h2>Welcome to<br><span>Shelly</span> Maktabi</h2>
+                            <p class="mw-100">Qanday qilib o'rganish bo'yicha eng samarali strategiyalarni bilish yangi
+                                g'oyalar, tushunchalar va ko'nikmalarga ega bo'lishga harakat qilayotganingizda
+                                sa'y-harakatlaringizni maksimal darajada oshirishga yordam beradi. Agar siz ko'p odamlar
+                                kabi bo'lsangiz, sizning vaqtingiz cheklangan, shuning uchun sizda mavjud bo'lgan vaqtdan
+                                maksimal darajada ta'lim olish muhimdir.
+
+
+                                vestibulum leo sagittis et.</p><a href="{{ route('classes.index') }}" title=""
                                 class="btn-default">Classes <i class="fa fa-long-arrow-alt-right"></i></a>
                         </div>
                         <!--section-title end-->
@@ -42,15 +45,15 @@
                         <!--avt-img end-->
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <div class="act-inffo"><span>ABOUT US</span>
-                            <h2>Our Mission</h2>
-                            <p>Praesent rhoncus justo erat, sed sollicitudin arcu malesuada vel. Etiam scelerisque justo ut
-                                purus
-                                luctus ullamcorper. Vivamus vitae elit ligula. Fusce eu rutrum nisl.</p>
+                        <div class="act-inffo"><span>BIZ HAQIMIZDA</span>
+                            <h2>Bizning maqsadimiz</h2>
+                            <p>Biznig maqsadimiz yosh avlodni yetuk inson qilib tarbiyalash va kelajakda davlatimiz
+                                ravnaqiga hissa qo'shib uni jahon
+                                miqiyosiga olib chiqadigan insonlar sonini ko'paytirish. </p>
                             <ul>
-                                <li>Etiam ante nisl, maximus vitae sem non, dignissim</li>
-                                <li>Donec blandit, sapien eu porttitor blandit</li>
-                                <li>Sed at urna at massa viverra feugiat non</li>
+                                <li>O'zinggizga mos kurs tanlang</li>
+                                <li>Kursni yetarlicha bilib bilan tamomlang</li>
+                                <li>Kutilgan natija ega bo'ling</li>
                             </ul>
                         </div>
                         <!--act-inffo end-->
@@ -66,12 +69,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="section-title">
-                        <h2>Our Benefits</h2>
-                        <p>Praesent rhoncus justo erat, sed sollicitudin arcu malesuada vel. Etiam scelerisque justo ut
-                            purus
-                            luctus ullamcorper. Vivamus vitae elit ligula. Fusce eu rutrum nisl. Vestibulum ut sagittis
-                            neque</p><a href="contacts.html" title="" class="btn-default">Contacts <i
-                                class="fa fa-long-arrow-alt-right"></i></a>
+                        <h2>Bizning Afzalliklarimiz</h2>
+                        <p>Jismoniy kampusga borish va shaxsan o'rganishga o'xshab, virtual sinfda qatnashish va onlayn
+                            o'rganishning afzalliklari va kamchiliklari mavjud. Onlayn ta'limning ko'plab afzalliklari
+                            orasida virtual ta'lim sizga yanada moslashuvchan jadvaldan bahramand bo'lish imkonini beradi,
+                            darajangiz narxini pasaytiradi va ta'limingizni davom ettirish bilan birga martabangizni yanada
+                            oson rivojlantirishga imkon beradi.</p><a href="{{ route('contact') }}" title=""
+                            class="btn-default">Contacts <i class="fa fa-long-arrow-alt-right"></i></a>
                     </div>
                     <!--section-title end-->
                 </div>
@@ -81,29 +85,43 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="abt-col"><img src="assets/img/icon5.png" alt="">
-                                        <h3>Awesome Teachers</h3>
-                                        <p>Vivamus interdum, mauris interdum quis curdum sodales</p>
+                                        <h3>Ajoyib O'qituvchilar</h3>
+                                        <p>"Yaxshi o'qituvchi umidni ilhomlantirishi, tasavvurni yoqishi va o'rganishga
+                                            muhabbat uyg'otishi mumkin."
+
+                                        </p>
                                     </div>
                                     <!--abt-col end-->
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="abt-col"><img src="assets/img/icon7.png" alt="">
-                                        <h3>Global Certificate</h3>
-                                        <p>Pelleneget tespharetra que fringilla egugue id eget pharetra</p>
+                                        <h3>Global Sertifikat</h3>
+                                        <p>
+                                            Global sertifikatlashning Compass Assurance Services bilan birlashganini e'lon
+                                            qilishdan juda mamnunmiz.</p>
                                     </div>
                                     <!--abt-col end-->
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="abt-col"><img src="assets/img/icon9.png" alt="">
-                                        <h3>Student Support Service</h3>
-                                        <p>Mauris nec mi fequis ugiat, cursus tortor nec, pharetra tellus</p>
+                                        <h3> Talabalarni Qo'llab-Quvvatlash Xizmati</h3>
+                                        <p>
+                                            Grant tanlovi orqali oliy ta'lim muassasalariga ilmiy rivojlanish
+                                            imkoniyatlarini
+                                            ta'minlash
+
+
+
+                                        </p>
                                     </div>
                                     <!--abt-col end-->
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="abt-col"><img src="assets/img/icon8.png" alt="">
-                                        <h3>Best Programm</h3>
-                                        <p>Etiam risus neque, volutpat vel laoreet a, finibus volutpat non ligula</p>
+                                        <h3>Eng Yaxshi Dastur
+                                        </h3>
+                                        <p>Eng yaxshi dastur ijtimoiy, hissiy va xulq-atvor ehtiyojlari faqat umumiy ta'lim
+                                            muhitida o'quv dasturlariga kirish.</p>
                                     </div>
                                     <!--abt-col end-->
                                 </div>
@@ -119,159 +137,37 @@
     <section class="classes-section">
         <div class="container">
             <div class="sec-title">
-                <h2 class="no-bg">Our Classes</h2>
-                <p>Nam mattis felis id sodales rutrum. Nulla ornare tristique mauris, a laoreet erat ornare sit amet. Nulla
-                    sagittis faucibus lacus</p>
+                <h2 class="no-bg">Bizning Sinflarimiz</h2>
+                <p>Bizning kichik sinflarimiz guruhlar ichida jonli muloqot qilish imkonini beradi va shu bilan
+                    o'quvchilarimizning o'rganish natijalarini optimallashtiradigan
+                </p>
             </div>
             <!--sec-title end-->
             <div class="classes-sec">
                 <div class="row classes-carousel">
-                    <div class="col-lg-3">
-                        <div class="classes-col">
-                            <div class="class-thumb"><img src="assets/img/img1.jpg" alt="" class="w-100"> <a
-                                    href="about.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
-                                        alt=""></a></div>
-                            <div class="class-info">
-                                <h3><a href="about.html#" title="">Basic English Speaking and Grammar</a></h3>
-                                <span>Mon-Fri</span>
-                                <span>10 AM - 12 AM</span>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                            href="about.html#" title="">Amanda
-                                            Kern</a></div><strong class="price">$45</strong>
+                    @foreach ($classes as $class)
+                        <div class="col-lg-3">
+                            <div class="classes-col">
+                                <div class="class-thumb"><img src="assets/img/img1.jpg" alt="" class="w-100"> <a
+                                        href="about.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
+                                            alt=""></a></div>
+                                <div class="class-info">
+                                    <h3><a href="about.html#" title="">{{ $class->name }}</a></h3>
+                                    <span>Mon-Fri</span>
+                                    <span>10 AM - 12 AM</span>
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
+                                                href="about.html#" title="">{{ $class->teacher->firstname }}
+                                                {{ $class->teacher->second }}</a></div><strong class="price">$45</strong>
+                                    </div>
                                 </div>
                             </div>
+                            <!--classes-col end-->
                         </div>
-                        <!--classes-col end-->
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="classes-col">
-                            <div class="class-thumb"><img src="assets/img/img2.jpg" alt="" class="w-100"> <a
-                                    href="about.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
-                                        alt=""></a></div>
-                            <div class="class-info">
-                                <h3><a href="about.html#" title="">Natural Sciences & Mathematics Courses</a></h3>
-                                <span>Mon-Fri</span>
-                                <span>10 AM - 12 AM</span>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                            href="about.html#" title="">Gypsy
-                                            Hardinge</a></div><strong class="price">$67</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <!--classes-col end-->
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="classes-col">
-                            <div class="class-thumb"><img src="assets/img/img3.jpg" alt="" class="w-100"> <a
-                                    href="about.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
-                                        alt=""></a></div>
-                            <div class="class-info">
-                                <h3><a href="class-single.html" title="">Environmental Studies & Earth Sciences</a>
-                                </h3>
-                                <span>Mon-Fri</span> <span>10 AM - 12 AM</span>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                            href="about.html#" title="">Margje
-                                            Jutten</a></div><strong class="price">$89</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <!--classes-col end-->
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="classes-col">
-                            <div class="class-thumb"><img src="assets/img/img4.jpg" alt="" class="w-100"> <a
-                                    href="about.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
-                                        alt=""></a></div>
-                            <div class="class-info">
-                                <h3><a href="class-single.html" title="">Hospitality, Leisure & Sports Courses</a>
-                                </h3>
-                                <span>Mon-Fri</span> <span>10 AM - 12 AM</span>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                            href="about.html#" title="">Hubert
-                                            Franck</a></div><strong class="price">$67</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <!--classes-col end-->
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="classes-col">
-                            <div class="class-thumb"><img src="assets/img/img1.jpg" alt="" class="w-100"> <a
-                                    href="about.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
-                                        alt=""></a></div>
-                            <div class="class-info">
-                                <h3><a href="class-single.html" title="">Basic English Speaking and Grammar</a></h3>
-                                <span>Mon-Fri</span> <span>10 AM - 12 AM</span>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                            href="about.html#" title="">Amanda
-                                            Kern</a></div><strong class="price">$45</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <!--classes-col end-->
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="classes-col">
-                            <div class="class-thumb"><img src="assets/img/img2.jpg" alt="" class="w-100"> <a
-                                    href="about.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
-                                        alt=""></a></div>
-                            <div class="class-info">
-                                <h3><a href="class-single.html" title="">Natural Sciences & Mathematics Courses</a>
-                                </h3>
-                                <span>Mon-Fri</span> <span>10 AM - 12 AM</span>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                            href="about.html#" title="">Gypsy
-                                            Hardinge</a></div><strong class="price">$67</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <!--classes-col end-->
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="classes-col">
-                            <div class="class-thumb"><img src="assets/img/img3.jpg" alt="" class="w-100"> <a
-                                    href="about.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
-                                        alt=""></a></div>
-                            <div class="class-info">
-                                <h3><a href="class-single.html" title="">Environmental Studies & Earth Sciences</a>
-                                </h3>
-                                <span>Mon-Fri</span> <span>10 AM - 12 AM</span>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                            href="about.html#" title="">Margje
-                                            Jutten</a></div><strong class="price">$89</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <!--classes-col end-->
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="classes-col">
-                            <div class="class-thumb"><img src="assets/img/img4.jpg" alt="" class="w-100"> <a
-                                    href="about.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
-                                        alt=""></a></div>
-                            <div class="class-info">
-                                <h3><a href="class-single.html" title="">Hospitality, Leisure & Sports Courses</a>
-                                </h3>
-                                <span>Mon-Fri</span> <span>10 AM - 12 AM</span>
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                            href="about.html#" title="">Hubert
-                                            Franck</a></div><strong class="price">$67</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <!--classes-col end-->
-                    </div>
+                    @endforeach
                 </div>
-                <div class="lnk-dv text-center"><a href="classes.html" title="" class="btn-default">Classes <i
-                            class="fa fa-long-arrow-alt-right"></i></a></div>
+                <div class="lnk-dv text-center"><a href="{{ route('classes.index') }}" title=""
+                        class="btn-default">Classes <i class="fa fa-long-arrow-alt-right"></i></a></div>
             </div>
             <!--classes-sec end-->
         </div>
@@ -283,8 +179,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="newsz-ltr-text">
-                            <h2>Join us<br>and stay tuned!</h2><a href="contacts.html" title=""
-                                class="btn-default">Join Us <i class="fa fa-long-arrow-alt-right"></i></a>
+                            <h2>Bizga qo'shiling<br>va kuzatib boring!</h2><a href="{{ route('contact') }}" title=""
+                                class="btn-default">Bizga Qo'shiling <i class="fa fa-long-arrow-alt-right"></i></a>
                         </div>
                         <!--newsz-ltr-text end-->
                     </div>
@@ -292,23 +188,23 @@
                         <form class="newsletter-form">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="form-group"><input type="text" name="name" placeholder="Name">
+                                    <div class="form-group"><input type="text" name="name"
+                                            placeholder="Ism familiya">
                                     </div>
                                     <!--form-group end-->
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group"><input type="email" name="email" placeholder="Email">
+                                    <div class="form-group"><input value="+998 " type="text" name="phone_number"
+                                            placeholder="Telefon raqam">
                                     </div>
                                     <!--form-group end-->
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group select-tg"><select>
-                                            <option>Class</option>
-                                            <option>Class</option>
-                                            <option>Class</option>
-                                            <option>Class</option>
-                                            <option>Class</option>
-                                            <option>Class</option>
+                                            <option>Kurs tanlang</option>
+                                            @foreach ($allClasses as $class)
+                                                <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                            @endforeach
                                         </select></div>
                                     <!--form-group end-->
                                 </div>

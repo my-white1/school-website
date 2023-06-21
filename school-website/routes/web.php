@@ -32,7 +32,9 @@ Route::get('/admin', function () {
 
 // About
 Route::get('/about', function () {
-    return view('frontend.about.index');
+    $classes = Classes::take(8)->orderByDesc('id')->get();
+    $allClasses = Classes::all();
+    return view('frontend.about.index', compact('classes', 'allClasses'));
 })->name('about');
 
 

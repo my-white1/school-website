@@ -21,7 +21,7 @@
         <header>
             <div class="container">
                 <div class="header-content d-flex flex-wrap align-items-center">
-                    <div class="logo"><a href="index.html" title=""><img src="assets/img/logo.png"
+                    <div class="logo"><a href="{{ route('home') }}" title=""><img src="assets/img/logo.png"
                                                                          alt=""
                                                                          srcset="assets/img/01_Logo_2x.png 2x"></a>
                     </div>
