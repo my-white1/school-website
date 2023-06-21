@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Blog;
+use App\Models\Classes;
+use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.home.index');
+    $blogs = Blog::take(3)->orderByDesc('id')->get();
+    $teachers = Teacher::take(4)->orderByDesc('id')->get();
+    $classes = Classes::take(7)->orderByDesc('id')->get();
+    $allClasses = Classes::take(7)->orderByDesc('id')->get();
+    return view('frontend.home.index', compact('blogs','teachers', 'classes', 'allClasses'));
 })->name('home');
 
 // Admin
@@ -31,7 +38,8 @@ Route::get('/about', function () {
 
 // Classes
 Route::get('/classes', function () {
-    return view('frontend.classes.index');
+    $classes = Classes::all();
+    return view('frontend.classes.index', compact('classes'));
 })->name('classes.index');
 
 // classes single
@@ -44,10 +52,10 @@ Route::get('/teachers', function () {
     return view('frontend.teachers.index');
 })->name('teachers.index');
 
- // Teacher show
- Route::get('/teacher-show', function() {
-     return view('frontend.teachers.show');
- })->name('teachers.show');
+// Teacher show
+Route::get('/teacher-show', function () {
+    return view('frontend.teachers.show');
+})->name('teachers.show');
 
 // Contact
 Route::get('/contact', function () {
@@ -60,9 +68,9 @@ Route::get('/blog', function () {
 })->name('blog.index');
 
 // Blog show
- Route::get('/blog-show', function () {
-     return view('frontend.blog.show');
- })->name('blog.show');
+Route::get('/blog-show', function () {
+    return view('frontend.blog.show');
+})->name('blog.show');
 
 // 404
 Route::get('/404', function () {
