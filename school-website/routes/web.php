@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('frontend.home.index');
 })->name('home');
 
+// Admin
+Route::get('/admin', function () {
+    return view('admin.index');
+})->name('admin');
+
 
 // About
 Route::get('/about', function () {
