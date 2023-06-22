@@ -14,7 +14,10 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::insert([
-//           ['name'=>],
+           ['name'=>"O'qtuvchilar"],
+           ['name'=>"Maktab Yangiliklari"],
+           ['name'=>"Darslar"],
+           ['name'=>"Maktab"],
         ]);
     }
 }

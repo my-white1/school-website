@@ -12,7 +12,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::all();
+        return view('admin.teachers.index', compact('teachers'));
     }
 
     /**
@@ -20,7 +21,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.teachers.create');
     }
 
     /**
@@ -28,7 +29,29 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'category' => 'required',
+            'image' => 'required',
+        ], [
+            'firstname.required' => 'Ismni kiriting',
+            'last.required' => 'Familyani kiriting',
+            'category.required' => 'Sohasini kiriting',
+            'image.required' => 'Rasmini kiriting',
+        ]);
+
+        $file = $request->file('image');
+        $image_name = uniqid() . $file->getClientOriginalName();
+        $file->move(public_path('storage'), $image_name);
+
+        Teacher::create([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'category' => $request->category,
+            'image' => $image_name
+        ]);
+        return redirect()->route('teacher.index');
     }
 
     /**
@@ -36,7 +59,7 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+        return view('admin.teachers.show',compact('teacher'));
     }
 
     /**
@@ -44,7 +67,7 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        return view('admin.teachers.edit', compact('teacher'));
     }
 
     /**
@@ -52,7 +75,45 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'category' => 'required',
+            'image' => 'required',
+        ], [
+            'firstname.required' => 'Ismni kiriting',
+            'last.required' => 'Familyani kiriting',
+            'category.required' => 'Sohasini kiriting',
+            'image.required' => 'Rasmini kiriting',
+        ]);
+        if ($request->image) {
+
+            // removing old image
+            unlink(public_path("storage/$teacher->image"));
+            // get image
+            $file = $request->file('image');
+            $image_name = uniqid() . $file->getClientOriginalName();
+
+            $teacher->update([
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'category' => $request->category,
+                'image' => $image_name,
+
+            ]);
+
+            $file->move(public_path('storage'), $image_name);
+
+        } else {
+            $teacher->update([
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'category' => $request->category,
+            ]);
+
+        }
+
+        return redirect()->route('teacher.index');
     }
 
     /**
@@ -60,6 +121,7 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
-        //
+        $teacher->delete();
+        return back();
     }
 }

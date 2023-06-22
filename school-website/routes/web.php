@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Frontend qismlari
+
+// Front
 Route::get('/', function () {
     $blogs = Blog::take(3)->orderByDesc('id')->get();
     $teachers = Teacher::take(4)->orderByDesc('id')->get();
@@ -24,19 +27,12 @@ Route::get('/', function () {
     return view('frontend.home.index', compact('blogs','teachers', 'classes', 'allClasses'));
 })->name('home');
 
-// Admin
-Route::get('/admin', function () {
-    return view('admin.index');
-})->name('admin');
-
-
 // About
 Route::get('/about', function () {
     $classes = Classes::take(8)->orderByDesc('id')->get();
     $allClasses = Classes::all();
     return view('frontend.about.index', compact('classes', 'allClasses'));
 })->name('about');
-
 
 // Classes
 Route::get('/classes', function () {
@@ -78,3 +74,19 @@ Route::get('/blog-show', function () {
 Route::get('/404', function () {
     return view('frontend.errors.404');
 })->name('404');
+
+
+// Admin
+Route::get('/admin', function () {
+    return view('admin.index');
+})->name('admin');
+
+// Admin Qisimlari
+    Route::resource('/abouts',\App\Http\Controllers\AboutController::class);
+    Route::resource('/teacher',\App\Http\Controllers\TeacherController::class);
+    Route::resource('/class',\App\Http\Controllers\ClassesController::class);
+    Route::resource('/weeks',\App\Http\Controllers\WeekController::class);
+    Route::resource('/courses',\App\Http\Controllers\CourseController::class);
+    Route::resource('/categories',\App\Http\Controllers\CategoryController::class);
+    Route::resource('/blogs',\App\Http\Controllers\BlogController::class);
+

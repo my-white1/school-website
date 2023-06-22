@@ -12,7 +12,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+        $about=About::find(1);
+        return view('admin.about.index',compact('about'));
     }
 
     /**
@@ -36,7 +37,8 @@ class AboutController extends Controller
      */
     public function show(About $about)
     {
-        //
+//        dd($about);
+        return view('admin.about.show',compact('about'));
     }
 
     /**
@@ -44,7 +46,7 @@ class AboutController extends Controller
      */
     public function edit(About $about)
     {
-        //
+        return view('admin.about.edit',compact('about'));
     }
 
     /**
@@ -52,7 +54,48 @@ class AboutController extends Controller
      */
     public function update(Request $request, About $about)
     {
-        //
+
+        if ($request->image) {
+            // removing old image
+            unlink(public_path("storage/$about->image"));
+
+            // get image
+            $file = $request->file('image');
+            $image_name = uniqid() . $file->getClientOriginalName();
+
+            $about->update([
+                'name' => $request->name,
+                'phone_number' => $request->phone_number,
+                'description' => $request->description,
+                'image' => $image_name,
+                // don't needed information
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
+                'viloyat' => $request->viloyat,
+                'tuman' => $request->tuman,
+                'facebook' => $request->facebook,
+                'instagram' => $request->instagram,
+            ]);
+
+            $file->move(public_path('storage'), $image_name);
+
+        } else {
+            $about->update([
+                'name' => $request->name,
+                'phone_number' => $request->phone_number,
+                'description' => $request->description,
+                // don't needed information
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
+                'viloyat' => $request->viloyat,
+                'tuman' => $request->tuman,
+                'facebook' => $request->facebook,
+                'instagram' => $request->instagram,
+            ]);
+
+        }
+
+return redirect()->route('abouts.index');
     }
 
     /**

@@ -9,6 +9,9 @@ class week extends Model
 {
     use HasFactory;
     protected $fillable=['name'];
-
+    public function about()
+    {
+        return $this->belongsToMany(About::class);
+    }
 
 }

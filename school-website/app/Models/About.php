@@ -9,16 +9,18 @@ class About extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'name',
         'image',
         'description',
         'phone_number',
         'start_time',
-         'end_time',
+        'end_time',
         'viloyat',
         'tuman',
         'facebook',
-         'instagram',
+        'instagram',
     ];
+
+
 }
