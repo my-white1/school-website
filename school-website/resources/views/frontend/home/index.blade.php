@@ -211,7 +211,7 @@
                             <h2>Kursingizni toping</h2>
                             <p>Qaysi fan, kurs turi yoki universitet yoki kollej sizga mos kelishini hal qilmayapsizmi?
                                 Ushbu muhim qarorni hal qilish bo'yicha maslahatlarimiz va maslahatlarimizni o'qing</p>
-                            <h3><img src="assets/img/icon11.png" alt="">Call: <strong>+2 342 5446
+                            <h3><img src="assets/img/icon11.png" alt="">Bog'lanish uchun: <strong>+998 99 982 59 20
                                     67</strong></h3>
                         </div>
                         <!--sec-title end-->
