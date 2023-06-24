@@ -20,7 +20,7 @@ $a =\App\Models\About::find(1);
                         <!--section-title end-->
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <div class="avt-img"><img src="{{asset("images/$a->image")}}" alt=""></div>
+                        <div class="avt-img" ><img width="500" height="500" src="{{asset("images/$a->image")}}" alt=""></div>
                         <!--avt-img end-->
                     </div>
                 </div>
@@ -245,58 +245,5 @@ $a =\App\Models\About::find(1);
         </div>
     </section>
     <!--blog-section end-->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-sec">
-                <div class="row align-items-center">
-                    <div class="col-lg-4">
-                        <div class="newsz-ltr-text">
-                            <h2>Bizga qo'shiling<br>va kuzatib boring!</h2><a href="{{ route('contact') }}"
-                                title="" class="btn-default">Bizga qo'shiling <i
-                                    class="fa fa-long-arrow-alt-right"></i></a>
-                        </div>
-                        <!--newsz-ltr-text end-->
-                    </div>
-                    <div class="col-lg-8">
-                        <form class="newsletter-form">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group"><input type="text" name="name" placeholder="To'liq ismingiz">
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input value="+998 " type="text" name="phone_number"
-                                            placeholder="Telefon raqam">
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group select-tg">
-                                        <select>
-                                            <option>Kurs tanlang</option>
-                                            @foreach ($allClasses as $class)
-                                                <option value="{{ $class->id }}">{{ $class->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="message" placeholder="Xabar"></textarea>
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                            </div>
-                        </form>
-                        <!--newsletter-form end-->
-                    </div>
-                </div>
-            </div>
-            <!--newsletter-sec end-->
-        </div>
-    </section>
     <!--newsletter-sec end-->
 @endsection

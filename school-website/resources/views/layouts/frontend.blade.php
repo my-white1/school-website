@@ -61,7 +61,7 @@
                         <!--menu-btn end-->
                     </div>
                     <!--header-content end-->
-                    <div class="navigation-bar d-flex align-items-center">
+                    <div class="navigation-bar d-flex align-items-center gap-0">
                         <nav>
                             <ul>
                                 <li><a class="{{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}"
@@ -87,7 +87,14 @@
                             </ul>
                         </nav>
                         <!--nav end-->
-
+                        <ul class="social-links ml-auto d-flex ml-5">
+                            <li>
+                                <a  title=""><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a  title=""><i class="fab fa-instagram"></i></a>
+                            </li>
+                        </ul>
                     </div>
                     <!--navigation-bar end-->
                 </div>
