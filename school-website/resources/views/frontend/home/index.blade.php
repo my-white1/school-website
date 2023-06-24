@@ -47,11 +47,10 @@ $classes=\App\Models\Classes::all();
                         <div class="col-lg-3">
                             <div class="classes-col wow fadeInUp" data-wow-duration="1000ms">
                                 <div class="class-thumb"><img src="assets/img/img1.jpg" alt="" class="w-100">
-                                    <a href="contacts.html" title="" class="crt-btn"><img
-                                            src="assets/img/icon10.png" alt=""></a>
+
                                 </div>
                                 <div class="class-info">
-                                    <h3><a href="class-single.html" title="">{{$class->number}}-{{ $class->name }}</a></h3>
+                                    <h3><a href="class-single.html" title="">{{$class->number}}-{{ $class->name }} Sinf</a></h3>
                                     <span>Mon-Fri</span> <span>10 AM - 12 AM</span>
                                     <div class="d-flex flex-wrap align-items-center">
                                         <div class="posted-by"><img src="assets/img/ico.png" alt=""><img src="{{asset('images/'.$class->teacher->image)}}" alt="">
@@ -73,7 +72,7 @@ $classes=\App\Models\Classes::all();
     <section class="teachers-section">
         <div class="container">
             <div class="section-title text-center">
-                <h2>Bizning ajoyim<br>O'qtuvchilar</h2>
+                <h2>Bizning ajoyib<br>O'qtuvchilar</h2>
                 <p>"Yaxshi o'qituvchi umidni ilhomlantirishi, tasavvurni yoqishi va o'rganishga muhabbat uyg'otishi mumkin."
                 </p>
             </div>
@@ -115,7 +114,9 @@ $classes=\App\Models\Classes::all();
                         <!--sec-title end-->
                         <div class="course-img"><img src="assets/img/course-img.png" alt=""></div>
                         <!--course-img end-->
-                    </div>
+                    </div><a   href="{{ route('course.index') }}"  title="" style="color: #044e7c
+                                 " class="read-more text-bg-primary">Ko`proq <i
+                            class="fa fa-long-arrow-alt-right"></i></a>
                     <!--find-course end-->
                 </div>
 {{--                @if (empty($classes[0]) && empty($classes[1]) && empty($classes[2]))--}}

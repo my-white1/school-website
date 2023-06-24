@@ -1,17 +1,20 @@
 @extends('layouts.frontend')
 
 @section('content')
+    @php
+        $a=\App\Models\About::find(1);
+    @endphp
     <section class="pager-section">
         <div class="container">
             <div class="pager-content text-center">
-                <h2>Classes</h2>
+                <h2>Course</h2>
                 <ul>
                     <li><a href="classes.html#" title="">Home</a></li>
-                    <li><span>Classes</span></li>
+                    <li><span>Courses</span></li>
                 </ul>
             </div>
             <!--pager-content end-->
-            <h2 class="page-titlee">Shelly</h2>
+            <h2 class="page-titlee">{{$a->name}}</h2>
         </div>
     </section>
     <!--pager-section end-->
