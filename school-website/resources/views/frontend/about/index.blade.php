@@ -1,6 +1,9 @@
 @extends('layouts.frontend')
 
 @section('content')
+    @php
+        $a= \App\Models\About::find(1);
+    @endphp
     <section class="pager-section">
         <div class="container">
             <div class="pager-content text-center">
@@ -14,6 +17,7 @@
             <h2 class="page-titlee">Shelly</h2>
         </div>
     </section>
+
     <!--pager-section end-->
     <section class="about-page-content">
         <div class="container">
@@ -21,7 +25,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="section-title">
-                            <h2>Welcome to<br><span>Shelly</span> Maktabi</h2>
+                            <h2><span>{{$a->name}}</span> ga <br> hush kelibsiz</h2>
                             <p class="mw-100">Qanday qilib o'rganish bo'yicha eng samarali strategiyalarni bilish yangi
                                 g'oyalar, tushunchalar va ko'nikmalarga ega bo'lishga harakat qilayotganingizda
                                 sa'y-harakatlaringizni maksimal darajada oshirishga yordam beradi. Agar siz ko'p odamlar
@@ -173,55 +177,5 @@
         </div>
     </section>
     <!--classes-section end-->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-sec">
-                <div class="row align-items-center">
-                    <div class="col-lg-4">
-                        <div class="newsz-ltr-text">
-                            <h2>Bizga qo'shiling<br>va kuzatib boring!</h2><a href="{{ route('contact') }}" title=""
-                                class="btn-default">Bizga Qo'shiling <i class="fa fa-long-arrow-alt-right"></i></a>
-                        </div>
-                        <!--newsz-ltr-text end-->
-                    </div>
-                    <div class="col-lg-8">
-                        <form class="newsletter-form">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group"><input type="text" name="name"
-                                            placeholder="Ism familiya">
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group"><input value="+998 " type="text" name="phone_number"
-                                            placeholder="Telefon raqam">
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group select-tg"><select>
-                                            <option>Kurs tanlang</option>
-                                            @foreach ($allClasses as $class)
-                                                <option value="{{ $class->id }}">{{ $class->name }}</option>
-                                            @endforeach
-                                        </select></div>
-                                    <!--form-group end-->
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                            </div>
-                        </form>
-                        <!--newsletter-form end-->
-                    </div>
-                </div>
-            </div>
-            <!--newsletter-sec end-->
-        </div>
-    </section>
     <!--newsletter-sec end-->
 @endsection

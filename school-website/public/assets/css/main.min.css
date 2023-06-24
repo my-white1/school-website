@@ -18181,9 +18181,9 @@ header .navigation-bar {
 }
 
 header .navigation-bar nav {
-    -ms-flex: 0 0 75%;
-    flex: 0 0 75%;
-    max-width: 75%
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%
 }
 
 header .navigation-bar nav ul li {
@@ -21574,7 +21574,7 @@ footer .bottom-footer .social-links {
     }
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1091px) {
     header .header-content .contact-add, header .navigation-bar {
         display: none !important
     }
@@ -21845,6 +21845,7 @@ footer .bottom-footer .social-links {
 
     .avt-img {
         margin-bottom: 50px
+
     }
 
     .about-page-content .abt-page-row .section-title h2 br {

@@ -2,6 +2,7 @@
 
 use App\Models\Blog;
 use App\Models\Classes;
+use App\Models\Course;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
 
@@ -57,7 +58,8 @@ Route::get('/teacher-show', function () {
 
 // Contact
 Route::get('/contact', function () {
-    return view('frontend.contact.index');
+    $courses = Course::all();
+    return view('frontend.contact.index', compact('courses'));
 })->name('contact');
 
 // Blog

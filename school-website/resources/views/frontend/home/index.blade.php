@@ -1,126 +1,35 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <section class="main-banner">
+@php
+$a =\App\Models\About::find(1);
+ @endphp
+    <section class="about-page-content">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7 col-md-7">
-                    <div class="banner-text wow fadeInLeft" data-wow-duration="1000ms">
-                        <h2><span>Hamma narsani</span> o'rganishning samarali usuli</h2>
-                        <p>Qanday qilib o'rganish bo'yicha eng samarali strategiyalarni bilish yangi g'oyalar, tushunchalar
-                            va ko'nikmalarga ega bo'lishga harakat qilayotganingizda sa'y-harakatlaringizni maksimal
-                            darajada oshirishga yordam beradi. Agar siz ko'p odamlar kabi bo'lsangiz, sizning vaqtingiz
-                            cheklangan, shuning uchun sizda mavjud bo'lgan vaqtdan maksimal darajada ta'lim olish muhimdir.
-                        </p>
-                        <form class="search-form"><input type="text" name="search" placeholder="Search Class"> <button><i
-                                    class="fa fa-search"></i></button>
-                        </form>
+            <div class="abt-page-row">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="section-title">
+                            <h2><span>{{$a->name}}</span> ga <br> hush kelibsiz</h2>
+                            <p class="mw-100">{{$a->description}}
+
+
+                                vestibulum leo sagittis et.</p><a href="{{ route('classes.index') }}" title=""
+                                                                  class="btn-default">Classes <i class="fa fa-long-arrow-alt-right"></i></a>
+                        </div>
+                        <!--section-title end-->
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="avt-img" ><img width="500" height="500" src="{{asset("images/$a->image")}}" alt=""></div>
+                        <!--avt-img end-->
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-5">
-                    <div class="banner-img wow zoomIn" data-wow-duration="1000ms"><img src="assets/img/banner-img.png"
-                            alt="">
-                    </div>
-                    <!--banner-img end-->
-                    <div class="elements-bg wow zoomIn" data-wow-duration="1000ms"></div>
-                </div>
+
             </div>
+            <!--abt-page-row end-->
         </div>
     </section>
     <!--main-banner end-->
-    <section class="about-us-section">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2>Shellyga <span>xush kelibsiz</span></h2>
-                <p>Qanday qilib o'rganish bo'yicha eng samarali strategiyalarni bilish yangi g'oyalar, tushunchalar va
-                    ko'nikmalarga ega bo'lish
-                </p>
-            </div>
-            <!--section-title end-->
-            <div class="about-sec">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="abt-col wow fadeInUp" data-wow-duration="1000ms"><img src="assets/img/icon5.png"
-                                    alt="">
-                                <h3>Ajoyib O'qituvchilar</h3>
-                                <p>Maktabda ko'pchiligimiz noliganimizdek, bizni ilhomlantirgan, bizni chinakam qiziqtirgan.
-                                </p>
-                            </div>
-                            <!--abt-col end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
-                                <img src="assets/img/icon7.png" alt="">
-                                <h3>Global sertifikat</h3>
-                                <p>Global sertifikatlashning Compass Assurance Services bilan birlashganini e'lon qilishdan
-                                    juda mamnunmiz.</p>
-                            </div>
-                            <!--abt-col end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
-                                <img src="assets/img/icon8.png" alt="">
-                                <h3>Eng yaxshi dastur</h3>
-                                <p>Eng yaxshi dastur ijtimoiy, hissiy va xulq-atvor ehtiyojlari faqat umumiy ta'lim muhitida
-                                    o'quv dasturlariga kirish.</p>
-                            </div>
-                            <!--abt-col end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-                                <img src="assets/img/icon9.png" alt="">
-                                <h3>Talabalarni qo'llab-quvvatlash xizmati</h3>
-                                <p>Grant tanlovi orqali oliy ta'lim muassasalariga ilmiy rivojlanish imkoniyatlarini
-                                    ta'minlash.</p>
-                            </div>
-                            <!--abt-col end-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--about-rw end-->
-            <div class="abt-img">
-                <ul class="masonary">
-                    <li class="width1 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery1.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery1.jpg') }}" alt=""></a></li>
-                    <li class="width2 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery2.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery2.jpg') }}" alt=""></a></li>
-                    <li class="width3 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery4.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery4.jpg') }}" alt=""></a></li>
-                    <li class="width4 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery6.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery6.jpg') }}" alt=""></a></li>
-                    <li class="width5 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery8.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery8.jpg') }}" alt=""></a></li>
-                    <li class="width6 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery7.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery7.jpg') }}" alt=""></a>
-                    </li>
-                    <li class="width7 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery9.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery9.jpg') }}" alt=""></a>
-                    </li>
-                    <li class="width8 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery10.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery10.jpg') }}" alt=""></a>
-                    </li>
-                    <li class="width9 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery3.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery3.jpg') }}" alt=""></a>
-                    </li>
-                    <li class="width10 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="{{ asset('assets/img/gallery5.jpg') }}" data-group="set1" title=""
-                            class="html5lightbox"><img src="{{ asset('assets/img/gallery5.jpg') }}" alt=""></a>
-                    </li>
-                </ul>
-            </div><!-- abt-img end-->
-        </div>
-    </section>
     <!--about-us-section end-->
     <section class="classes-section">
         <div class="container">
@@ -211,7 +120,7 @@
                             <h2>Kursingizni toping</h2>
                             <p>Qaysi fan, kurs turi yoki universitet yoki kollej sizga mos kelishini hal qilmayapsizmi?
                                 Ushbu muhim qarorni hal qilish bo'yicha maslahatlarimiz va maslahatlarimizni o'qing</p>
-                            <h3><img src="assets/img/icon11.png" alt="">Call: <strong>+2 342 5446
+                            <h3><img src="assets/img/icon11.png" alt="">Bog'lanish uchun: <strong>+998 99 982 59 20
                                     67</strong></h3>
                         </div>
                         <!--sec-title end-->
@@ -336,58 +245,5 @@
         </div>
     </section>
     <!--blog-section end-->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-sec">
-                <div class="row align-items-center">
-                    <div class="col-lg-4">
-                        <div class="newsz-ltr-text">
-                            <h2>Bizga qo'shiling<br>va kuzatib boring!</h2><a href="{{ route('contact') }}"
-                                title="" class="btn-default">Bizga qo'shiling <i
-                                    class="fa fa-long-arrow-alt-right"></i></a>
-                        </div>
-                        <!--newsz-ltr-text end-->
-                    </div>
-                    <div class="col-lg-8">
-                        <form class="newsletter-form">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group"><input type="text" name="name" placeholder="To'liq ismingiz">
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input value="+998 " type="text" name="phone_number"
-                                            placeholder="Telefon raqam">
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group select-tg">
-                                        <select>
-                                            <option>Kurs tanlang</option>
-                                            @foreach ($allClasses as $class)
-                                                <option value="{{ $class->id }}">{{ $class->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="message" placeholder="Xabar"></textarea>
-                                    </div>
-                                    <!--form-group end-->
-                                </div>
-                            </div>
-                        </form>
-                        <!--newsletter-form end-->
-                    </div>
-                </div>
-            </div>
-            <!--newsletter-sec end-->
-        </div>
-    </section>
     <!--newsletter-sec end-->
 @endsection
