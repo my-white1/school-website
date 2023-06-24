@@ -14,7 +14,7 @@ class Course extends Model
         'description',
         'image',
         'start_time',
-        'end_time'
+        'end_time',
     ];
 
     function weeks()

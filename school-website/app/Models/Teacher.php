@@ -14,4 +14,9 @@ class Teacher extends Model
         'category',
         'image'
     ];
+
+    public function classes()
+    {
+        return $this->hasOne(Classes::class);
+    }
 }

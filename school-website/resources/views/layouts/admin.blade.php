@@ -48,6 +48,11 @@
                         <i class="align-middle" data-feather="users"></i> <span class="align-middle">O'qtuvchilar</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->is('class*') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{route('class.index')}}">
+                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">Sinflar</span>
+                    </a>
+                </li>
 
             </ul>
 

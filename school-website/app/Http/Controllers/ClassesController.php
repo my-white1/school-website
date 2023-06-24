@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Classes;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
+use function Symfony\Component\Translation\t;
 
 class ClassesController extends Controller
 {
@@ -12,7 +14,8 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        //
+        $classes=Classes::with('teacher')->get();
+        return view('admin.classes.index',compact('classes'));
     }
 
     /**
@@ -20,7 +23,8 @@ class ClassesController extends Controller
      */
     public function create()
     {
-        //
+        $teacher=Teacher::pluck('firstname','id');
+        return view('admin.classes.create',compact('teacher'));
     }
 
     /**
@@ -28,7 +32,21 @@ class ClassesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+           'number'=>'required',
+           'name'=>'required',
+           'teacher_id'=>'required',
+           'description'=>'required|min:10',
+        ],[
+            'number.required'=>'Sinf raqami kiritilmadi',
+            'name.required'=>'Sinf Harifi kiritilmadi',
+            'teacher_id.required'=>'Sinf Raxbari tanlanmadi',
+            'description.required'=>'Sinf Haqida ma\'lumot kiritilmadi',
+            'description.min'=>'Sinf haqida ma\'lumot 10 ta so\'zdan kam b\'lmasligi kerak',
+        ]);
+        dd($request->all());
+        Teacher::create($request->all());
+        return redirect()->route('classes.index');
     }
 
     /**
