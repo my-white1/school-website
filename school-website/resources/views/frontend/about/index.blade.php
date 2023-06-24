@@ -1,6 +1,9 @@
 @extends('layouts.frontend')
 
 @section('content')
+    @php
+        $a= \App\Models\About::find(1);
+    @endphp
     <section class="pager-section">
         <div class="container">
             <div class="pager-content text-center">
@@ -14,6 +17,7 @@
             <h2 class="page-titlee">Shelly</h2>
         </div>
     </section>
+
     <!--pager-section end-->
     <section class="about-page-content">
         <div class="container">
@@ -21,7 +25,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="section-title">
-                            <h2>Welcome to<br><span>Shelly</span> Maktabi</h2>
+                            <h2><span>{{$a->name}}</span> ga <br> hush kelibsiz</h2>
                             <p class="mw-100">Qanday qilib o'rganish bo'yicha eng samarali strategiyalarni bilish yangi
                                 g'oyalar, tushunchalar va ko'nikmalarga ega bo'lishga harakat qilayotganingizda
                                 sa'y-harakatlaringizni maksimal darajada oshirishga yordam beradi. Agar siz ko'p odamlar
