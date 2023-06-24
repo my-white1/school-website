@@ -12,18 +12,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-//         \App\Models\User::create([
-//             'name' => 'Admin',
-//             'email' => 'admin@admin.com',
-//             'password'=>bcrypt('password')
-//         ]);
+         \App\Models\User::create([
+             'name' => 'Admin',
+             'email' => 'admin@admin.com',
+             'password'=>bcrypt('password')
+         ]);
 
          $this->call([
-//             CategorySeeder::class,
-//             WeekSeeder::class,
-//             AboutSeeder::class,
-//             TeacherSeeder::class,
-//             ClassesSeeder::class,
+             CategorySeeder::class,
+             WeekSeeder::class,
+             AboutSeeder::class,
+             TeacherSeeder::class,
+             ClassesSeeder::class,
              CourseSeeder::class,
              BlogSeeder::class,
          ]);

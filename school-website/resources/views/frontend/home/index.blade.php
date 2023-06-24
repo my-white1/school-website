@@ -3,6 +3,7 @@
 @section('content')
 @php
 $a =\App\Models\About::find(1);
+$classes=\App\Models\Classes::all();
  @endphp
     <section class="about-page-content">
         <div class="container">
@@ -42,6 +43,7 @@ $a =\App\Models\About::find(1);
             <div class="classes-sec">
                 <div class="row classes-carousel">
                     @foreach ($classes as $class)
+
                         <div class="col-lg-3">
                             <div class="classes-col wow fadeInUp" data-wow-duration="1000ms">
                                 <div class="class-thumb"><img src="assets/img/img1.jpg" alt="" class="w-100">
@@ -49,13 +51,11 @@ $a =\App\Models\About::find(1);
                                             src="assets/img/icon10.png" alt=""></a>
                                 </div>
                                 <div class="class-info">
-                                    <h3><a href="class-single.html" title="">{{ $class->name }}</a></h3>
+                                    <h3><a href="class-single.html" title="">{{$class->number}}-{{ $class->name }}</a></h3>
                                     <span>Mon-Fri</span> <span>10 AM - 12 AM</span>
                                     <div class="d-flex flex-wrap align-items-center">
-                                        <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                                href="assets/images/resources/bg4.jpg.html#"
-                                                title="">{{ $class->teacher->name }}</a></div><strong
-                                            class="price">$45</strong>
+                                        <div class="posted-by"><img src="assets/img/ico.png" alt=""><img src="{{asset('images/'.$class->teacher->image)}}" alt="">
+                                            <a href="assets/images/resources/bg4.jpg.html#" title="">{{ $class->teacher->firstname }} {{$class->teacher->lastname}}</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -84,18 +84,7 @@ $a =\App\Models\About::find(1);
                         <div class="col-lg-3 col-md-3 col-sm-6 col-6 full-wdth">
                             <div class="teacher">
                                 <div class="teacher-img"><img src="assets/img/img5.jpg" alt="" class="w-100">
-                                    <div class="sc-div">
-                                        <ul>
-                                            <li><a href="assets/images/resources/bg4.jpg.html#" title=""><i
-                                                        class="fab fa-instagram"></i></a>
-                                            </li>
-                                            <li><a href="assets/images/resources/bg4.jpg.html#" title=""><i
-                                                        class="fab fa-linkedin-in"></i></a></li>
-                                            <li><a href="assets/images/resources/bg4.jpg.html#" title=""><i
-                                                        class="fab fa-facebook-f"></i></a>
-                                            </li>
-                                        </ul><span><img src="assets/img/plus.png" alt=""></span>
-                                    </div>
+
                                 </div>
                                 <div class="teacher-info">
                                     <h3><a href="teacher-single.html" title="">{{ $teacher->firstname }}
@@ -120,8 +109,8 @@ $a =\App\Models\About::find(1);
                             <h2>Kursingizni toping</h2>
                             <p>Qaysi fan, kurs turi yoki universitet yoki kollej sizga mos kelishini hal qilmayapsizmi?
                                 Ushbu muhim qarorni hal qilish bo'yicha maslahatlarimiz va maslahatlarimizni o'qing</p>
-                            <h3><img src="assets/img/icon11.png" alt="">Bog'lanish uchun: <strong>+998 99 982 59 20
-                                    67</strong></h3>
+                            <h3><img src="assets/img/icon11.png" alt="">Bog'lanish uchun: <strong>+998 {{$a->phone_number}}
+                                    </strong></h3>
                         </div>
                         <!--sec-title end-->
                         <div class="course-img"><img src="assets/img/course-img.png" alt=""></div>
@@ -129,72 +118,72 @@ $a =\App\Models\About::find(1);
                     </div>
                     <!--find-course end-->
                 </div>
-                @if (empty($classes[0]) && empty($classes[1]) && empty($classes[2]))
-                    Ma'lumot yo'q
-                @else
-                    <div class="col-lg-6">
-                        <div class="courses-list">
-                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms">
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <ul class="course-meta">
-                                        <li><img src="assets/img/icon12.png"
-                                                alt="">{{ $classes[0]->created_at->format('d/m/Y') }}</li>
-                                        <li>11AM to 15PM</li>
-                                    </ul><span>FREE</span>
-                                </div>
-                                <h3><a href="event-single.html" title="">{{ $classes[0]->name }}</a>
-                                </h3>
-                                <div class="d-flex flex-wrap">
-                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a
-                                            href="assets/images/resources/bg4.jpg.html#"
-                                            title="">{{ $classes[0]->teacher->name }}</a></div><span
-                                        class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517
-                                        district</span>
-                                </div>
-                            </div>
-                            <!--course-card end-->
-                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="400ms">
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <ul class="course-meta">
-                                        <li><img src="assets/img/icon12.png" alt="">
-                                            {{ $classes[1]->created_at->format('d/m/Y') }}</li>
-                                        <li>11AM to 15PM</li>
-                                    </ul><span>$16</span>
-                                </div>
-                                <h3><a href="event-single.html" title="">{{ $classes[1]->name }}</a></h3>
-                                <div class="d-flex flex-wrap">
-                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a
-                                            href="assets/images/resources/bg4.jpg.html#"
-                                            title="">{{ $classes[1]->teacher->name }}</a></div><span
-                                        class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517
-                                        district</span>
-                                </div>
-                            </div>
-                            <!--course-card end-->
-                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="600ms">
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <ul class="course-meta">
-                                        <li><img src="assets/img/icon12.png"
-                                                alt="">{{ $classes[2]->created_at->format('d/m/Y') }}</li>
-                                        <li>11AM to 15PM</li>
-                                    </ul><span>$8</span>
-                                </div>
-                                <h3><a href="event-single.html" title="">{{ $classes[2]->name }}</a></h3>
-                                <div class="d-flex flex-wrap">
-                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a
-                                            href="assets/images/resources/bg4.jpg.html#"
-                                            title="">{{ $classes[2]->teacher->name }}</a></div><span
-                                        class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517
-                                        district</span>
-                                </div>
-                            </div>
-                            <!--course-card end-->
-                        </div>
-                        <!--courses-list end--> <a href="events.html" title="" class="all-btn">All Events <i
-                                class="fa fa-long-arrow-alt-right"></i></a>
-                        <div class="clearfix"></div>
-                    </div>
-                @endif
+{{--                @if (empty($classes[0]) && empty($classes[1]) && empty($classes[2]))--}}
+{{--                    Ma'lumot yo'q--}}
+{{--                @else--}}
+{{--                    <div class="col-lg-6">--}}
+{{--                        <div class="courses-list">--}}
+{{--                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms">--}}
+{{--                                <div class="d-flex flex-wrap align-items-center">--}}
+{{--                                    <ul class="course-meta">--}}
+{{--                                        <li><img src="assets/img/icon12.png"--}}
+{{--                                                alt="">{{ $classes[0]->created_at->format('d/m/Y') }}</li>--}}
+{{--                                        <li>11AM to 15PM</li>--}}
+{{--                                    </ul><span>FREE</span>--}}
+{{--                                </div>--}}
+{{--                                <h3><a href="event-single.html" title="">{{ $classes[0]->name }}</a>--}}
+{{--                                </h3>--}}
+{{--                                <div class="d-flex flex-wrap">--}}
+{{--                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a--}}
+{{--                                            href="assets/images/resources/bg4.jpg.html#"--}}
+{{--                                            title="">{{ $classes[0]->teacher->name }}</a></div><span--}}
+{{--                                        class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517--}}
+{{--                                        district</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <!--course-card end-->--}}
+{{--                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="400ms">--}}
+{{--                                <div class="d-flex flex-wrap align-items-center">--}}
+{{--                                    <ul class="course-meta">--}}
+{{--                                        <li><img src="assets/img/icon12.png" alt="">--}}
+{{--                                            {{ $classes[1]->created_at->format('d/m/Y') }}</li>--}}
+{{--                                        <li>11AM to 15PM</li>--}}
+{{--                                    </ul><span>$16</span>--}}
+{{--                                </div>--}}
+{{--                                <h3><a href="event-single.html" title="">{{ $classes[1]->name }}</a></h3>--}}
+{{--                                <div class="d-flex flex-wrap">--}}
+{{--                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a--}}
+{{--                                            href="assets/images/resources/bg4.jpg.html#"--}}
+{{--                                            title="">{{ $classes[1]->teacher->name }}</a></div><span--}}
+{{--                                        class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517--}}
+{{--                                        district</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <!--course-card end-->--}}
+{{--                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="600ms">--}}
+{{--                                <div class="d-flex flex-wrap align-items-center">--}}
+{{--                                    <ul class="course-meta">--}}
+{{--                                        <li><img src="assets/img/icon12.png"--}}
+{{--                                                alt="">{{ $classes[2]->created_at->format('d/m/Y') }}</li>--}}
+{{--                                        <li>11AM to 15PM</li>--}}
+{{--                                    </ul><span>$8</span>--}}
+{{--                                </div>--}}
+{{--                                <h3><a href="event-single.html" title="">{{ $classes[2]->name }}</a></h3>--}}
+{{--                                <div class="d-flex flex-wrap">--}}
+{{--                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a--}}
+{{--                                            href="assets/images/resources/bg4.jpg.html#"--}}
+{{--                                            title="">{{ $classes[2]->teacher->name }}</a></div><span--}}
+{{--                                        class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517--}}
+{{--                                        district</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <!--course-card end-->--}}
+{{--                        </div>--}}
+{{--                        <!--courses-list end--> <a href="events.html" title="" class="all-btn">All Events <i--}}
+{{--                                class="fa fa-long-arrow-alt-right"></i></a>--}}
+{{--                        <div class="clearfix"></div>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
 
             </div>
         </div>
@@ -219,19 +208,18 @@ $a =\App\Models\About::find(1);
                                 <div class="blog-info">
                                     <ul class="meta">
                                         <li><a href="assets/images/resources/bg4.jpg.html#"
-                                                title="">{{ $blog->created_at->format('d/m/Y') }} 17/09/2020</a>
+                                                title=""></a>
                                         </li>
                                         <li><a href="assets/images/resources/bg4.jpg.html#" title="">by
                                                 Admin</a></li>
                                         <li><img src="assets/img/icon13.png" alt=""><a
                                                 href="assets/images/resources/bg4.jpg.html#"
-                                                title="">Teachers,</a><a
+                                                title="">{{$blog->category->name}},</a><a
                                                 href="assets/images/resources/bg4.jpg.html#" title="">
                                                 School</a></li>
                                     </ul>
-                                    <h3><a href="post.html" title="">Campus clean workshop</a></h3>
-                                    <p>Nam mattis felis id sodales rutrum. Nulla ornare tristique mauris, a laoreet erat
-                                        ornare sit amet
+                                    <h3><a href="post.html" title="">{{$blog->title}}</a></h3>
+                                    <p>{{$blog->description}}
                                     </p><a href="post.html" title="" class="read-more">Read <i
                                             class="fa fa-long-arrow-alt-right"></i></a>
                                 </div>

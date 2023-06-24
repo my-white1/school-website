@@ -67,11 +67,12 @@
                                 <li><a class="{{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}"
                                         title="">Bosh sahifa</a>
                                 </li>
-                                <li><a class="{{ request()->is('about') ? 'active' : '' }}" href="{{ route('about') }}"
-                                        title="">Biz haqimizda</a>
-                                </li>
+
                                 <li><a class="{{ request()->is('classes') ? 'active' : '' }}"
-                                        href="{{ route('classes.index') }}" title="">Kurslar</a>
+                                        href="{{ route('classes.index') }}" title="">sinflar</a>
+                                </li>
+                                <li><a class="{{ request()->is('kurslar') ? 'active' : '' }}"
+                                        href="{{ route('course.index') }}" title="">Kurslar</a>
                                 </li>
                                 <li><a class="{{ request()->is('teachers') ? 'active' : '' }}"
                                         href="{{ route('teachers.index') }}" title="">O'qtuvchilar</a>
@@ -80,10 +81,10 @@
                                     <a class="{{ request()->is('blog') ? 'active' : '' }}"
                                         href="{{ route('blog.index') }}" title="">Blog</a>
                                 </li>
-                                <li>
-                                    <a class="{{ request()->is('contact') ? 'active' : '' }}"
-                                       href="{{ route('contact') }}" title="">Bog'lanish</a>
+                                <li><a class="{{ request()->is('about') ? 'active' : '' }}" href="{{ route('about') }}"
+                                       title="">Biz haqimizda</a>
                                 </li>
+
                             </ul>
                         </nav>
                         <!--nav end-->
@@ -103,13 +104,10 @@
             <div class="responsive-menu">
                 <ul>
                     <li><a href="index.html" title="">Bosh sahifa</a></li>
-                    <li><a href="{{ route('about') }}" title="">Biz haqimizda</a></li>
-                    <li><a href="schedule.html" title="">Jadval</a></li>
                     <li><a href="{{ route('classes.index') }}" title="">Sinflar</a></li>
                     <li><a href="{{ route('teachers.index') }}" title="">O'qituvchilar</a></li>
                     <li><a href="blog.html" title="">Blog</a></li>
-                    <li><a href="{{ route('contact') }}" title="">Bog'lanish</a></li>
-                    <li><a href="{{ route('404') }}" title="">404</a></li>
+                    <li><a href="{{ route('about') }}" title="">Biz haqimizda</a></li>
                 </ul>
             </div>
             <!--responsive-menu end-->

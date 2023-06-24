@@ -46,6 +46,20 @@ Route::get('/class-detail', function () {
     return view('frontend.classes.detail');
 })->name('detail');
 
+// courses
+Route::get('/kurslar', function () {
+    $courses = Course::all();
+    return view('frontend.course.index', compact('courses'));
+})->name('course.index');
+
+// courses single
+Route::get('/class-detail', function () {
+    return view('frontend.courses.detail');
+})->name('course.detail');
+
+
+
+
 // Teacher
 Route::get('/teachers', function () {
     return view('frontend.teachers.index');
