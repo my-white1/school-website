@@ -15,6 +15,7 @@ class Course extends Model
         'image',
         'start_time',
         'end_time',
+        'price',
     ];
 
     function weeks()
@@ -24,6 +25,11 @@ class Course extends Model
 
     function teacher()
     {
-        return $this->hasOne(Teacher::class);
+        return $this->belongsTo(Teacher::class);
+    }
+
+   public function count()
+    {
+        return count(Course::all()->ToArray());
     }
 }
