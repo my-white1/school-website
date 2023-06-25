@@ -121,9 +121,10 @@
       <path value="$PROJECT_DIR$/school-website/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/school-website/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/school-website/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/school-website/vendor/livewire/livewire" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpStanOptionsConfiguration">

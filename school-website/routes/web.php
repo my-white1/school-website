@@ -58,8 +58,6 @@ Route::get('/class-detail', function () {
 })->name('course.detail');
 
 
-
-
 // Teacher
 Route::get('/teachers', function () {
     return view('frontend.teachers.index');

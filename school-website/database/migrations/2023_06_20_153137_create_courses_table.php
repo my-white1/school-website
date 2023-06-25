@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('start_time');
             $table->string('end_time');
+            $table->string('price');
             $table->unsignedBigInteger('teacher_id');
             $table->text('description');
             $table->foreign('teacher_id')->references('id')->on('teachers');
