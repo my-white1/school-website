@@ -67,10 +67,6 @@ Route::get('/teachers', function () {
     return view('frontend.teachers.index');
 })->name('teachers.index');
 
-// Teacher show
-Route::get('/teacher-show', function () {
-    return view('frontend.teachers.show');
-})->name('teachers.show');
 
 // Contact
 Route::get('/contact', function () {
