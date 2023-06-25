@@ -46,14 +46,14 @@ $classes=\App\Models\Classes::all();
 
                         <div class="col-lg-3">
                             <div class="classes-col wow fadeInUp" data-wow-duration="1000ms">
-                                <div class="class-thumb"><img src="assets/img/img1.jpg" alt="" class="w-100">
+                                <div class="class-thumb"><img src="{{asset('images/'.$class->image)}}" alt="" class="w-100">
 
                                 </div>
                                 <div class="class-info">
                                     <h3><a href="class-single.html" title="">{{$class->number}}-{{ $class->name }} Sinf</a></h3>
                                     <span>Mon-Fri</span> <span>10 AM - 12 AM</span>
                                     <div class="d-flex flex-wrap align-items-center">
-                                        <div class="posted-by"><img src="assets/img/ico.png" alt=""><img src="{{asset('images/'.$class->teacher->image)}}" alt="">
+                                        <div class="posted-by"><img style="width: 30px; height: 30px" src="{{asset('images/'.$class->teacher->image)}}" alt="">
                                             <a href="assets/images/resources/bg4.jpg.html#" title="">{{ $class->teacher->firstname }} {{$class->teacher->lastname}}</a></div>
                                     </div>
                                 </div>
