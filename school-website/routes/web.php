@@ -4,6 +4,7 @@ use App\Models\Blog;
 use App\Models\Classes;
 use App\Models\Course;
 use App\Models\Teacher;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -91,6 +92,7 @@ Route::get('/404', function () {
     return view('frontend.errors.404');
 })->name('404');
 
+Route::group(['middleware' => 'auth'], function () {
 
 // Admin
 Route::get('/admin', function () {
@@ -105,4 +107,11 @@ Route::get('/admin', function () {
     Route::resource('/courses',\App\Http\Controllers\CourseController::class);
     Route::resource('/categories',\App\Http\Controllers\CategoryController::class);
     Route::resource('/blogs',\App\Http\Controllers\BlogController::class);
-
+});
+Route::get('login',function (){
+    return view('admin.login');
+})->name('login');
+Route::get('/logout', function () {
+    Auth::logout();
+    return view('frontend.home.index');
+})->name('logout');

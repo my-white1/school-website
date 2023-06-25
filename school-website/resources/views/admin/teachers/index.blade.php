@@ -39,7 +39,7 @@
                                     <td class="d-none d-xl-table-cell">{{$teacher->lastname}}</td>
                                     <td>{{$teacher->category}}</td>
                                     <td class="d-none d-xl-table-cell"><img width="100px"
-                                                                            src="{{'storage/'.$teacher->image}}"
+                                                                            src="{{'images/'.$teacher->image}}"
                                                                             alt="{{$teacher->name}} rasimi"></td>
 
                                     <td>

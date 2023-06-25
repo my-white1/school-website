@@ -18,6 +18,8 @@
 
     <link href="{{asset('back/css/app.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    @livewireStyles()
+
 </head>
 
 <body>
@@ -50,7 +52,22 @@
                 </li>
                 <li class="sidebar-item {{ request()->is('class*') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{route('class.index')}}">
-                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">Sinflar</span>
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">Sinflar</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->is('courses*') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{route('courses.index')}}">
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">Kurslar</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->is('blogs*') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{route('blogs.index')}}">
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">Yangliklar</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->is('categories*') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{route('categories.index')}}">
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">Categories</span>
                     </a>
                 </li>
 
@@ -214,7 +231,7 @@
                             <a class="dropdown-item" href="{{route('admin')}}"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
                             <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Log out</a>
+                            <a class="dropdown-item" href="{{route('logout')}}">Log out</a>
                         </div>
                     </li>
                 </ul>
@@ -253,8 +270,9 @@
     </div>
 </div>
 
-<script src="{{asset('back/js/app.js')}}"></script>
+@livewireScripts()
 
+<script src="{{asset('back/js/app.js')}}"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");

@@ -10,27 +10,25 @@
                         </div>
                         <table class="table table-hover my-0">
                             <tr>
-                                <th>Ismi</th>
-                                <td>{{$teacher->firstname}}</td>
+                                <th>Sinf</th>
+                                <td>{{$classes->number}}"<sup>{{$classes->name}}</sup>"</td>
                             </tr>
                             <tr>
-                                <th>Familyasi</th>
-                                <td>{{$teacher->lastname}}</td>
+                                <th>Sinf raxbari</th>
+                                @php
+                                    $teacher=\App\Models\Teacher::find($classes->teacher_id);
+                                @endphp
+                                <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
                             </tr>
                             <tr>
-                                <th>Fani</th>
-                                <td>{{$teacher->category}}</td>
-                            </tr>
-                            <tr>
-                                <th>Rasimi</th>
-                                <td><img width="100px" src="{{"storage/$teacher->image"}}"
-                                         alt="O'qtuvchi rasimi"></td>
+                                <th>Tavsifi</th>
+                                <td>{{$classes->description}}</td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
-            <a class="btn btn-secondary mt-3" href="{{route('teacher.index')}}">
+            <a class="btn btn-secondary mt-3" href="{{route('class.index')}}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"

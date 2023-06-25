@@ -23,7 +23,7 @@
                             <tbody>
                             <tr>
                                 <td>{{$about->name}}</td>
-                                <td class="d-none d-xl-table-cell"><img width="100px" src="{{'storage/'.$about->image}}" alt="{{$about->name}} rasimi"></td>
+                                <td class="d-none d-xl-table-cell"><img width="100px" src="{{'images/'.$about->image}}" alt="{{$about->name}} rasimi"></td>
                                 <td>{{$about->phone_number}}</td>
                                 <td class="d-none d-md-table-cell">{{$about->viloyat}}</td>
                                 <td class="d-none d-md-table-cell">{{$about->tuman}}</td>

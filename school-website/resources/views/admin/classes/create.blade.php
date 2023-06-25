@@ -53,6 +53,14 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-6 ">
+
+                                    <h5 class="card-title mb-0">Sinf Rasimi</h5>
+
+                                    <div class="card-body">
+                                        <input type="file" name="image" class="form-control">
+                                    </div>
+                                </div>
                                 <div>
                                     <h5 class="card-title mb-0">Sinf haqida</h5>
                                     <div class="card-body">

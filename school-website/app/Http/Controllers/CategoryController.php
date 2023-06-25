@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use function Symfony\Component\String\b;
 
 class CategoryController extends Controller
 {
@@ -12,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories=Category::all();
+        return view('admin.categories.index',compact('categories'));
     }
 
     /**
@@ -20,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -28,7 +30,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(['name'=>'required'],['name.required'=>'category nomi kiritilmadi']);
+        Category::create($request->all());
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -36,7 +40,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('admin.categories.show',compact('category'));
     }
 
     /**
@@ -44,7 +48,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit',compact('category'));
+
     }
 
     /**
@@ -52,7 +57,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate(['name'=>'required'],['name.required'=>'category nomi kiritilmadi']);
+        $category->update($request->all());
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -60,6 +67,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return back();
     }
 }

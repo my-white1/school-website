@@ -41,15 +41,16 @@ class TeacherController extends Controller
             'image.required' => 'Rasmini kiriting',
         ]);
 
+        $data = $request->all();
         $file = $request->file('image');
         $image_name = uniqid() . $file->getClientOriginalName();
-        $file->move(public_path('storage'), $image_name);
-
+        $data['image'] = $image_name;
+        $file->move(public_path('images'), $image_name);
         Teacher::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'category' => $request->category,
-            'image' => $image_name
+            'image' => $data['image'],
         ]);
         return redirect()->route('teacher.index');
     }
@@ -79,21 +80,19 @@ class TeacherController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'category' => 'required',
-            'image' => 'required',
         ], [
             'firstname.required' => 'Ismni kiriting',
             'last.required' => 'Familyani kiriting',
             'category.required' => 'Sohasini kiriting',
-            'image.required' => 'Rasmini kiriting',
         ]);
         if ($request->image) {
-
             // removing old image
-            unlink(public_path("storage/$teacher->image"));
+//            unlink(public_path("images/$teacher->image"));
             // get image
+            $data = $request->all();
             $file = $request->file('image');
             $image_name = uniqid() . $file->getClientOriginalName();
-
+            $data['image'] = $image_name;
             $teacher->update([
                 'firstname' => $request->firstname,
                 'lastname' => $request->lastname,
@@ -102,7 +101,7 @@ class TeacherController extends Controller
 
             ]);
 
-            $file->move(public_path('storage'), $image_name);
+            $file->move(public_path('images'), $image_name);
 
         } else {
             $teacher->update([

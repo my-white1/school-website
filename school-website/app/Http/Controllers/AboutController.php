@@ -56,28 +56,42 @@ class AboutController extends Controller
     {
 
         if ($request->image) {
-            // removing old image
-            unlink(public_path("storage/$about->image"));
+            $data = $request->all();
+            if ($request->image){
+                $file = $request->file('image');
+                $image_name = uniqid() . $file->getClientOriginalName();
+                $data['image'] = $image_name;
+                $file->move(public_path('images'), $image_name);
+                $about->update([
+                    'name' => $request->name,
+                    'phone_number' => $request->phone_number,
+                    'description' => $request->description,
+                    'image' => $data['image'],
+                    // don't needed information
+                    'start_time' => $request->start_time,
+                    'end_time' => $request->end_time,
+                    'viloyat' => $request->viloyat,
+                    'tuman' => $request->tuman,
+                    'facebook' => $request->facebook,
+                    'instagram' => $request->instagram,
+                ]);
+            }else{
+                $about->update([
+                    'name' => $request->name,
+                    'phone_number' => $request->phone_number,
+                    'description' => $request->description,
+                    // don't needed information
+                    'start_time' => $request->start_time,
+                    'end_time' => $request->end_time,
+                    'viloyat' => $request->viloyat,
+                    'tuman' => $request->tuman,
+                    'facebook' => $request->facebook,
+                    'instagram' => $request->instagram,
+                ]);
+            }
 
-            // get image
-            $file = $request->file('image');
-            $image_name = uniqid() . $file->getClientOriginalName();
 
-            $about->update([
-                'name' => $request->name,
-                'phone_number' => $request->phone_number,
-                'description' => $request->description,
-                'image' => $image_name,
-                // don't needed information
-                'start_time' => $request->start_time,
-                'end_time' => $request->end_time,
-                'viloyat' => $request->viloyat,
-                'tuman' => $request->tuman,
-                'facebook' => $request->facebook,
-                'instagram' => $request->instagram,
-            ]);
-
-            $file->move(public_path('storage'), $image_name);
+//            $file->move(public_path('images'), $image_name);
 
         } else {
             $about->update([

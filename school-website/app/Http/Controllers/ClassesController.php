@@ -14,7 +14,7 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        $classes=Classes::with('teacher')->get();
+        $classes=Classes::with('teacher')->orderByDesc('id')->get();
         return view('admin.classes.index',compact('classes'));
     }
 
@@ -41,28 +41,32 @@ class ClassesController extends Controller
             'number.required'=>'Sinf raqami kiritilmadi',
             'name.required'=>'Sinf Harifi kiritilmadi',
             'teacher_id.required'=>'Sinf Raxbari tanlanmadi',
+
             'description.required'=>'Sinf Haqida ma\'lumot kiritilmadi',
             'description.min'=>'Sinf haqida ma\'lumot 10 ta so\'zdan kam b\'lmasligi kerak',
         ]);
-        dd($request->all());
-        Teacher::create($request->all());
-        return redirect()->route('classes.index');
+
+        Classes::create($request->all());
+        return redirect()->route('class.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Classes $classes)
+    public function show($id)
     {
-        //
+        $classes=Classes::find($id);
+        return view('admin.classes.show',compact('classes'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Classes $classes)
+    public function edit($id)
     {
-        //
+        $classes=Classes::find($id);
+        $teacher=Teacher::pluck('firstname','id');
+        return view('admin.classes.edit',compact('classes','teacher'));
     }
 
     /**
@@ -70,14 +74,30 @@ class ClassesController extends Controller
      */
     public function update(Request $request, Classes $classes)
     {
-        //
+        $request->validate([
+            'number'=>'required',
+            'name'=>'required',
+            'teacher_id'=>'required',
+            'description'=>'required|min:10',
+
+        ],[
+            'number.required'=>'Sinf raqami kiritilmadi',
+            'name.required'=>'Sinf Harifi kiritilmadi',
+            'teacher_id.required'=>'Sinf Raxbari tanlanmadi',
+            'description.required'=>'Sinf Haqida ma\'lumot kiritilmadi',
+            'description.min'=>'Sinf haqida ma\'lumot 10 ta so\'zdan kam b\'lmasligi kerak',
+        ]);
+        $classes->update($request->all());
+        return redirect()->route('class.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Classes $classes)
+    public function destroy($id)
     {
-        //
+        $classes=Classes::find($id);
+        $classes->delete();
+        return back();
     }
 }

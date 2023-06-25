@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -12,7 +13,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs=Blog::with('category')->orderByDesc('id')->get();
+        return view('admin.blog.index',compact('blogs'));
     }
 
     /**
@@ -20,7 +22,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        $categories=Category::pluck('name','id');
+        return view('admin.blog.create',compact('categories'));
     }
 
     /**
@@ -28,7 +31,25 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'category_id'=>'required',
+            'description'=>'required',
+            'image'=>'required',
+        ]);
+        $data = $request->all();
+
+        $file = $request->file('image');
+        $image_name = uniqid() . $file->getClientOriginalName();
+        $data['image'] = $image_name;
+        $file->move(public_path('images'), $image_name);
+        Blog::create([
+            'title'=>$data['title'],
+            'description'=>$data['description'],
+            'category_id'=>$data['category_id'],
+            'image'=>$data['image'],
+        ]);
+        return redirect()->route('blogs.index');
     }
 
     /**
@@ -36,7 +57,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return view('admin.blog.show',compact('blog'));
     }
 
     /**
@@ -44,7 +65,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $categories=Category::pluck('name','id');
+        return view('admin.blog.edit',compact('blog','categories'));
     }
 
     /**
@@ -52,7 +74,32 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'category_id'=>'required',
+            'description'=>'required',
+            'image'=>'required',
+        ]);
+        $data = $request->all();
+        if ($request->image){
+        $file = $request->file('image');
+        $image_name = uniqid() . $file->getClientOriginalName();
+        $data['image'] = $image_name;
+        $file->move(public_path('images'), $image_name);
+       $blog->update([
+            'title'=>$data['title'],
+            'description'=>$data['description'],
+            'category_id'=>$data['category_id'],
+            'image'=>$data['image'],
+        ]);
+        }else{
+           $blog->update([
+                'title'=>$data['title'],
+                'description'=>$data['description'],
+                'category_id'=>$data['category_id'],
+            ]);
+        }
+        return redirect()->route('blogs.index');
     }
 
     /**
@@ -60,6 +107,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        return back();
     }
 }

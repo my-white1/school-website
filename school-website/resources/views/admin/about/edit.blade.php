@@ -110,7 +110,7 @@
                                 <h5 class="card-title mb-0">Maktab rasimi</h5>
 
                                 <div class="card-body">
-                                    <img width="100px" src="{{'storage/'.$about->image}}" alt="Maktab rasimi">
+                                    <img width="100px" src="{{'images/'.$about->image}}" alt="Maktab rasimi">
                                 </div>
                             </div>
                         </div>

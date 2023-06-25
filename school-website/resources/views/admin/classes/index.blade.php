@@ -26,13 +26,16 @@
                             <tbody>
                             @foreach($classes as $class)
                                 <tr>
+
                                     <td>{{$class->id}}</td>
                                     <td>{{$class->number}}"<sup>{{$class->name}}</sup>"</td>
-                                    {{$}}
-                                    <td>{{$class->category}}</td>
-                                    <td class="d-none d-xl-table-cell"><img width="100px"
-                                                                            src="{{'storage/'.$class->image}}"
-                                                                            alt="{{$class->name}} rasimi"></td>
+                                    @php
+                                        $teacher=\App\Models\Teacher::find($class->teacher_id);
+                                    @endphp
+                                    <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
+                                    <td class="d-none d-xl-table-cell">
+                                        {{$class->description}}
+                                    </td>
 
                                     <td>
                                         <a href="{{route('class.edit',[$class->id])}}" class="btn btn-info">
