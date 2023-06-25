@@ -7,10 +7,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="classes-col">
                         <div class="class-thumb"><img src="assets/img/class1.jpg" alt="" class="w-100"> <a
-                                href="classes.html#" title="" class="crt-btn"><img src="assets/img/icon10.png"
+                                href="{{route('course.detail',$course->id)}}" title="" class="crt-btn"><img src="assets/img/icon10.png"
                                                                                    alt=""></a></div>
                         <div class="class-info">
-                            <h3><a href="class-single.html" title="">{{$course->name}}</a>
+                            <h3><a href="{{route('course.detail',$course->id)}}" title="">{{$course->name}}</a>
                             </h3>
                             <span>
                                 @php $weeks='' ;
@@ -28,7 +28,7 @@
                             <div class="d-flex flex-wrap align-items-center">
                                 <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
                                         href="classes.html#" title="">{{$course->teacher->firstname}} {{$course->teacher->lastname}}</a></div><strong
-                                    class="price">$45</strong>
+                                    class="price">{{$course->price}}</strong>
                             </div>
                         </div>
                     </div>

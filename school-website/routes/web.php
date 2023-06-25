@@ -53,8 +53,9 @@ Route::get('/kurslar', function () {
 })->name('course.index');
 
 // courses single
-Route::get('/class-detail', function () {
-    return view('frontend.courses.detail');
+Route::get('/course-detail/{id}', function ($id) {
+    $course=Course::find($id);
+    return view('frontend.course.detail',compact('course'));
 })->name('course.detail');
 
 

@@ -21,7 +21,7 @@
             <header>
                 <div class="container">
                     <div class="header-content d-flex flex-wrap align-items-center">
-                        <div class="logo"><a href="{{ route('home') }}" title=""><img src="assets/img/logo.png"
+                        <div class="logo"><a href="{{ route('home') }}" title=""><img src="{{asset('images/logo.png')}}"
                                     alt="" srcset="assets/img/01_Logo_2x.png 2x"></a>
                         </div>
                         @php
@@ -124,7 +124,7 @@
                 <div class="top-footer">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="widget widget-about"><img src="assets/img/logo.png" alt="">
+                            <div class="widget widget-about"><img src="{{asset('images/logo.png')}}" alt="">
                                 <p>Vivamus porta efficitur nibh nec convallis. Vestibulum egestas eleifend justo. Ut
                                     tellus ipsum,
                                     accumsan</p>
