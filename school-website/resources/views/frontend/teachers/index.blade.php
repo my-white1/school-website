@@ -14,7 +14,7 @@
                 </ul>
             </div>
             <!--pager-content end-->
-            <h2 class="page-titlee">{{$a->name}}</h2>
+{{--            <h2 class="page-titlee">{{$a->name}}</h2>--}}
         </div>
     </section>
     <!--pager-section end-->
