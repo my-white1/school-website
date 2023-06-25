@@ -14,11 +14,11 @@ class BlogSeeder extends Seeder
     public function run(): void
     {
         Blog::insert([
-            ['title'=>'jnknln','image'=>'','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>1],
-            ['title'=>'jnknlnaf','image'=>'','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>2],
-            ['title'=>'jnknlnaf','image'=>'','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>3],
-            ['title'=>'jnknlnweaf','image'=>'','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>4],
-            ['title'=>'jnknlnweafewfe','image'=>'','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>1],
+            ['title'=>'jnknln','image'=>'20492370.jpg','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>1],
+            ['title'=>'jnknlnaf','image'=>'20492370.jpg','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>2],
+            ['title'=>'jnknlnaf','image'=>'20492370.jpg','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>3],
+            ['title'=>'jnknlnweaf','image'=>'20492370.jpg','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>4],
+            ['title'=>'jnknlnweafewfe','image'=>'20492370.jpg','description'=>'bcsdcjdslcsdbjsdbsdjl','category_id'=>1],
         ]);
     }
 }
