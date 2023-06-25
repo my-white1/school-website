@@ -7,7 +7,7 @@
                     <div class="card flex-fill">
                         <div class="card-header">
 
-                            <h5 class="card-title">O'qtuvchi qo'shish</h5>
+                            <h5 class="card-title">Kurs qo'shish</h5>
                         </div>
 
 
@@ -82,6 +82,15 @@
                                     </div>
                                 </div>
 
+                                <div class="col-6 ">
+
+                                    <h5 class="card-title mb-0">Kurs Puli</h5>
+
+                                    <div class="card-body">
+                                        <input type="text" name="price" placeholder="Kurs pulini yozing"
+                                               class="form-control">
+                                    </div>
+                                </div>
                                 <div>
                                     <h5 class="card-title mb-0">Sinf haqida</h5>
                                     <div class="card-body">

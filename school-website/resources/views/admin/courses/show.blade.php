@@ -41,8 +41,12 @@
                                 <td>{{$course->description}}</td>
                             </tr>
                             <tr>
+                                <th>Puli</th>
+                                <td>{{$course->price}}</td>
+                            </tr>
+                            <tr>
                                 <th>Rasimi</th>
-                                <td><img width="100px" src="{{"images/$course->image"}}" alt=""></td>
+                                <td><img width="100px" src="{{"images/$course->image"}}" alt="{{$course->name}} rasimi"></td>
                             </tr>
                         </table>
                     </div>

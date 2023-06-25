@@ -45,8 +45,12 @@ class ClassesController extends Controller
             'description.required'=>'Sinf Haqida ma\'lumot kiritilmadi',
             'description.min'=>'Sinf haqida ma\'lumot 10 ta so\'zdan kam b\'lmasligi kerak',
         ]);
-
-        Classes::create($request->all());
+        $data=$request->all();
+        $file = $request->file('image');
+        $image_name = uniqid() . $file->getClientOriginalName();
+        $data['image'] = $image_name;
+        $file->move(public_path('images'), $image_name);
+        Classes::create($data);
         return redirect()->route('class.index');
     }
 
@@ -72,13 +76,14 @@ class ClassesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Classes $classes)
+    public function update(Request $request, $id)
     {
+        $classes=Classes::find($id);
         $request->validate([
             'number'=>'required',
             'name'=>'required',
             'teacher_id'=>'required',
-            'description'=>'required|min:10',
+            'description'=>'required',
 
         ],[
             'number.required'=>'Sinf raqami kiritilmadi',
@@ -87,7 +92,17 @@ class ClassesController extends Controller
             'description.required'=>'Sinf Haqida ma\'lumot kiritilmadi',
             'description.min'=>'Sinf haqida ma\'lumot 10 ta so\'zdan kam b\'lmasligi kerak',
         ]);
-        $classes->update($request->all());
+        $data=$request->all();
+
+        if ($request->image){
+            $file = $request->file('image');
+            $image_name = uniqid() . $file->getClientOriginalName();
+            $data['image'] = $image_name;
+            $file->move(public_path('images'), $image_name);
+            $classes->update($data);
+        }else{
+            $classes->update($data);
+        }
         return redirect()->route('class.index');
     }
 

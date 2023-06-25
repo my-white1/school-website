@@ -20,6 +20,7 @@
                                 <th>Sinf</th>
                                 <th>Sinf raxbari</th>
                                 <th class="d-none d-xl-table-cell">Tavsifi</th>
+                                <th class="d-none d-xl-table-cell">Rasimi</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -35,6 +36,9 @@
                                     <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
                                     <td class="d-none d-xl-table-cell">
                                         {{$class->description}}
+                                    </td>
+                                    <td class="d-none d-xl-table-cell">
+                                        <img width="100px" src="{{'images/'.$class->image}}" alt="{{$class->number}} {{$class->name}} sinf rasimi">
                                     </td>
 
                                     <td>

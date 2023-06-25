@@ -6,7 +6,7 @@
                 <div class="d-flex">
                     <div class="card flex-fill">
                         <div class="card-header">
-                            <h5 class="card-title 0">O'qtuvchini barcha ma'lumotlarini ko'rish</h5>
+                            <h5 class="card-title 0">Sinfni barcha ma'lumotlarini ko'rish</h5>
                         </div>
                         <table class="table table-hover my-0">
                             <tr>
@@ -23,6 +23,10 @@
                             <tr>
                                 <th>Tavsifi</th>
                                 <td>{{$classes->description}}</td>
+                            </tr>
+                            <tr>
+                                <th>Rasimi</th>
+                                <td><img width="100px" src="{{"images/$classes->image"}}" alt="{{$classes->name}} rasimi"></td>
                             </tr>
                         </table>
                     </div>

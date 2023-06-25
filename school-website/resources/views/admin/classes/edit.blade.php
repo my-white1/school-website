@@ -11,7 +11,8 @@
                         </div>
 
 
-                        <form action="{{ route('class.update',[$classes->id]) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('class.update',[$classes->id]) }}" method="post"
+                              enctype="multipart/form-data">
                             @if ($errors->any())
                                 @foreach ($errors->all() as $error)
                                     <div class="alert alert-danger" role="alert">
@@ -48,7 +49,8 @@
                                         <select class="form-select" name="teacher_id">
                                             <option disabled selected>Sinf raxbarini tanlang</option>
                                             @foreach($teacher as $id=> $item)
-                                                <option value="{{$id}}" @if($id==$classes->teacher_id) selected @endif >{{$item}}</option>
+                                                <option value="{{$id}}"
+                                                        @if($id==$classes->teacher_id) selected @endif >{{$item}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -58,9 +60,28 @@
                                     <h5 class="card-title mb-0">Sinf haqida</h5>
                                     <div class="card-body">
                                         <label class="form-label">
-                                            <textarea class="form-control" rows="5" cols="100" name="description" placeholder="Sinf haqida">
+                                            <textarea class="form-control" rows="5" cols="100" name="description"
+                                                      placeholder="Sinf haqida">
                                                 {{$classes->description}}
                                             </textarea>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h5 class="card-title mb-0">Sinf Rasimi</h5>
+                                    <div class="card-body">
+                                        <label class="form-label">
+                                            <input class="form-control" type="file" name="image" id="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h5 class="card-title mb-0">Sinf Rasimi</h5>
+                                    <div class="card-body">
+                                        <label class="form-label">
+                                            <img width="100px" src="{{'images/'.$classes->image}}"
+                                                 alt="{{$classes->number}} {{$classes->name}} sinf rasimi">
+
                                         </label>
                                     </div>
                                 </div>

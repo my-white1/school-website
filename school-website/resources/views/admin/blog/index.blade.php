@@ -6,7 +6,7 @@
                 <div class="d-flex">
                     <div class="card flex-fill">
                         <div class="card-header">
-                            <h5 class="card-title 0">O'qtuvchilar</h5>
+                            <h5 class="card-title 0">Yangliklar</h5>
                             <a class="btn btn-primary mb-3" href="{{route('blogs.create')}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-person-plus-fill" viewBox="0 0 16 16">
@@ -15,7 +15,7 @@
                                     <path fill-rule="evenodd"
                                           d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
                                 </svg>
-                                O'qtuvchi qo'shishi
+                                Yangliklar qo'shishi
                             </a>
                         </div>
 

@@ -40,6 +40,7 @@ class CourseController extends Controller
             'teacher_id' => 'required',
             'weeks' => 'required',
             'description' => 'required',
+            'price' => 'required|numeric',
         ]);
         $data = $request->all();
 
@@ -47,15 +48,7 @@ class CourseController extends Controller
         $image_name = uniqid() . $file->getClientOriginalName();
         $data['image'] = $image_name;
         $file->move(public_path('images'), $image_name);
-        $c = Course::create([
-            'name' => $data['name'],
-            'start_time' => $data['start_time'],
-            'end_time' => $data['end_time'],
-            'teacher_id' => $data['teacher_id'],
-            'weeks' => $data['weeks'],
-            'description' => $data['description'],
-            'image' => $data['image'],
-        ]);
+        $c = Course::create($data);
         $c->weeks()->sync($request->weeks);
         return redirect()->route('courses.index');
     }
@@ -90,31 +83,18 @@ class CourseController extends Controller
             'teacher_id' => 'required',
             'weeks' => 'required',
             'description' => 'required',
+            'price' => 'required|numeric',
         ]);
             $data = $request->all();
+
         if($request->image) {
             $file = $request->file('image');
             $image_name = uniqid() . $file->getClientOriginalName();
             $data['image'] = $image_name;
             $file->move(public_path('images'), $image_name);
-            $course->update([
-                'name' => $data['name'],
-                'start_time' => $data['start_time'],
-                'end_time' => $data['end_time'],
-                'teacher_id' => $data['teacher_id'],
-                'weeks' => $data['weeks'],
-                'description' => $data['description'],
-                'image' => $data['image'],
-            ]);
+            $course->update($data);
         }else{
-            $course->update([
-                'name' => $data['name'],
-                'start_time' => $data['start_time'],
-                'end_time' => $data['end_time'],
-                'teacher_id' => $data['teacher_id'],
-                'weeks' => $data['weeks'],
-                'description' => $data['description'],
-            ]);
+            $course->update($data);
         }
         $course->weeks()->sync($request->weeks);
         return redirect()->route('courses.index');

@@ -12,7 +12,7 @@ class Classes extends Model
         'number',
         'name',
         'teacher_id',
-        'images',
+        'image',
         'description'
     ];
 

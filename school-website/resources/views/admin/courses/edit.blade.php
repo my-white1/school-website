@@ -7,11 +7,12 @@
                     <div class="card flex-fill">
                         <div class="card-header">
 
-                            <h5 class="card-title">O'qtuvchi qo'shish</h5>
+                            <h5 class="card-title">Kurs tahrirlash</h5>
                         </div>
 
 
-                        <form action="{{ route('courses.update',[$course->id]) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('courses.update',[$course->id]) }}" method="post"
+                              enctype="multipart/form-data">
                             @if ($errors->any())
                                 @foreach ($errors->all() as $error)
                                     <div class="alert alert-danger" role="alert">
@@ -39,7 +40,8 @@
                                         <select class="form-select" name="teacher_id">
                                             <option disabled selected>O'qtuvchini tanlang</option>
                                             @foreach($teacher as $id=> $t)
-                                                <option @if($id==$course->teacher_id) selected @endif value="{{$id}}">{{$t}}</option>
+                                                <option @if($id==$course->teacher_id) selected
+                                                        @endif value="{{$id}}">{{$t}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -49,7 +51,8 @@
                                     <h5 class="card-title mb-0">Kurs boshlanish vaqti</h5>
 
                                     <div class="card-body">
-                                        <input type="time" name="start_time" id="" class="form-control" value="{{$course->start_time}}">
+                                        <input type="time" name="start_time" id="" class="form-control"
+                                               value="{{$course->start_time}}">
                                     </div>
                                 </div>
                                 <div class="col-6 ">
@@ -57,7 +60,8 @@
                                     <h5 class="card-title mb-0">Kurs tugash vaqti</h5>
 
                                     <div class="card-body">
-                                        <input type="time" name="end_time" id="" class="form-control" value="{{$course->end_time}}">
+                                        <input type="time" name="end_time" id="" class="form-control"
+                                               value="{{$course->end_time}}">
                                     </div>
                                 </div>
                                 <div class="col-6 ">
@@ -67,7 +71,8 @@
                                     <div class="card-body">
                                         <select class="form-select" name="weeks[]" multiple>
                                             @foreach($weeks as $id=> $week)
-                                                <option value="{{$id}}" {{ (in_array($id, old('weeks', [])) || $course->weeks->contains($id)) ? 'selected' : '' }} >{{$week}}</option>
+                                                <option
+                                                    value="{{$id}}" {{ (in_array($id, old('weeks', [])) || $course->weeks->contains($id)) ? 'selected' : '' }} >{{$week}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -78,6 +83,15 @@
 
                                     <div class="card-body">
                                         <input type="file" name="image" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-6 ">
+
+                                    <h5 class="card-title mb-0">Kurs Puli</h5>
+
+                                    <div class="card-body">
+                                        <input type="text" name="price" placeholder="Kurs pulini yozing"
+                                               class="form-control" value="{{$course->price}}">
                                     </div>
                                 </div>
 
