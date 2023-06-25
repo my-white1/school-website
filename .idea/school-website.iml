@@ -7,8 +7,6 @@
       <sourceFolder url="file://$MODULE_DIR$/school-website/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/school-website/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/school-website/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/school-website/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/school-website/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/school-website/vendor/dflydev/dot-access-data" />

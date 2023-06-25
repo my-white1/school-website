@@ -6,9 +6,9 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="classes-col">
-                        <div class="class-thumb"><img src="assets/img/class1.jpg" alt="" class="w-100"> <a
-                                href="{{route('course.detail',$course->id)}}" title="" class="crt-btn"><img src="assets/img/icon10.png"
-                                                                                   alt=""></a></div>
+                        <div class="class-thumb"><img src="{{asset('images/'.$course->image)}}" alt="" class="w-100"> <a
+                                href="{{route('course.detail',$course->id)}}" title="" class="crt-btn">
+                                <img src="assets/img/icon10.png" alt=""></a></div>
                         <div class="class-info">
                             <h3><a href="{{route('course.detail',$course->id)}}" title="">{{$course->name}}</a>
                             </h3>
@@ -26,8 +26,8 @@
                                 {{$weeks}}
                             </span> <span>{{$course->start_time}} - {{$course->end_time}}</span>
                             <div class="d-flex flex-wrap align-items-center">
-                                <div class="posted-by"><img src="assets/img/ico.png" alt=""> <a
-                                        href="classes.html#" title="">{{$course->teacher->firstname}} {{$course->teacher->lastname}}</a></div><strong
+                                <div class="posted-by"><img style="width: 30px; height: 30px" src="{{asset('images/'.$course->teacher->image)}}" alt="">
+                                    <a href="classes.html#" title="">{{$course->teacher->firstname}} {{$course->teacher->lastname}}</a></div><strong
                                     class="price">{{$course->price}}</strong>
                             </div>
                         </div>
