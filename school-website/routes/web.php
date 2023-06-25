@@ -38,14 +38,16 @@ Route::get('/about', function () {
 
 // Classes
 Route::get('/classes', function () {
-    $classes = Classes::all();
-    return view('frontend.classes.index', compact('classes'));
+    return view('frontend.classes.index');
 })->name('classes.index');
 
 // classes single
-Route::get('/class-detail', function () {
-    return view('frontend.classes.detail');
-})->name('detail');
+Route::get('/class-detail/{id}', function ($id) {
+    $class = Classes::find($id);
+    $classes = Classes::all();
+
+    return view('frontend.classes.detail', compact('class', 'classes'));
+})->name('class.detail');
 
 // courses
 Route::get('/kurslar', function () {

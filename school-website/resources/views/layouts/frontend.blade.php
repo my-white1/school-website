@@ -11,6 +11,7 @@
     <link rel="icon" href="{{ asset('assets/img/favicon.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/button.min.css') }}">
+    @livewireStyles()
 </head>
 
 <body>
@@ -69,7 +70,7 @@
                                 </li>
 
                                 <li><a class="{{ request()->is('classes') ? 'active' : '' }}"
-                                        href="{{ route('classes.index') }}" title="">sinflar</a>
+                                        href="{{ route('classes.index') }}" title="">Sinflar</a>
                                 </li>
                                 <li><a class="{{ request()->is('kurslar') ? 'active' : '' }}"
                                         href="{{ route('course.index') }}" title="">Kurslar</a>
@@ -202,7 +203,7 @@
         <!--footer end-->
     </div>
 
-
+    @livewireScripts()
     <script src="{{ asset('assets/js/bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/button.min.js') }}"></script><!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180910402-1"></script>
