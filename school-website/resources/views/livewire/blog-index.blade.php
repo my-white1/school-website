@@ -32,16 +32,7 @@
 
     </div>
     <!--blog-section end-->
-    <div class="mdp-pagiation">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                @if($count<count(\App\Models\Blog::all()->ToArray()))
-                <li class="page-item"><a class="page-link" wire:click="pilus()">yana+</a></li>
-                @endif
 
-            </ul>
-        </nav>
-    </div>
     <!--pagination-end-->
 </div>
 

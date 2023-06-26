@@ -210,7 +210,7 @@
                     @foreach ($blogs as $blog)
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="blog-post">
-                                <div class="blog-thumbnail"><img src="assets/img/blog1.jpg" alt="" class="w-100">
+                                <div class="blog-thumbnail"><img style="width: 369px; height: 246px" src="{{asset('images/'.$blog->image)}}"  alt="" class="w-100">
                                     <span class="category">{{ $blog->title }}</span>
                                 </div>
                                 <div class="blog-info">
@@ -225,9 +225,9 @@
                                                 href="assets/images/resources/bg4.jpg.html#" title="">
                                                 School</a></li>
                                     </ul>
-                                    <h3><a href="post.html" title="">{{ $blog->title }}</a></h3>
+                                    <h3><a href="{{route('blog.show',$blog->id)}}" title="">{{ $blog->title }}</a></h3>
                                     <p>{{substr($blog->description, 0,25 )  }}...
-                                    </p><a href="post.html" title="" class="read-more">Read <i
+                                    </p><a href="{{route('blog.show',$blog->id)}}" title="" class="read-more">Read <i
                                             class="fa fa-long-arrow-alt-right"></i></a>
                                 </div>
                             </div>
