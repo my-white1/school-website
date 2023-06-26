@@ -71,20 +71,21 @@
                                         title="">Bosh sahifa</a>
                                 </li>
 
-                                <li><a class="{{ request()->is('classes') ? 'active' : '' }}"
+                                <li><a class="{{ request()->is('classes*') ? 'active' : '' }}"
                                         href="{{ route('classes.index') }}" title="">Sinflar</a>
                                 </li>
-                                <li><a class="{{ request()->is('kurslar') ? 'active' : '' }}"
+                                <li><a class="{{ request()->is('kurslar*') ? 'active' : '' }}"
                                         href="{{ route('course.index') }}" title="">Kurslar</a>
                                 </li>
-                                <li><a class="{{ request()->is('teachers') ? 'active' : '' }}"
+                                <li><a class="{{ request()->is('teachers*') ? 'active' : '' }}"
                                         href="{{ route('teachers.index') }}" title="">O'qtuvchilar</a>
                                 </li>
                                 <li>
-                                    <a class="{{ request()->is('blog') ? 'active' : '' }}"
+                                    <a class="{{ request()->is('blog*') ? 'active' : '' }}"
                                         href="{{ route('blog.index') }}" title="">Blog</a>
                                 </li>
-                                <li><a class="{{ request()->is('about') ? 'active' : '' }}"
+
+                                <li><a class="{{ request()->is('about*') ? 'active' : '' }}"
                                         href="{{ route('about') }}" title="">Biz haqimizda</a>
                                 </li>
 
@@ -93,10 +94,11 @@
                         <!--nav end-->
                         <ul class="social-links ml-auto d-flex ml-5">
                             <li>
-                                <a title=""><i class="fab fa-facebook-f"></i></a>
+                                <a href="{{ $a->facebook }}"><i class="fab fa-facebook-f"></i></a>
                             </li>
                             <li>
-                                <a title=""><i class="fab fa-instagram"></i></a>
+                                <a href="{{ $a->instagram }}"><i class="fab fa-instagram"></i></a>
+
                             </li>
                         </ul>
                     </div>
@@ -169,15 +171,26 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="widget widget-links">
-                                <h3 class="widget-title">Hamkorlar</h3>
-                                <ul>
-                                    <li><a href="webking.uz" title="">Web King</a></li>
-                                    <li><a target="blank" href="https://mexnatkash.uz" title="">Mehnatkash uz</a></li>
-                                    <li><a href="teachers.html" title="">Dastruchilar</a></li>
-                                    <li><a href="events.html" title="">Abdurahmon</a></li>
-                                    <li><a href="blog.html" title="">Ahmadullo</a></li>
-                                    <li><a href="schedule.html" title="">Yahyoebek</a></li>
-                                </ul>
+                                <<<<<<< HEAD <h3 class="widget-title">Hamkorlar</h3>
+                                    <ul>
+                                        <li><a href="webking.uz" title="">Web King</a></li>
+                                        <li><a target="blank" href="https://mexnatkash.uz" title="">Mehnatkash
+                                                uz</a></li>
+                                        <li><a href="teachers.html" title="">Dastruchilar</a></li>
+                                        <li><a href="events.html" title="">Abdurahmon</a></li>
+                                        <li><a href="blog.html" title="">Ahmadullo</a></li>
+                                        <li><a href="schedule.html" title="">Yahyoebek</a></li>
+                                        =======
+                                        <h3 class="widget-title">Hamkorlar va malumotlar</h3>
+                                        <ul>
+                                            <li><a href="https://webking.uz" title="">Webking Uz</a></li>
+                                            <li><a href="https://mexnatkash.uz" title="">Mexnatkash Uz</a></li>
+                                            <li><a href="" title="">Dasturchilar</a></li>
+                                            <li><a href="" title="">Abduraxmon</a></li>
+                                            <li><a href="" title="">Ahmadullo</a></li>
+                                            <li><a href="" title="">Yaxyobek</a></li>
+                                            >>>>>>> 107d7ba45655ec937294b960c34f08cec3b8fab1
+                                        </ul>
                             </div>
                             <!--widget-links end-->
                         </div>
@@ -191,9 +204,15 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <ul class="social-links">
-                                <li><a title=""><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a title=""><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a title=""><i class="fab fa-instagram"></i></a></li>
+                                <<<<<<< HEAD <li><a title=""><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a title=""><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a title=""><i class="fab fa-instagram"></i></a></li>
+                                    =======
+                                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/ahmadullorahmatullayev/"><i
+                                                class="fab fa-instagram"></i></a></li>
+                                    >>>>>>> 107d7ba45655ec937294b960c34f08cec3b8fab1
                             </ul>
                         </div>
                     </div>

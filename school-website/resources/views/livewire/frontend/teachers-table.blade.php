@@ -6,8 +6,9 @@
                     @foreach ($teachers as $teacher)
                         <div class="col-lg-3 col-md-3 col-sm-6 col-6 full-wdth">
                             <div class="teacher">
-                              
-                                <div class="teacher-info">
+                                <div class="teacher-img"><img style="width: 235px; height: 425px;" src="{{asset("images/$teacher->image")}}" alt="" class="w-100">
+
+                                    <div class="teacher-info">
                                     <h3><a href="#" title="">{{ $teacher->firstname }}
                                             {{ $teacher->lastname }}</a></h3>
                                     <span>{{ $teacher->category }}
@@ -16,8 +17,8 @@
                             </div>
                             <!--teacher end-->
                         </div>
+                        </div>
                     @endforeach
-                </div>
             </div>
             <!--teachers end-->
         </div>

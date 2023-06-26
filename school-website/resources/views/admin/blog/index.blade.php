@@ -39,7 +39,7 @@
                                     <td>{{$blog->category->name}}</td>
                                     <td class="d-none d-xl-table-cell">{{$blog->description}}</td>
                                     <td class="d-none d-xl-table-cell"><img width="100px"
-                                                                            src="{{'images/'.$blog->image}}"
+                                                                            src="{{asset('images/'.$blog->image)}}"
                                                                             alt="{{$blog->name}} rasimi"></td>
 
                                     <td>

@@ -22,8 +22,8 @@ class AboutSeeder extends Seeder
             'end_time'=>'13:00',
             'viloyat'=>'Viloyatni yozing',
             'tuman'=>'Tumanni yozing',
-            'facebook'=>'Majburiy emas',
-            'instagram'=>'Majburiy emas',
+            'facebook'=>'https://www.facebook.com/',
+            'instagram'=>'https://www.instagram.com/',
         ]);
     }
 }

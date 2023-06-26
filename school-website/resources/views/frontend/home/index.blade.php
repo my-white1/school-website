@@ -91,13 +91,14 @@
                     @foreach ($teachers as $teacher)
                         <div class="col-lg-3 col-md-3 col-sm-6 col-6 full-wdth">
                             <div class="teacher">
-                                <div class="teacher-img"><img src="assets/img/img5.jpg" alt="" class="w-100">
+                                <div class="teacher-img"><img style="width: 235px; height: 425px;"
+                                        src="{{ asset("images/$teacher->image") }}" alt="" class="w-100">
 
                                 </div>
                                 <div class="teacher-info">
                                     <h3><a href="teacher-single.html" title="">{{ $teacher->firstname }}
                                             {{ $teacher->lastname }}</a></h3>
-                                    <span>{{ $teacher->category }} Teacher</span>
+                                    <span>{{ $teacher->category }} O`qituvchisi</span>
                                 </div>
                             </div>
                             <!--teacher end-->
@@ -152,11 +153,10 @@
                                             title="">{{ $course->teacher->firstname }}
                                             {{ $course->teacher->firstname }}</a></div><span class="locat"><img
                                             src="assets/img/loct.png" alt="">{{ $a->name }}
-                                        </span>
+                                    </span>
                                 </div>
                             </div>
                         @endforeach
-
 
                     </div>
                 </div>
@@ -174,8 +174,11 @@
                     @foreach ($blogs as $blog)
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="blog-post">
-                                <div class="blog-thumbnail"><img src="assets/img/blog1.jpg" alt=""
-                                        class="w-100">
+
+
+                                <div class="blog-thumbnail"><img style="width: 369px; height: 246px"
+                                        src="{{ asset('images/' . $blog->image) }}" alt="" class="w-100">
+
                                     <span class="category">{{ $blog->title }}</span>
                                 </div>
                                 <div class="blog-info">
@@ -190,10 +193,11 @@
                                                 href="assets/images/resources/bg4.jpg.html#" title="">
                                                 School</a></li>
                                     </ul>
-                                    <h3><a href="post.html" title="">{{ $blog->title }}</a></h3>
-                                    <p>{{ $blog->description }}
-                                    </p><a href="post.html" title="" class="read-more">Read <i
-                                            class="fa fa-long-arrow-alt-right"></i></a>
+                                    <h3><a href="{{ route('blog.show', $blog->id) }}"
+                                            title="">{{ $blog->title }}</a></h3>
+                                    <p>{{ substr($blog->description, 0, 25) }}...
+                                    </p><a href="{{ route('blog.show', $blog->id) }}" title=""
+                                        class="read-more">Read <i class="fa fa-long-arrow-alt-right"></i></a>
                                 </div>
                             </div>
                             <!--blog-post end-->
