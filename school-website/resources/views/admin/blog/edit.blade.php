@@ -31,6 +31,7 @@
                                                placeholder="Yanglik nomi" value="{{$blog->title}}">
                                     </div>
                                 </div>
+
                                 <div class="col-6 ">
 
                                     <h5 class="card-title mb-0">Turi</h5>
@@ -44,14 +45,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">Matini</h5>
-
-                                    <div class="card-body">
-                                        <textarea class="form-control" name="description" id="" cols="30" rows="5">{{$blog->description}}</textarea>
-                                    </div>
-                                </div>
                                 <div class="col-6">
 
                                     <h5 class="card-title mb-0">Yanglik rasimi rasimi</h5>
@@ -61,6 +55,24 @@
                                                placeholder="Yanglik rasimi">
                                     </div>
                                 </div>
+                                <div class="col-6">
+
+                                    <h5 class="card-title mb-0">Yanglik rasimi rasimi</h5>
+
+                                    <div class="card-body">
+                                        <img width="200px" src="{{asset('images/'.$blog->image)}}"
+                                             alt="{{$blog->name}} sinf rasimi">
+                                    </div>
+                                </div>
+                                <div>
+
+                                    <h5 class="card-title mb-0">Matini</h5>
+
+                                    <div class="card-body">
+                                        <textarea class="form-control" name="description" id=""  rows="5">{{$blog->description}}</textarea>
+                                    </div>
+                                </div>
+
                             </div>
                             <button class="btn btn-primary mt-3" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

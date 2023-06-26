@@ -59,6 +59,14 @@
                                                placeholder="O'qtuvchi rasimi">
                                     </div>
                                 </div>
+                                <div class="col-6">
+
+                                    <h5 class="card-title mb-0">O'qtuvchi rasimi</h5>
+
+                                    <div class="card-body">
+                                        <img width="300px" src="{{asset('images/'.$teacher->image)}}" alt="">
+                                    </div>
+                                </div>
                             </div>
                             <button class="btn btn-primary mt-3" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

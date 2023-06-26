@@ -87,6 +87,15 @@
                                 </div>
                                 <div class="col-6 ">
 
+                                    <h5 class="card-title mb-0">Kurs Rasimi</h5>
+
+                                    <div class="card-body">
+                                        <img width="100px" src="{{asset('images/'.$course->image)}}"
+                                             alt="{{$course->name}} Kurs rasimi">
+                                    </div>
+                                </div>
+                                <div class="col-6 ">
+
                                     <h5 class="card-title mb-0">Kurs Puli</h5>
 
                                     <div class="card-body">
