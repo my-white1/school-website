@@ -80,8 +80,9 @@ Route::get('/blog', function () {
 })->name('blog.index');
 
 // Blog show
-Route::get('/blog-show', function () {
-    return view('frontend.blog.show');
+Route::get('/blog-show/{id}', function ($id) {
+    $blog=Blog::find($id);
+    return view('frontend.blog.show',compact('blog'));
 })->name('blog.show');
 
 // 404

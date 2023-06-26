@@ -10,6 +10,10 @@ class CourseIndex extends Component
 {
     public $count=8;
 
+    function pilus()
+    {
+        $this->count=$this->count+4;
+    }
     public function render()
     {
         $classes=  Course::take($this->count)->with('teacher')->orderByDesc('id')->get();
