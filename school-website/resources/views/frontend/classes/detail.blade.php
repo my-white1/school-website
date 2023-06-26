@@ -49,6 +49,11 @@
                                 class="fa fa-long-arrow-alt-right"></i></a>
                     </div>
                     <!--class-single-content end-->
+                    <div class="class-single-content">
+                        <div class="image-box">
+                            <img src="{{ asset("images/$class->image") }}" alt="Sinf rasmi">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
