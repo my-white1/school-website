@@ -43,7 +43,7 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 @if((count( \App\Models\Course::all()->ToArray() )>8))
-                <li class="page-item"><a style="color:#f37335 " class="page-link" href="classes.html#">Yana+</a></li>
+                <li class="page-item"><a style="color:#f37335 " class="page-link" wire:click="pilus()">Yana+</a></li>
                @endif
             </ul>
         </nav>
