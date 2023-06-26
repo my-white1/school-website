@@ -130,75 +130,36 @@
                         <i class="fa fa-long-arrow-alt-right"></i></a>
                     <!--find-course end-->
                 </div>
-                               @if (empty($classes[0]) && empty($classes[1]) && empty($classes[2]))
-                                   {{-- Ma'lumot yo' --}}
-                               @else
-                                   <div class="col-lg-6">
-                                       <div class="courses-list">
-                                           <div class="course-card wow fadeInLeft" data-wow-duration="1000ms">
-                                               <div class="d-flex flex-wrap align-items-center">
-                                                   <ul class="course-meta">
-                                                       <li><img src="assets/img/icon12.png"
-                                                               alt="">{{ $classes[0]->created_at->format('d/m/Y') }}</li>
-                                                       <li>11AM to 15PM</li>
-                                                   </ul><span>FREE</span>
-                                               </div>
-                                               <h3><a href="event-single.html" title="">{{ $classes[0]->name }}</a>
-                                               </h3>
-                                               <div class="d-flex flex-wrap">
-                                                   <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a
-                                                           href="assets/images/resources/bg4.jpg.html#"
-                                                           title="">{{ $classes[0]->teacher->name }}</a></div><span
-                                                       class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517
-                                                       district</span>
-                                               </div>
-                                           </div>
-                                           <!--course-card end-->
-                                           <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="400ms">
-                                               <div class="d-flex flex-wrap align-items-center">
-                                                   <ul class="course-meta">
-                                                       <li><img src="assets/img/icon12.png" alt="">
-                                                           {{ $classes[1]->created_at->format('d/m/Y') }}</li>
-                                                       {{-- <li>11AM to 15PM</li> --}}
-                {{--                                    </ul><span>$16</span> --}}
-                                               </div>
-                {{--                                <h3><a href="event-single.html" title="">{{ $classes[1]->name }}</a></h3> --}}
-                {{--                                <div class="d-flex flex-wrap"> --}}
-                {{--                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a --}}
-                {{--                                            href="assets/images/resources/bg4.jpg.html#" --}}
-                {{--                                            title="">{{ $classes[1]->teacher->name }}</a></div><span --}}
-                {{--                                        class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517 --}}
-                {{--                                        district</span> --}}
-                {{--                                </div> --}}
-                {{--                            </div> --}}
-                {{--                            <!--course-card end--> --}}
-                {{--                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="600ms"> --}}
-                {{--                                <div class="d-flex flex-wrap align-items-center"> --}}
-                {{--                                    <ul class="course-meta"> --}}
-                {{--                                        <li><img src="assets/img/icon12.png" --}}
-                {{--                                                alt="">{{ $classes[2]->created_at->format('d/m/Y') }}</li> --}}
-                {{--                                        <li>11AM to 15PM</li> --}}
-                {{--                                    </ul><span>$8</span> --}}
-                {{--                                </div> --}}
-                {{--                                <h3><a href="event-single.html" title="">{{ $classes[2]->name }}</a></h3> --}}
-                {{--                                <div class="d-flex flex-wrap"> --}}
-                {{--                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a --}}
-                {{--                                            href="assets/images/resources/bg4.jpg.html#" --}}
-                {{--                                            title="">{{ $classes[2]->teacher->name }}</a></div><span --}}
-                {{--                                        class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517 --}}
-                {{--                                        district</span> --}}
-                {{--                                </div> --}}
-                {{--                            </div> --}}
-                {{--                            <!--course-card end--> --}}
-                {{--                        </div> --}}
-                {{--                        <!--courses-list end--> <a href="events.html" title="" class="all-btn">All Events <i --}}
-                {{--                                class="fa fa-long-arrow-alt-right"></i></a> --}}
-                {{--                        <div class="clearfix"></div> --}}
-                {{--                    </div> --}}
-                {{--                @endif --}}
+                {{-- Ma'lumot yo' --}}
+                <div class="col-lg-6">
+                    <div class="courses-list">
+                        <!--course-card end-->
+                        @foreach ($courses as $course)
+                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="400ms">
+                                <div class="d-flex flex-wrap align-items-center">
+                                    <ul class="course-meta">
+                                        <li><img src="assets/img/icon12.png" alt="">
+                                            {{-- {{ $course->created_at->format('d/m/Y') }}</li> --}}
+                                        <li>{{ $course->start_time }} - {{ $course->end_time }}</li>
+                                    </ul><span>{{ $course->price }} UZS </span>
+                                </div>
+                                <h3><a href="{{ route('course.detail', $course->id) }}"
+                                        title="">{{ $course->name }}</a></h3>
+                                <div class="d-flex flex-wrap">
+                                    <div class="posted-by"><img style="width: 10%"
+                                            src="{{ asset("images/$course->image") }}" alt="Class image"> <a
+                                            href="{{ asset('images/' . $course->teacher->image) }}"
+                                            title="">{{ $course->teacher->firstname }}
+                                            {{ $course->teacher->firstname }}</a></div><span class="locat"><img
+                                            src="assets/img/loct.png" alt="">{{ $a->name }}
+                                        </span>
+                                </div>
+                            </div>
+                        @endforeach
 
-            </div>
-        </div>
+
+                    </div>
+                </div>
     </section>
     <!--course-section end-->
     <section class="blog-section">
@@ -213,7 +174,8 @@
                     @foreach ($blogs as $blog)
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="blog-post">
-                                <div class="blog-thumbnail"><img src="assets/img/blog1.jpg" alt="" class="w-100">
+                                <div class="blog-thumbnail"><img src="assets/img/blog1.jpg" alt=""
+                                        class="w-100">
                                     <span class="category">{{ $blog->title }}</span>
                                 </div>
                                 <div class="blog-info">

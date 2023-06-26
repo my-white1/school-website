@@ -26,7 +26,8 @@ Route::get('/', function () {
     $teachers = Teacher::take(4)->orderByDesc('id')->get();
     $classes = Classes::take(7)->orderByDesc('id')->get();
     $allClasses = Classes::take(7)->orderByDesc('id')->get();
-    return view('frontend.home.index', compact('blogs','teachers', 'classes', 'allClasses'));
+    $courses = Course::take(3)->orderByDesc('id')->get();
+    return view('frontend.home.index', compact('blogs','teachers', 'classes', 'allClasses', 'courses'));
 })->name('home');
 
 // About
