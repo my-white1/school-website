@@ -47,10 +47,7 @@
 
     <div class="col-lg-3">
         <div class="sidebar">
-            <div class="widget widget-search">
-                <form><input type="text" name="search" placeholder="Search"> <button type="submit"><img
-                            src="assets/img/icon4.png" alt=""></button></form>
-            </div>
+
             <!--widget-search end-->
             <div class="widget widget-categories">
                 <h3 class="widget-title">Categories</h3>
@@ -70,7 +67,7 @@
                         <div class="wd-post d-flex flex-wrap">
                             <div class="wd-thumb"><img style="width: 52px;height: 52px;border-radius: 18%" src="{{asset('images/'.$b->image)}}" alt=""></div>
                             <div class="wd-info">
-                                <h3><a href="post.html" title="">{{$b->title}}</a></h3>
+                                <h3><a href="{{route('blog.show',$b->id)}}" title="">{{$b->title}}</a></h3>
                                 <span>{{$b->created_at->format('d/m/y')}}</span>
                             </div>
                         </div>
