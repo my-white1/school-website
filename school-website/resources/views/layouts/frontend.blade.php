@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Shelly Maktablar</title>
+    <title>1-maktab</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Shelly - Website">
     <meta name="author" content="merkulove">
@@ -113,7 +113,7 @@
             </div>
             <!--responsive-menu end-->
 
-            <h2 class="main-title">web kinglllll</h2>
+            <h2 class="main-title">web king</h2>
         </div>
         <!--main-section end-->
 
