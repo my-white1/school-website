@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-@php
+    @php
         $a = \App\Models\About::find(1);
         
         $s = explode(':', $course->start_time)[0];
@@ -54,21 +54,20 @@
                         </div>
                         <!--class-gallery end-->
 
-                        <h3>O`rganish tizimi Programs</h3>
-                        <p>{{ $a->description }}</p>
+                        <h3>Bizning maqsadimiz</h3>
 
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <ul class="ordrd">
-                                    <li>Qiziqarli vaqtlar</li>
-                                    <li>Bo`sh vaqt uchun texnalogiya burchagi</li>
+                                    <li>O'quvchiga bilim berish</li>
+                                    <li>O'quvchig vatini mazmunli o'tkizish</li>
 
                                 </ul>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <ul class="ordrd">
-                                    <li>Yaxshi vaqt</li>
-                                    <li>Malakali o`qituvchi</li>
+                                    <li>O'quvchig kelajakda ish bilan ta'minlash</li>
+                                    <li>O'quvchig sifatli bilim berish</li>
                                 </ul>
                             </div>
                         </div>
@@ -78,7 +77,9 @@
                 <div class="col-xl-4 col-lg-4">
                     <div class="sidebar class-sidebar"><br><br><br><br><br><br>
                         <div class="widget widget-information">
-                            <img style="width: 100%" src="{{ asset("images/64986286d5e42beach-sunset-evening-y6-1366x768.jpg") }}" alt="">
+                            <img style="width: 100%"
+                                src="{{ asset('images/64986286d5e42beach-sunset-evening-y6-1366x768.jpg') }}"
+                                alt="">
                             <div class="tech-info">
                                 <div class="tech-tble"><img src="assets/img/thumb1.png" alt="">
                                     <div class="tch-info">

@@ -130,38 +130,38 @@
                         <i class="fa fa-long-arrow-alt-right"></i></a>
                     <!--find-course end-->
                 </div>
-                {{--                @if (empty($classes[0]) && empty($classes[1]) && empty($classes[2])) --}}
-                {{--                    Ma'lumot yo'q --}}
-                {{--                @else --}}
-                {{--                    <div class="col-lg-6"> --}}
-                {{--                        <div class="courses-list"> --}}
-                {{--                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms"> --}}
-                {{--                                <div class="d-flex flex-wrap align-items-center"> --}}
-                {{--                                    <ul class="course-meta"> --}}
-                {{--                                        <li><img src="assets/img/icon12.png" --}}
-                {{--                                                alt="">{{ $classes[0]->created_at->format('d/m/Y') }}</li> --}}
-                {{--                                        <li>11AM to 15PM</li> --}}
-                {{--                                    </ul><span>FREE</span> --}}
-                {{--                                </div> --}}
-                {{--                                <h3><a href="event-single.html" title="">{{ $classes[0]->name }}</a> --}}
-                {{--                                </h3> --}}
-                {{--                                <div class="d-flex flex-wrap"> --}}
-                {{--                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a --}}
-                {{--                                            href="assets/images/resources/bg4.jpg.html#" --}}
-                {{--                                            title="">{{ $classes[0]->teacher->name }}</a></div><span --}}
-                {{--                                        class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517 --}}
-                {{--                                        district</span> --}}
-                {{--                                </div> --}}
-                {{--                            </div> --}}
-                {{--                            <!--course-card end--> --}}
-                {{--                            <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="400ms"> --}}
-                {{--                                <div class="d-flex flex-wrap align-items-center"> --}}
-                {{--                                    <ul class="course-meta"> --}}
-                {{--                                        <li><img src="assets/img/icon12.png" alt=""> --}}
-                {{--                                            {{ $classes[1]->created_at->format('d/m/Y') }}</li> --}}
-                {{--                                        <li>11AM to 15PM</li> --}}
+                               @if (empty($classes[0]) && empty($classes[1]) && empty($classes[2]))
+                                   {{-- Ma'lumot yo' --}}
+                               @else
+                                   <div class="col-lg-6">
+                                       <div class="courses-list">
+                                           <div class="course-card wow fadeInLeft" data-wow-duration="1000ms">
+                                               <div class="d-flex flex-wrap align-items-center">
+                                                   <ul class="course-meta">
+                                                       <li><img src="assets/img/icon12.png"
+                                                               alt="">{{ $classes[0]->created_at->format('d/m/Y') }}</li>
+                                                       <li>11AM to 15PM</li>
+                                                   </ul><span>FREE</span>
+                                               </div>
+                                               <h3><a href="event-single.html" title="">{{ $classes[0]->name }}</a>
+                                               </h3>
+                                               <div class="d-flex flex-wrap">
+                                                   <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a
+                                                           href="assets/images/resources/bg4.jpg.html#"
+                                                           title="">{{ $classes[0]->teacher->name }}</a></div><span
+                                                       class="locat"><img src="assets/img/loct.png" alt="">43 castle road 517
+                                                       district</span>
+                                               </div>
+                                           </div>
+                                           <!--course-card end-->
+                                           <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="400ms">
+                                               <div class="d-flex flex-wrap align-items-center">
+                                                   <ul class="course-meta">
+                                                       <li><img src="assets/img/icon12.png" alt="">
+                                                           {{ $classes[1]->created_at->format('d/m/Y') }}</li>
+                                                       {{-- <li>11AM to 15PM</li> --}}
                 {{--                                    </ul><span>$16</span> --}}
-                {{--                                </div> --}}
+                                               </div>
                 {{--                                <h3><a href="event-single.html" title="">{{ $classes[1]->name }}</a></h3> --}}
                 {{--                                <div class="d-flex flex-wrap"> --}}
                 {{--                                    <div class="posted-by"><img src="assets/img/ico2.png" alt=""> <a --}}
