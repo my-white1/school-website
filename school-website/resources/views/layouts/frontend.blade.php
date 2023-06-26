@@ -22,18 +22,19 @@
             <header>
                 <div class="container">
                     <div class="header-content d-flex flex-wrap align-items-center">
-                        <div class="logo"><a href="{{ route('home') }}" title=""><img src="{{asset('images/logo.png')}}"
-                                    alt="" srcset="assets/img/01_Logo_2x.png 2x"></a>
+                        <div class="logo"><a href="{{ route('home') }}" title=""><img
+                                    src="{{ asset('images/logo.png') }}" alt=""
+                                    srcset="assets/img/01_Logo_2x.png 2x"></a>
                         </div>
                         @php
-                           $a= \App\Models\About::find(1);
+                            $a = \App\Models\About::find(1);
                         @endphp
                         <!--logo end-->
                         <ul class="contact-add d-flex flex-wrap">
                             <li>
                                 <div class="contact-info"><img src="assets/img/icon1.png" alt="">
                                     <div class="contact-tt">
-                                        <h4>Bog'lanish uchun</h4><span>+998 {{$a->phone_number}}</span>
+                                        <h4>Bog'lanish uchun</h4><span>+998 {{ $a->phone_number }}</span>
                                     </div>
                                 </div>
                                 <!--contact-info end-->
@@ -41,7 +42,8 @@
                             <li>
                                 <div class="contact-info"><img src="assets/img/icon2.png" alt="">
                                     <div class="contact-tt">
-                                        <h4>O`qish vaqti</h4><span>Dush - Shan {{$a->start_time}} - {{$a->end_time}}</span>
+                                        <h4>O`qish vaqti</h4><span>Dush - Shan {{ $a->start_time }} -
+                                            {{ $a->end_time }}</span>
                                     </div>
                                 </div>
                                 <!--contact-info end-->
@@ -49,15 +51,15 @@
                             <li>
                                 <div class="contact-info"><img src="{{ asset('assets/img/icon3.png') }}" alt="">
                                     <div class="contact-tt">
-                                        <h4>Manzil</h4><span>{{$a->viloyat}}, {{$a->tuman}} tumani</span>
+                                        <h4>Manzil</h4><span>{{ $a->viloyat }}, {{ $a->tuman }} tumani</span>
                                     </div>
                                 </div>
                                 <!--contact-info end-->
                             </li>
                         </ul>
                         <!--contact-information end-->
-                        <div class="menu-btn"><a ><span
-                                    class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></a>
+                        <div class="menu-btn"><a><span class="bar1"></span> <span class="bar2"></span> <span
+                                    class="bar3"></span></a>
                         </div>
                         <!--menu-btn end-->
                     </div>
@@ -82,8 +84,8 @@
                                     <a class="{{ request()->is('blog') ? 'active' : '' }}"
                                         href="{{ route('blog.index') }}" title="">Blog</a>
                                 </li>
-                                <li><a class="{{ request()->is('about') ? 'active' : '' }}" href="{{ route('about') }}"
-                                       title="">Biz haqimizda</a>
+                                <li><a class="{{ request()->is('about') ? 'active' : '' }}"
+                                        href="{{ route('about') }}" title="">Biz haqimizda</a>
                                 </li>
 
                             </ul>
@@ -91,10 +93,10 @@
                         <!--nav end-->
                         <ul class="social-links ml-auto d-flex ml-5">
                             <li>
-                                <a  title=""><i class="fab fa-facebook-f"></i></a>
+                                <a title=""><i class="fab fa-facebook-f"></i></a>
                             </li>
                             <li>
-                                <a  title=""><i class="fab fa-instagram"></i></a>
+                                <a title=""><i class="fab fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -125,7 +127,7 @@
                 <div class="top-footer">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="widget widget-about"><img src="{{asset('images/logo.png')}}" alt="">
+                            <div class="widget widget-about"><img src="{{ asset('images/logo.png') }}" alt="">
                                 <p>Vivamus porta efficitur nibh nec convallis. Vestibulum egestas eleifend justo. Ut
                                     tellus ipsum,
                                     accumsan</p>
@@ -138,7 +140,7 @@
                                     <li>
                                         <div class="contact-info"><img src="assets/img/icon1.png" alt="">
                                             <div class="contact-tt">
-                                                <h4>Call</h4><span>+998 {{$a->phone_number}}</span>
+                                                <h4>Call</h4><span>+998 {{ $a->phone_number }}</span>
                                             </div>
                                         </div>
                                         <!--contact-info end-->
@@ -146,7 +148,8 @@
                                     <li>
                                         <div class="contact-info"><img src="assets/img/icon2.png" alt="">
                                             <div class="contact-tt">
-                                                <h4>O`qish vaqti</h4><span>Duy - Shan {{$a->start_time}} - {{$a->end_time}}</span>
+                                                <h4>O`qish vaqti</h4><span>Duy - Shan {{ $a->start_time }} -
+                                                    {{ $a->end_time }}</span>
                                             </div>
                                         </div>
                                         <!--contact-info end-->
@@ -154,7 +157,8 @@
                                     <li>
                                         <div class="contact-info"><img src="assets/img/icon3.png" alt="">
                                             <div class="contact-tt">
-                                                <h4>Manzil</h4><span>{{$a->viloyat}}, {{$a->tuman}} tumani</span>
+                                                <h4>Manzil</h4><span>{{ $a->viloyat }}, {{ $a->tuman }}
+                                                    tumani</span>
                                             </div>
                                         </div>
                                         <!--contact-info end-->
@@ -165,14 +169,14 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="widget widget-links">
-                                <h3 class="widget-title">Quick Links</h3>
+                                <h3 class="widget-title">Hamkorlar</h3>
                                 <ul>
-                                    <li><a href="about.html" title="">About Us</a></li>
-                                    <li><a href="classes.html" title="">Our Classes</a></li>
-                                    <li><a href="teachers.html" title="">School Teachers</a></li>
-                                    <li><a href="events.html" title="">Recent Events</a></li>
-                                    <li><a href="blog.html" title="">Our News</a></li>
-                                    <li><a href="schedule.html" title="">Schedule</a></li>
+                                    <li><a href="webking.uz" title="">Web King</a></li>
+                                    <li><a target="blank" href="https://mexnatkash.uz" title="">Mehnatkash uz</a></li>
+                                    <li><a href="teachers.html" title="">Dastruchilar</a></li>
+                                    <li><a href="events.html" title="">Abdurahmon</a></li>
+                                    <li><a href="blog.html" title="">Ahmadullo</a></li>
+                                    <li><a href="schedule.html" title="">Yahyoebek</a></li>
                                 </ul>
                             </div>
                             <!--widget-links end-->
@@ -187,12 +191,9 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <ul class="social-links">
-                                <li><a title=""><i
-                                            class="fab fa-facebook-f"></i></a></li>
-                                <li><a title=""><i
-                                            class="fab fa-linkedin-in"></i></a></li>
-                                <li><a title=""><i
-                                            class="fab fa-instagram"></i></a></li>
+                                <li><a title=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a title=""><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a title=""><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>

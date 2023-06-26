@@ -49,9 +49,12 @@
                                 <div class="class-thumb"><img src="{{ asset('images/' . $class->image) }}" alt=""
                                         class="w-100">
 
+                                    {{ asset('images/' . $class->image) }}
+
                                 </div>
                                 <div class="class-info">
-                                    <h3><a href="{{ route('class.detail', $class->id) }}" title="">{{ $class->number }}-{{ $class->name }}
+                                    <h3><a href="{{ route('class.detail', $class->id) }}"
+                                            title="">{{ $class->number }}-{{ $class->name }}
                                             Sinf</a></h3>
                                     <span>Xar kuni</span> <span></span>
                                     <div class="d-flex flex-wrap align-items-center">

@@ -45,8 +45,8 @@ Route::get('/classes', function () {
 Route::get('/class-detail/{id}', function ($id) {
     $class = Classes::find($id);
     $classes = Classes::all();
-
-    return view('frontend.classes.detail', compact('class', 'classes'));
+    $course = Course::first();
+    return view('frontend.classes.detail', compact('class', 'classes', 'course'));
 })->name('class.detail');
 
 // courses
