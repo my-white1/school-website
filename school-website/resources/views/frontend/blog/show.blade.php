@@ -4,7 +4,7 @@
        @php
       $a=\App\Models\About::find(1);
         @endphp
-    <section class="pager-section blog-version">
+    <section style="background-image: url({{asset("images/$blog->image")}});" class="pager-section blog-version">
         <div class="container">
             <div class="pager-content text-center">
                 <ul>
@@ -14,10 +14,9 @@
                 </ul>
                 <h2>{{$blog->title}}</h2><span class="categry"> {{$blog->category->name}}, {{$a->name}}</span>
                 <ul class="meta">
-                    <li><a href="post.html#" title="">{{$blog->created_at->format('d/m/y')}}</a></li>
-                    <li><a href="post.html#" title="">by Admin</a></li>
-                    <li><img src="assets/img/icon13.png" alt=""><a href="post.html#" title="">{{$blog->category->name}},</a><a href="post.html#"
-                                                                                                              title=""> maktab</a></li>
+                    <li><a href="" title="">{{$blog->created_at->format('d/m/y')}}</a></li>
+                    <li><a href="" title="">by Admin</a></li>
+                    <li><img src="" alt=""><a href="" title="">{{$blog->category->name}},</a><a href="" title=""> maktab</a></li>
                 </ul>
             </div><!--pager-content end-->
         </div>
