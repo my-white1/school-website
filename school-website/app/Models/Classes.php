@@ -13,7 +13,8 @@ class Classes extends Model
         'name',
         'teacher_id',
         'image',
-        'description'
+        'description',
+        'school_id'
     ];
 
     function teacher()

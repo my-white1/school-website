@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('price');
             $table->unsignedBigInteger('teacher_id');
             $table->text('description');
+            $table->unsignedBigInteger('school_id');
+
+            $table->foreign('school_id')->references('id')->on('abouts');
             $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->timestamps();
         });

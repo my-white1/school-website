@@ -13,11 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         \App\Models\User::create([
-             'name' => 'Admin',
-             'username' => 'admin',
-             'password'=>bcrypt('password')
-         ]);
+
 
          $this->call([
              CategorySeeder::class,
@@ -27,7 +23,15 @@ class DatabaseSeeder extends Seeder
              ClassesSeeder::class,
              CourseSeeder::class,
              BlogSeeder::class,
+             StudentSeeder::class,
+             TypeSeeder::class
          ]);
+        \App\Models\User::create([
+            'name' => 'Admin',
+            'username' => 'admin',
+            'password'=>bcrypt('password'),
+            'school_id'=>1
+        ]);
         foreach (Course::all() as $k=>$c) {
             if ($k%2==0){
                 $c->weeks()->sync([1,3,5]);

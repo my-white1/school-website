@@ -5,20 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Student extends Model
 {
     use HasFactory;
 
     protected $fillable=[
-      'title',
-      'image',
-      'description',
-      'category_id',
+        'firstname',
+        'lastname',
+        'class_id',
         'school_id'
     ];
-
-    function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 }

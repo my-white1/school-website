@@ -16,6 +16,7 @@ class Course extends Model
         'start_time',
         'end_time',
         'price',
+        'school_id'
     ];
 
     function weeks()
