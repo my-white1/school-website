@@ -15,228 +15,218 @@
 </head>
 
 <body>
-    <div class="wrapper">
+<div class="wrapper">
 
 
-        <div class="main-section">
-            <header>
-                <div class="container">
-                    <div class="header-content d-flex flex-wrap align-items-center">
-                        <div class="logo"><a href="{{ route('home') }}" title=""><img
-                                    src="{{ asset('images/logo.png') }}" alt=""
-                                    srcset="assets/img/01_Logo_2x.png 2x"></a>
-                        </div>
-                        @php
-                            $a = \App\Models\About::find(1);
-                        @endphp
-                        <!--logo end-->
-                        <ul class="contact-add d-flex flex-wrap">
-                            <li>
-                                <div class="contact-info"><img src="assets/img/icon1.png" alt="">
-                                    <div class="contact-tt">
-                                        <h4>Bog'lanish uchun</h4><span>+998 {{ $a->phone_number }}</span>
-                                    </div>
-                                </div>
-                                <!--contact-info end-->
-                            </li>
-                            <li>
-                                <div class="contact-info"><img src="assets/img/icon2.png" alt="">
-                                    <div class="contact-tt">
-                                        <h4>O`qish vaqti</h4><span>Dush - Shan {{ $a->start_time }} -
-                                            {{ $a->end_time }}</span>
-                                    </div>
-                                </div>
-                                <!--contact-info end-->
-                            </li>
-                            <li>
-                                <div class="contact-info"><img src="{{ asset('assets/img/icon3.png') }}" alt="">
-                                    <div class="contact-tt">
-                                        <h4>Manzil</h4><span>{{ $a->viloyat }}, {{ $a->tuman }} tumani</span>
-                                    </div>
-                                </div>
-                                <!--contact-info end-->
-                            </li>
-                        </ul>
-                        <!--contact-information end-->
-                        <div class="menu-btn"><a><span class="bar1"></span> <span class="bar2"></span> <span
-                                    class="bar3"></span></a>
-                        </div>
-                        <!--menu-btn end-->
+    <div class="main-section">
+        <header>
+            <div class="container">
+                <div class="header-content d-flex flex-wrap align-items-center">
+                    <div class="logo"><a href="{{ route('home') }}" title=""><img
+                                src="{{ asset('images/logo.png') }}" alt=""
+                                srcset="assets/img/01_Logo_2x.png 2x"></a>
                     </div>
-                    <!--header-content end-->
-                    <div class="navigation-bar d-flex align-items-center gap-0">
-                        <nav>
-                            <ul>
-                                <li><a class="{{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}"
-                                        title="">Bosh sahifa</a>
-                                </li>
+                    @php
+                        $a = \App\Models\About::find(1);
+                    @endphp
+                        <!--logo end-->
+                    <ul class="contact-add d-flex flex-wrap">
+                        <li>
+                            <div class="contact-info"><img src="assets/img/icon1.png" alt="">
+                                <div class="contact-tt">
+                                    <h4>Bog'lanish uchun</h4><span>+998 {{ $a->phone_number }}</span>
+                                </div>
+                            </div>
+                            <!--contact-info end-->
+                        </li>
+                        <li>
+                            <div class="contact-info"><img src="assets/img/icon2.png" alt="">
+                                <div class="contact-tt">
+                                    <h4>O`qish vaqti</h4><span>Dush - Shan {{ $a->start_time }} -
+                                            {{ $a->end_time }}</span>
+                                </div>
+                            </div>
+                            <!--contact-info end-->
+                        </li>
+                        <li>
+                            <div class="contact-info"><img src="{{ asset('assets/img/icon3.png') }}" alt="">
+                                <div class="contact-tt">
+                                    <h4>Manzil</h4><span>{{ $a->viloyat }}, {{ $a->tuman }} tumani</span>
+                                </div>
+                            </div>
+                            <!--contact-info end-->
+                        </li>
+                    </ul>
+                    <!--contact-information end-->
+                    <div class="menu-btn"><a><span class="bar1"></span> <span class="bar2"></span> <span
+                                class="bar3"></span></a>
+                    </div>
+                    <!--menu-btn end-->
+                </div>
+                <!--header-content end-->
+                <div class="navigation-bar d-flex align-items-center gap-0">
+                    <nav>
+                        <ul>
+                            <li><a class="{{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}"
+                                   title="">Bosh sahifa</a>
+                            </li>
 
-                                <li><a class="{{ request()->is('classes*') ? 'active' : '' }}"
-                                        href="{{ route('classes.index') }}" title="">Sinflar</a>
-                                </li>
-                                <li><a class="{{ request()->is('kurslar*') ? 'active' : '' }}"
-                                        href="{{ route('course.index') }}" title="">Kurslar</a>
-                                </li>
-                                <li><a class="{{ request()->is('teachers*') ? 'active' : '' }}"
-                                        href="{{ route('teachers.index') }}" title="">O'qtuvchilar</a>
+                            <li><a class="{{ request()->is('classes*') ? 'active' : '' }}"
+                                   href="{{ route('classes.index') }}" title="">Sinflar</a>
+                            </li>
+                            <li><a class="{{ request()->is('kurslar*') ? 'active' : '' }}"
+                                   href="{{ route('course.index') }}" title="">Kurslar</a>
+                            </li>
+                            <li><a class="{{ request()->is('teachers*') ? 'active' : '' }}"
+                                   href="{{ route('teachers.index') }}" title="">O'qtuvchilar</a>
+                            </li>
+                            <li>
+                                <a class="{{ request()->is('blog*') ? 'active' : '' }}"
+                                   href="{{ route('blog.index') }}" title="">Blog</a>
+                            </li>
+
+                            <li><a class="{{ request()->is('about*') ? 'active' : '' }}"
+                                   href="{{ route('about') }}" title="">Biz haqimizda</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <!--nav end-->
+                    <ul class="social-links ml-auto d-flex ml-5">
+                        <li>
+                            <a href="{{ $a->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="{{ $a->instagram }}"><i class="fab fa-instagram"></i></a>
+
+                        </li>
+                    </ul>
+                </div>
+                <!--navigation-bar end-->
+            </div>
+        </header>
+        <!--header end-->
+        <div class="responsive-menu">
+            <ul>
+                <li><a href="{{route('home')}}" title="">Bosh sahifa</a></li>
+                <li><a href="{{ route('classes.index') }}" title="">Sinflar</a></li>
+                <li><a href="{{ route('teachers.index') }}" title="">O'qituvchilar</a></li>
+                <li><a href="{{route('blog.index')}}" title="">Blog</a></li>
+                <li><a href="{{ route('about') }}" title="">Biz haqimizda</a></li>
+            </ul>
+        </div>
+        <!--responsive-menu end-->
+
+        <h2 class="main-title">web king</h2>
+    </div>
+    <!--main-section end-->
+
+    @yield('content')
+
+
+    <footer>
+        <div class="container">
+            <div class="top-footer">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="widget widget-about"><img src="{{ asset('images/logo.png') }}" alt="">
+                            <p>Vivamus porta efficitur nibh nec convallis. Vestibulum egestas eleifend justo. Ut
+                                tellus ipsum,
+                                accumsan</p>
+                        </div>
+                        <!--widget-about end-->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="widget widget-contact">
+                            <ul class="contact-add">
+                                <li>
+                                    <div class="contact-info"><img src="assets/img/icon1.png" alt="">
+                                        <div class="contact-tt">
+                                            <h4>Call</h4><span>+998 {{ $a->phone_number }}</span>
+                                        </div>
+                                    </div>
+                                    <!--contact-info end-->
                                 </li>
                                 <li>
-                                    <a class="{{ request()->is('blog*') ? 'active' : '' }}"
-                                        href="{{ route('blog.index') }}" title="">Blog</a>
+                                    <div class="contact-info"><img src="assets/img/icon2.png" alt="">
+                                        <div class="contact-tt">
+                                            <h4>O`qish vaqti</h4><span>Duy - Shan {{ $a->start_time }} -
+                                                    {{ $a->end_time }}</span>
+                                        </div>
+                                    </div>
+                                    <!--contact-info end-->
                                 </li>
-
-                                <li><a class="{{ request()->is('about*') ? 'active' : '' }}"
-                                        href="{{ route('about') }}" title="">Biz haqimizda</a>
+                                <li>
+                                    <div class="contact-info"><img src="assets/img/icon3.png" alt="">
+                                        <div class="contact-tt">
+                                            <h4>Manzil</h4><span>{{ $a->viloyat }}, {{ $a->tuman }}
+                                                    tumani</span>
+                                        </div>
+                                    </div>
+                                    <!--contact-info end-->
                                 </li>
+                            </ul>
+                        </div>
+                        <!--widget-contact end-->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="widget widget-links">
+                            <h3 class="widget-title">Hamkorlar va malumotlar</h3>
+                            <ul>
+                                <li><a href="https://webking.uz" title="">Webking Uz</a></li>
+                                <li><a href="https://mexnatkash.uz" title="">Mexnatkash Uz</a></li>
+                                <li><a href="" title="">Dasturchilar</a></li>
+                                <li><a href="" title="">Abduraxmon</a></li>
+                                <li><a href="" title="">Ahmadullo</a></li>
+                                <li><a href="" title="">Yaxyobek</a></li>
 
                             </ul>
-                        </nav>
-                        <!--nav end-->
-                        <ul class="social-links ml-auto d-flex ml-5">
-                            <li>
-                                <a href="{{ $a->facebook }}"><i class="fab fa-facebook-f"></i></a>
-                            </li>
-                            <li>
-                                <a href="{{ $a->instagram }}"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <!--widget-links end-->
+                    </div>
+                </div>
+            </div>
+            <!--top-footer end-->
+            <div class="bottom-footer">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <p>© Copyrights 2020 Shelly All rights reserved</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <ul class="social-links">
+                            <li><a title=""><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a title=""><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a title=""><i class="fab fa-instagram"></i></a></li>
 
-                            </li>
+                            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="https://www.instagram.com/ahmadullorahmatullayev/"><i
+                                        class="fab fa-instagram"></i></a></li>
+
                         </ul>
                     </div>
-                    <!--navigation-bar end-->
                 </div>
-            </header>
-            <!--header end-->
-            <div class="responsive-menu">
-                <ul>
-                    <li><a href="index.html" title="">Bosh sahifa</a></li>
-                    <li><a href="{{ route('classes.index') }}" title="">Sinflar</a></li>
-                    <li><a href="{{ route('teachers.index') }}" title="">O'qituvchilar</a></li>
-                    <li><a href="blog.html" title="">Blog</a></li>
-                    <li><a href="{{ route('about') }}" title="">Biz haqimizda</a></li>
-                </ul>
             </div>
-            <!--responsive-menu end-->
-
-            <h2 class="main-title">web king</h2>
+            <!--bottom-footer end-->
         </div>
-        <!--main-section end-->
+    </footer>
+    <!--footer end-->
+</div>
 
-        @yield('content')
+@livewireScripts()
+<script src="{{ asset('assets/js/bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/button.min.js') }}"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180910402-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
+    function gtag() {
+        dataLayer.push(arguments);
+    }
 
-        <footer>
-            <div class="container">
-                <div class="top-footer">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="widget widget-about"><img src="{{ asset('images/logo.png') }}" alt="">
-                                <p>Vivamus porta efficitur nibh nec convallis. Vestibulum egestas eleifend justo. Ut
-                                    tellus ipsum,
-                                    accumsan</p>
-                            </div>
-                            <!--widget-about end-->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="widget widget-contact">
-                                <ul class="contact-add">
-                                    <li>
-                                        <div class="contact-info"><img src="assets/img/icon1.png" alt="">
-                                            <div class="contact-tt">
-                                                <h4>Call</h4><span>+998 {{ $a->phone_number }}</span>
-                                            </div>
-                                        </div>
-                                        <!--contact-info end-->
-                                    </li>
-                                    <li>
-                                        <div class="contact-info"><img src="assets/img/icon2.png" alt="">
-                                            <div class="contact-tt">
-                                                <h4>O`qish vaqti</h4><span>Duy - Shan {{ $a->start_time }} -
-                                                    {{ $a->end_time }}</span>
-                                            </div>
-                                        </div>
-                                        <!--contact-info end-->
-                                    </li>
-                                    <li>
-                                        <div class="contact-info"><img src="assets/img/icon3.png" alt="">
-                                            <div class="contact-tt">
-                                                <h4>Manzil</h4><span>{{ $a->viloyat }}, {{ $a->tuman }}
-                                                    tumani</span>
-                                            </div>
-                                        </div>
-                                        <!--contact-info end-->
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--widget-contact end-->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="widget widget-links">
-                                <<<<<<< HEAD <h3 class="widget-title">Hamkorlar</h3>
-                                    <ul>
-                                        <li><a href="webking.uz" title="">Web King</a></li>
-                                        <li><a target="blank" href="https://mexnatkash.uz" title="">Mehnatkash
-                                                uz</a></li>
-                                        <li><a href="teachers.html" title="">Dastruchilar</a></li>
-                                        <li><a href="events.html" title="">Abdurahmon</a></li>
-                                        <li><a href="blog.html" title="">Ahmadullo</a></li>
-                                        <li><a href="schedule.html" title="">Yahyoebek</a></li>
-                                        =======
-                                        <h3 class="widget-title">Hamkorlar va malumotlar</h3>
-                                        <ul>
-                                            <li><a href="https://webking.uz" title="">Webking Uz</a></li>
-                                            <li><a href="https://mexnatkash.uz" title="">Mexnatkash Uz</a></li>
-                                            <li><a href="" title="">Dasturchilar</a></li>
-                                            <li><a href="" title="">Abduraxmon</a></li>
-                                            <li><a href="" title="">Ahmadullo</a></li>
-                                            <li><a href="" title="">Yaxyobek</a></li>
-                                            >>>>>>> 107d7ba45655ec937294b960c34f08cec3b8fab1
-                                        </ul>
-                            </div>
-                            <!--widget-links end-->
-                        </div>
-                    </div>
-                </div>
-                <!--top-footer end-->
-                <div class="bottom-footer">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <p>© Copyrights 2020 Shelly All rights reserved</p>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <ul class="social-links">
-                                <<<<<<< HEAD <li><a title=""><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a title=""><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a title=""><i class="fab fa-instagram"></i></a></li>
-                                    =======
-                                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="https://www.instagram.com/ahmadullorahmatullayev/"><i
-                                                class="fab fa-instagram"></i></a></li>
-                                    >>>>>>> 107d7ba45655ec937294b960c34f08cec3b8fab1
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--bottom-footer end-->
-            </div>
-        </footer>
-        <!--footer end-->
-    </div>
-
-    @livewireScripts()
-    <script src="{{ asset('assets/js/bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/button.min.js') }}"></script><!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180910402-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'UA-180910402-1');
-    </script>
+    gtag('js', new Date());
+    gtag('config', 'UA-180910402-1');
+</script>
 </body>
 
 </html>

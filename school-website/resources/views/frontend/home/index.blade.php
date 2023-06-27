@@ -49,8 +49,6 @@
                                 <div class="class-thumb"><img src="{{ asset('images/' . $class->image) }}" alt=""
                                         class="w-100">
 
-                                    {{ asset('images/' . $class->image) }}
-
                                 </div>
                                 <div class="class-info">
                                     <h3><a href="{{ route('class.detail', $class->id) }}"
