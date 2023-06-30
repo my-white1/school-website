@@ -22,5 +22,9 @@ class About extends Model
         'instagram',
     ];
 
+   public function teachers()
+    {
+        return $this->hasMany(Teacher::class,'school_id');
+    }
 
 }
