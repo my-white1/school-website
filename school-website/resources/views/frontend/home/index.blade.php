@@ -2,7 +2,7 @@
 
 @section('content')
     @php
-        $a = \App\Models\About::find(1);
+        $a = \App\Models\About::find(env('SCHOOL_ID'));
         $classes = \App\Models\Classes::all();
     @endphp
     <section class="about-page-content">

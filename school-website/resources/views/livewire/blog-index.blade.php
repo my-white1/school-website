@@ -2,8 +2,9 @@
 
 <div class="col-lg-9">
     @php
-   $a=\App\Models\About::find(1);
- @endphp
+        $a = \App\Models\About::find(env('SCHOOL_ID'));
+
+    @endphp
     <div class="blog-section p-0 posts-page">
             <div class="blog-posts">
         @foreach($blogs as $blog)

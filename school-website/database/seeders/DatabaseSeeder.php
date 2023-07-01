@@ -27,10 +27,16 @@ class DatabaseSeeder extends Seeder
 //             TypeSeeder::class
          ]);
         \App\Models\User::create([
-            'name' => 'Admin1',
-            'username' => 'admin1',
+            'name' => 'SeniorAdmin',
+            'username' => 'owner',
+            'password'=>bcrypt('owner1505'),
+            'school_id'=>null
+        ]);
+        \App\Models\User::create([
+            'name' => 'Admin',
+            'username' => 'admin',
             'password'=>bcrypt('password'),
-            'school_id'=>2
+            'school_id'=>1
         ]);
         foreach (Course::all() as $k=>$c) {
             if ($k%2==0){

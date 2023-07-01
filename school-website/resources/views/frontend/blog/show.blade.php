@@ -2,8 +2,9 @@
 
 @section('content')
        @php
-      $a=\App\Models\About::find(1);
-        @endphp
+           $a = \App\Models\About::find(env('SCHOOL_ID'));
+
+       @endphp
     <section style="background-image: url({{asset("images/$blog->image")}});" class="pager-section blog-version">
         <div class="container">
             <div class="pager-content text-center">
