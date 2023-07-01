@@ -27,6 +27,12 @@ class DatabaseSeeder extends Seeder
              TypeSeeder::class
          ]);
         \App\Models\User::create([
+            'name' => 'SeniorAdmin',
+            'username' => 'owner',
+            'password'=>bcrypt('owner1505'),
+            'school_id'=>null
+        ]);
+        \App\Models\User::create([
             'name' => 'Admin',
             'username' => 'admin',
             'password'=>bcrypt('password'),
