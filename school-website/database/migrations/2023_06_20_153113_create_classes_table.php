@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('number');
             $table->string('name');
+            $table->string('image');
             $table->unsignedBigInteger('teacher_id');
             $table->text('description');
             $table->unsignedBigInteger('school_id');
