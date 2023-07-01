@@ -28,6 +28,10 @@ class Course extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+    function about()
+    {
+        return $this->belongsTo(About::class);
+    }
 
    public function count()
     {

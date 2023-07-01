@@ -104,7 +104,7 @@ Route::get('/admin', function () {
     Route::resource('/class',\App\Http\Controllers\ClassesController::class);
     Route::resource('/weeks',\App\Http\Controllers\WeekController::class);
     Route::resource('/courses',\App\Http\Controllers\CourseController::class);
-    Route::resource('/categories',\App\Http\Controllers\CategoryController::class);
+//    Route::resource('/categories',\App\Http\Controllers\CategoryController::class);
     Route::resource('/blogs',\App\Http\Controllers\BlogController::class);
 });
 Route::get('login',function (){
@@ -112,5 +112,5 @@ Route::get('login',function (){
 })->name('login');
 Route::get('/logout', function () {
     Auth::logout();
-    return view('frontend.home.index');
+    return view('admin.login');
 })->name('logout');

@@ -20,4 +20,8 @@ class Teacher extends Model
     {
         return $this->hasOne(Classes::class);
     }
+    public function about()
+    {
+        return $this->belongsTo(About::class);
+    }
 }

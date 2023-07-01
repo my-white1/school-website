@@ -32,6 +32,9 @@
                             @if($user_yoq)
                                 <span style="color: red">Bunday foydalanuvchi topilmadi</span>
                             @endif
+                            @if($null)
+                                <span style="color: red">Bunday foydalanuvchi topilmadi</span>
+                            @endif
                             <div class="text-center mt-3">
                                 <button type="button" wire:click="login" class="btn btn-lg btn-primary">Sign in</button>
                             </div>

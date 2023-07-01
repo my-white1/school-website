@@ -26,5 +26,17 @@ class About extends Model
     {
         return $this->hasMany(Teacher::class,'school_id');
     }
+    public function classes()
+    {
+        return $this->hasMany(Classes::class,'school_id');
+    }
+    public function courses()
+    {
+        return $this->hasMany(Course::class,'school_id');
+    }
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class,'school_id');
+    }
 
 }

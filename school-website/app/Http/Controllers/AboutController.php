@@ -12,8 +12,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $about=About::find(1);
-        return view('admin.about.index',compact('about'));
+            $abouts = About::with('teachers')->get();
+            return view('admin.about.index', compact('abouts'));
     }
 
     /**
@@ -38,7 +38,7 @@ class AboutController extends Controller
     public function show(About $about)
     {
 //        dd($about);
-        return view('admin.about.show',compact('about'));
+        return view('admin.about.show', compact('about'));
     }
 
     /**
@@ -46,7 +46,7 @@ class AboutController extends Controller
      */
     public function edit(About $about)
     {
-        return view('admin.about.edit',compact('about'));
+        return view('admin.about.edit', compact('about'));
     }
 
     /**
@@ -57,7 +57,7 @@ class AboutController extends Controller
 
         if ($request->image) {
             $data = $request->all();
-            if ($request->image){
+            if ($request->image) {
                 $file = $request->file('image');
                 $image_name = uniqid() . $file->getClientOriginalName();
                 $data['image'] = $image_name;
@@ -75,7 +75,7 @@ class AboutController extends Controller
                     'facebook' => $request->facebook,
                     'instagram' => $request->instagram,
                 ]);
-            }else{
+            } else {
                 $about->update([
                     'name' => $request->name,
                     'phone_number' => $request->phone_number,
@@ -109,7 +109,7 @@ class AboutController extends Controller
 
         }
 
-return redirect()->route('abouts.index');
+        return redirect()->route('abouts.index');
     }
 
     /**

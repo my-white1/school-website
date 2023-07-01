@@ -65,11 +65,6 @@
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">Yangliklar</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ request()->is('categories*') ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{route('categories.index')}}">
-                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">Categories</span>
-                    </a>
-                </li>
 
             </ul>
 

@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public $username, $password, $user_yoq = false;
+    public $username, $password, $user_yoq = false, $null = false;
 
     protected $rules = [
         'username' => 'required',
@@ -29,10 +29,9 @@ class Login extends Component
         if ($user) {
             if (Hash::check($this->password, $user->password)) {
                 $this->user_yoq = false;
-
-                Auth::login($user);
-
-
+                if ($user->school_id == env('SCHOOL_ID')) {
+                    Auth::login($user);
+                }
                 return redirect()->route('admin');
             } else {
                 $this->user_yoq = true;

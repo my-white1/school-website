@@ -21,4 +21,8 @@ class Blog extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    function about()
+    {
+        return $this->belongsTo(About::class);
+    }
 }

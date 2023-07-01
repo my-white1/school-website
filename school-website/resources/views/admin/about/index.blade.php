@@ -21,17 +21,45 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>{{$about->name}}</td>
-                                <td class="d-none d-xl-table-cell"><img width="100px" src="{{'images/'.$about->image}}" alt="{{$about->name}} rasimi"></td>
-                                <td>{{$about->phone_number}}</td>
-                                <td class="d-none d-md-table-cell">{{$about->viloyat}}</td>
-                                <td class="d-none d-md-table-cell">{{$about->tuman}}</td>
-                                <td>
-                                    <a href="{{route('abouts.edit',[$about->id])}}" class="btn btn-info">Edit</a>
-                                    <a href="{{route('abouts.show',[$about->id])}}" class="btn btn-success">View</a>
-                                </td>
-                            </tr>
+                            @if(auth()->user()->school_id==null)
+                                @foreach($abouts as $about)
+
+                                    <tr>
+                                        <td>{{$about->name}}</td>
+                                        <td class="d-none d-xl-table-cell"><img width="100px"
+                                                                                src="{{'images/'.$about->image}}"
+                                                                                alt="{{$about->name}} rasimi"></td>
+                                        <td>{{$about->phone_number}}</td>
+                                        <td class="d-none d-md-table-cell">{{$about->viloyat}}</td>
+                                        <td class="d-none d-md-table-cell">{{$about->tuman}}</td>
+                                        <td>
+                                            <a href="{{route('abouts.edit',[$about->id])}}"
+                                               class="btn btn-info">Edit</a>
+                                            <a href="{{route('abouts.show',[$about->id])}}"
+                                               class="btn btn-success">View</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                @php
+                                    $about2=App\Models\About::find(auth()->user()->school_id)
+                                @endphp
+                                <tr>
+                                    <td>{{$about2->name}}</td>
+                                    <td class="d-none d-xl-table-cell"><img width="100px"
+                                                                            src="{{'images/'.$about2->image}}"
+                                                                            alt="{{$about2->name}} rasimi"></td>
+                                    <td>{{$about2->phone_number}}</td>
+                                    <td class="d-none d-md-table-cell">{{$about2->viloyat}}</td>
+                                    <td class="d-none d-md-table-cell">{{$about2->tuman}}</td>
+                                    <td>
+                                        <a href="{{route('abouts.edit',[$about2->id])}}"
+                                           class="btn btn-info">Edit</a>
+                                        <a href="{{route('abouts.show',[$about2->id])}}"
+                                           class="btn btn-success">View</a>
+                                    </td>
+                                </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>

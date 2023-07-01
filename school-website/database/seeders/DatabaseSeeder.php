@@ -24,13 +24,13 @@ class DatabaseSeeder extends Seeder
              CourseSeeder::class,
              BlogSeeder::class,
              StudentSeeder::class,
-             TypeSeeder::class
+//             TypeSeeder::class
          ]);
         \App\Models\User::create([
-            'name' => 'Admin',
-            'username' => 'admin',
+            'name' => 'Admin1',
+            'username' => 'admin1',
             'password'=>bcrypt('password'),
-            'school_id'=>1
+            'school_id'=>2
         ]);
         foreach (Course::all() as $k=>$c) {
             if ($k%2==0){

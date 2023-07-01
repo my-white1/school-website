@@ -158,7 +158,6 @@
 
                     </div>
                 </div>
-    </section>
     <!--course-section end-->
     <section class="blog-section">
         <div class="container">
