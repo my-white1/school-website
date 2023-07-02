@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Degree;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class DegreeController extends Controller
@@ -12,7 +13,8 @@ class DegreeController extends Controller
      */
     public function index()
     {
-        //
+        $degree=Degree::with('teacher')->get();
+        return view('admin.degrees.index',compact('degree'));
     }
 
     /**
@@ -20,7 +22,8 @@ class DegreeController extends Controller
      */
     public function create()
     {
-        //
+        $teachers=Teacher::pluck('firstname','id');
+        return view('admin.degrees.create',compact('teachers'));
     }
 
     /**
@@ -28,7 +31,17 @@ class DegreeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'teacher_id'=>'required',
+            'type_id'=>'required',
+            'year'=>'required',
+        ],[
+            'teacher_id.required'=>"O'qtuvchi tanlanmadi",
+            'type_id.required'=>"O'qtuvchini darahasi tanlanmadi",
+            'year.required'=>"O'qtuvchini tajriba yili kiritilmadi",
+        ]);
+        Degree::create($request->all());
+        return redirect()->route('degree.index');
     }
 
     /**
@@ -36,7 +49,7 @@ class DegreeController extends Controller
      */
     public function show(Degree $degree)
     {
-        //
+        return view('admin.degrees.show',compact('degree'));
     }
 
     /**
@@ -44,7 +57,8 @@ class DegreeController extends Controller
      */
     public function edit(Degree $degree)
     {
-        //
+        $teachers=Teacher::pluck('firstname','id');
+        return view('admin.degrees.edit',compact('degree','teachers'));
     }
 
     /**
@@ -52,7 +66,17 @@ class DegreeController extends Controller
      */
     public function update(Request $request, Degree $degree)
     {
-        //
+        $request->validate([
+            'teacher_id'=>'required',
+            'type_id'=>'required',
+            'year'=>'required',
+        ],[
+            'teacher_id.required'=>"O'qtuvchi tanlanmadi",
+            'type_id.required'=>"O'qtuvchini darahasi tanlanmadi",
+            'year.required'=>"O'qtuvchini tajriba yili kiritilmadi",
+        ]);
+        $degree->update($request->all());
+        return redirect()->route('degree.index');
     }
 
     /**
@@ -60,6 +84,7 @@ class DegreeController extends Controller
      */
     public function destroy(Degree $degree)
     {
-        //
+        $degree->delete();
+        return back();
     }
 }

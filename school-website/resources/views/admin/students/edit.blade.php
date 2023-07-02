@@ -7,11 +7,13 @@
                     <div class="card flex-fill">
                         <div class="card-header">
 
-                            <h5 class="card-title">O'qtuvchi qo'shish</h5>
+                            <h5 class="card-title">O'quvchini malumotlarini o'zgartirish</h5>
                         </div>
 
 
-                        <form action="{{ route('teacher.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('students.update',$student->id)}}" method="post"
+                              enctype="multipart/form-data">
+                            @method('PUT')
                             @if ($errors->any())
                                 @foreach ($errors->all() as $error)
                                     <div class="alert alert-danger" role="alert">
@@ -24,52 +26,38 @@
                             <div class="row">
                                 <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">Ismi</h5>
+                                    <h5 class="card-title mb-0">Ism familya</h5>
 
                                     <div class="card-body">
-                                        <input type="text" name="firstname" class="form-control"
-                                               placeholder="O'qtuvchi ismi">
+                                        <input type="text" name="fullname" class="form-control"
+                                               placeholder="O'quvchi ism familyasi" value="{{$student->fullname}}">
                                     </div>
                                 </div>
                                 <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">Familyasi</h5>
+                                    <h5 class="card-title mb-0">Sinifi</h5>
 
                                     <div class="card-body">
-                                        <input type="text" name="lastname" class="form-control"
-                                               placeholder="O'qtuvchi familyasi">
-                                    </div>
-                                </div>
-                                <div class="col-6 ">
-
-                                    <h5 class="card-title mb-0">Fani</h5>
-
-                                    <div class="card-body">
-                                        <input type="text" name="category" class="form-control"
-                                               placeholder="O'qtuvchi qaysi fandan dars berishi">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-
-                                    <h5 class="card-title mb-0">O'qtuvchi rasimi</h5>
-
-                                    <div class="card-body">
-                                        <input type="file" class="form-control" name="image"
-                                               placeholder="O'qtuvchi rasimi">
-                                    </div>
-                                </div>
-                                @if(auth()->user()->school_id==null)
-                                <div class="col-6 ">
-                                    <h5 class="card-title mb-0">Maktabi</h5>
-                                    <div class="card-body">
-                                        <select class="form-select" name="school_id" id="">
-                                            <option disabled selected>Maktabni tanlang</option>
-                                            @foreach($school as $id=> $s)
-                                                <option value="{{$id}}">{{$s}}</option>
+                                        <select name="class_id" class="form-select">
+                                            <option disabled selected>Sinifini tanlang</option>
+                                            @foreach($classes as $id=>$item)
+                                                <option @if($student->class_id==$id) selected @endif value="{{$id}}">{{$item}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
+                                @if(auth()->user()->school_id==null)
+                                    <div class="col-6 ">
+                                        <h5 class="card-title mb-0">Maktabi</h5>
+                                        <div class="card-body">
+                                            <select class="form-select" name="school_id" id="">
+                                                <option disabled selected>Maktabni tanlang</option>
+                                                @foreach($school as $id=> $s)
+                                                    <option @if($student->school_id==$id) selected @endif value="{{$id}}">{{$s}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                 @endif
                             </div>
                             <button class="btn btn-primary mt-3" type="submit">
@@ -80,9 +68,9 @@
                                     <path fill-rule="evenodd"
                                           d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
                                 </svg>
-                                Yaratish
+                                Saqlash
                             </button>
-                            <a class="btn btn-secondary mt-3" href="{{ route('teacher.index') }}">
+                            <a class="btn btn-secondary mt-3" href="{{ route('students.index') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-arrow-left" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"

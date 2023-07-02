@@ -10,9 +10,26 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable=[
-        'firstname',
-        'lastname',
+        'fullname',
         'class_id',
         'school_id'
     ];
+    const TYPES=[
+        '1'=>'IELTS',
+        '2'=>'CEFR'
+    ];
+    const DEGREE=[
+        '1'=>'B1',
+        '2'=>'B2',
+        '3'=>'C1'
+    ];
+    public function about()
+    {
+        return $this->belongsTo(About::class);
+    }
+
+    public function certificate()
+    {
+        return $this->hasMany(Certificate::class);
+    }
 }

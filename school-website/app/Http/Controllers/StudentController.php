@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\About;
+use App\Models\Classes;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -12,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students=Student::with('about')->get();
+        return view('admin.students.index',compact('students'));
     }
 
     /**
@@ -20,7 +23,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $school=About::pluck('name','id');
+        $classes=Classes::pluck('class','id');
+        return view('admin.students.create',compact('school','classes'));
     }
 
     /**
@@ -28,7 +33,27 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'class_id' => 'required',
+        ], [
+            'fullname.required' => 'Ismni kiriting',
+            'class_id.required' => 'Sinf kiriting',
+        ]);
+        if (auth()->user()->school_id == null) {
+            Student::create([
+                'fullname' => $request->firstname,
+                'class_id' => $request->class_id,
+                'school_id' => $request->school_id,
+            ]);
+        } else {
+            Student::create([
+                'fullname' => $request->firstname,
+                'class_id' => $request->class_id,
+                'school_id' => auth()->user()->school_id,
+            ]);
+        }
+        return redirect()->route('students.index');
     }
 
     /**
@@ -36,7 +61,8 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+
+        return view('admin.students.show',compact('student'));
     }
 
     /**
@@ -44,7 +70,9 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        $school=About::pluck('name','id');
+        $classes=Classes::pluck('class','id');
+        return view('admin.students.edit',compact('school','classes','student'));
     }
 
     /**
@@ -52,7 +80,27 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'class_id' => 'required',
+        ], [
+            'firstname.required' => 'Ismni kiriting',
+            'class_id.required' => 'Sinf kiriting',
+        ]);
+        if (auth()->user()->school_id == null) {
+            $student->update([
+                'fullname' => $request->firstname,
+                'class_id' => $request->class_id,
+                'school_id' => $request->school_id,
+            ]);
+        } else {
+            $student->update([
+                'fullname' => $request->firstname,
+                'class_id' => $request->class_id,
+                'school_id' => auth()->user()->school_id,
+            ]);
+        }
+        return redirect()->route('students.index');
     }
 
     /**
@@ -60,6 +108,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return back();
     }
 }

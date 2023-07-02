@@ -106,6 +106,9 @@ Route::get('/admin', function () {
     Route::resource('/courses',\App\Http\Controllers\CourseController::class);
 //    Route::resource('/categories',\App\Http\Controllers\CategoryController::class);
     Route::resource('/blogs',\App\Http\Controllers\BlogController::class);
+    Route::resource('/degree',\App\Http\Controllers\DegreeController::class);
+    Route::resource('/students',\App\Http\Controllers\StudentController::class);
+    Route::resource('/certificate',\App\Http\Controllers\CertificateController::class);
 });
 Route::get('login',function (){
     return view('admin.login');

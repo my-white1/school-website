@@ -50,6 +50,21 @@
                         <i class="align-middle" data-feather="users"></i> <span class="align-middle">O'qtuvchilar</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->is('degree*') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{route('degree.index')}}">
+                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">O'qtuvchilar Darajalari</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->is('students*') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{route('students.index')}}">
+                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">O'quvchilar</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->is('certificate*') ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{route('certificate.index')}}">
+                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">O'quvchilar sertificati</span>
+                    </a>
+                </li>
                 <li class="sidebar-item {{ request()->is('class*') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{route('class.index')}}">
                         <i class="align-middle" data-feather="book"></i> <span class="align-middle">Sinflar</span>

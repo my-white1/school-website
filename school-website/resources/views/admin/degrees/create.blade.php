@@ -7,11 +7,11 @@
                     <div class="card flex-fill">
                         <div class="card-header">
 
-                            <h5 class="card-title">O'qtuvchi qo'shish</h5>
+                            <h5 class="card-title">Daraja qo'shish</h5>
                         </div>
 
 
-                        <form action="{{ route('teacher.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('degree.store') }}" method="post" enctype="multipart/form-data">
                             @if ($errors->any())
                                 @foreach ($errors->all() as $error)
                                     <div class="alert alert-danger" role="alert">
@@ -24,53 +24,39 @@
                             <div class="row">
                                 <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">Ismi</h5>
+                                    <h5 class="card-title mb-0">O'qtuvchi</h5>
 
                                     <div class="card-body">
-                                        <input type="text" name="firstname" class="form-control"
-                                               placeholder="O'qtuvchi ismi">
-                                    </div>
-                                </div>
-                                <div class="col-6 ">
-
-                                    <h5 class="card-title mb-0">Familyasi</h5>
-
-                                    <div class="card-body">
-                                        <input type="text" name="lastname" class="form-control"
-                                               placeholder="O'qtuvchi familyasi">
-                                    </div>
-                                </div>
-                                <div class="col-6 ">
-
-                                    <h5 class="card-title mb-0">Fani</h5>
-
-                                    <div class="card-body">
-                                        <input type="text" name="category" class="form-control"
-                                               placeholder="O'qtuvchi qaysi fandan dars berishi">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-
-                                    <h5 class="card-title mb-0">O'qtuvchi rasimi</h5>
-
-                                    <div class="card-body">
-                                        <input type="file" class="form-control" name="image"
-                                               placeholder="O'qtuvchi rasimi">
-                                    </div>
-                                </div>
-                                @if(auth()->user()->school_id==null)
-                                <div class="col-6 ">
-                                    <h5 class="card-title mb-0">Maktabi</h5>
-                                    <div class="card-body">
-                                        <select class="form-select" name="school_id" id="">
-                                            <option disabled selected>Maktabni tanlang</option>
-                                            @foreach($school as $id=> $s)
-                                                <option value="{{$id}}">{{$s}}</option>
+                                        <select class="form-select" name="teacher_id" id="">
+                                            <option disabled selected>O'qtuvchini tanlang</option>
+                                            @foreach($teachers as $id=> $teacher)
+                                                <option value="{{$id}}">{{$teacher}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                                @endif
+                                <div class="col-6 ">
+
+                                    <h5 class="card-title mb-0">Darajasi</h5>
+
+                                    <div class="card-body">
+                                        <select class="form-select" name="type_id" id="">
+                                            <option disabled selected>Darajani tanlang</option>
+                                            @foreach(App\Models\Degree::TYPES as $id=> $type)
+                                                <option value="{{$id}}">{{$type}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+
+                                    <h5 class="card-title mb-0">Tajriba yili</h5>
+
+                                    <div class="card-body">
+                                        <input type="number" name="year" class="form-control"
+                                               placeholder="O'qtuvchi qancha yillik tajribasi bor">
+                                    </div>
+                                </div>
                             </div>
                             <button class="btn btn-primary mt-3" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -82,7 +68,7 @@
                                 </svg>
                                 Yaratish
                             </button>
-                            <a class="btn btn-secondary mt-3" href="{{ route('teacher.index') }}">
+                            <a class="btn btn-secondary mt-3" href="{{ route('degree.index') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-arrow-left" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"

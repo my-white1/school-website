@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Certificate;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class CertificateController extends Controller
@@ -12,7 +13,8 @@ class CertificateController extends Controller
      */
     public function index()
     {
-        //
+        $certificates=Certificate::with('students')->get();
+        return view('admin.certificate.index',compact('certificates'));
     }
 
     /**
@@ -20,7 +22,8 @@ class CertificateController extends Controller
      */
     public function create()
     {
-        //
+        $students=Student::pluck('fullname','id');
+        return view('admin.certificate.create',compact('students'));
     }
 
     /**
@@ -28,7 +31,19 @@ class CertificateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'student_id'=>'required',
+            'ball'=>'required',
+            'type'=>'required',
+            'degree'=>'required',
+        ],[
+            'student_id.required'=>"O'quvchi tanlanmadi",
+            'ball.required'=>"O'quvchi toplagan bali yozilmadi",
+            'type.required'=>"O'quvchini olgan sertifikati yozilmadi",
+            'degree.required'=>"O'quvchini darajasi yozilmadi",
+        ]);
+        Certificate::create($request->all());
+        return redirect()->route('certificate.index');
     }
 
     /**
@@ -36,7 +51,7 @@ class CertificateController extends Controller
      */
     public function show(Certificate $certificate)
     {
-        //
+        return view('admin.certificate.show',compact('certificate'));
     }
 
     /**
@@ -44,7 +59,8 @@ class CertificateController extends Controller
      */
     public function edit(Certificate $certificate)
     {
-        //
+        $students=Student::pluck('fullname','id');
+        return view('admin.certificate.edit',compact('students','certificate'));
     }
 
     /**
@@ -52,7 +68,19 @@ class CertificateController extends Controller
      */
     public function update(Request $request, Certificate $certificate)
     {
-        //
+        $request->validate([
+            'student_id'=>'required',
+            'ball'=>'required',
+            'type'=>'required',
+            'degree'=>'required',
+        ],[
+            'student_id.required'=>"O'quvchi tanlanmadi",
+            'ball.required'=>"O'quvchi toplagan bali yozilmadi",
+            'type.required'=>"O'quvchini olgan sertifikati yozilmadi",
+            'degree.required'=>"O'quvchini darajasi yozilmadi",
+        ]);
+        $certificate->update($request->all());
+        return redirect()->route('certificate.index');
     }
 
     /**
@@ -60,6 +88,7 @@ class CertificateController extends Controller
      */
     public function destroy(Certificate $certificate)
     {
-        //
+        $certificate->delete();
+        return back();
     }
 }
