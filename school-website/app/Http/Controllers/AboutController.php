@@ -21,7 +21,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.about.create');
     }
 
     /**
@@ -29,7 +29,28 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      $request->validate([
+          'name'=>'required',
+          'phone_number'=>'required',
+          'description'=>'required',
+          'start_time'=>'required',
+          'end_time'=>'required',
+          'viloyat'=>'required',
+          'tuman'=>'required',
+      ]);
+
+     $a= About::create(
+          $request->all()
+      );
+
+     if (!$request->image){
+         $a->update([
+             'image'=>'school.png'
+         ]);
+     }
+        return redirect()->route('abouts.index');
+
     }
 
     /**

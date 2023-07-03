@@ -27,6 +27,15 @@ class Login extends Component
         $user = User::where('username', $this->username)->first();
 
         if ($user) {
+            if ($user->school_id==null && env('SCHOOL_ID')==1){
+                if (Hash::check($this->password, $user->password)) {
+                    $this->user_yoq = false;
+                        Auth::login($user);
+                    return redirect()->route('admin');
+                }
+
+
+            }else{
             if (Hash::check($this->password, $user->password)) {
                 $this->user_yoq = false;
                 if ($user->school_id == env('SCHOOL_ID')) {
@@ -35,6 +44,7 @@ class Login extends Component
                 return redirect()->route('admin');
             } else {
                 $this->user_yoq = true;
+            }
             }
         } else {
             $this->user_yoq = true;

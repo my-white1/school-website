@@ -6,8 +6,15 @@
                 <div class="d-flex">
                     <div class="card flex-fill">
                         <div class="card-header">
-
+                              @if(auth()->user()->school_id==null)
+                            <h5 class="card-title 0">Maktablar haqida</h5>
+                                <a href="{{route('abouts.create')}}"
+                                   class="btn btn-success">yaratish</a>
+                            @else
                             <h5 class="card-title 0">Maktab haqida</h5>
+                              @endif
+
+
                         </div>
                         <table class="table table-hover my-0">
                             <thead>
