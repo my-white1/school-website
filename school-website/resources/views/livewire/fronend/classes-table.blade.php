@@ -4,12 +4,12 @@
             @foreach ($classes as $class)
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="classes-col">
-                        <div class="class-thumb"><img src="{{ asset("images/$class->images") }}" alt=""
+                        <div class="class-thumb"><img src="{{ asset("images/$class->image") }}" alt="class image"
                                 class="w-100">
                         </div>
                         <div class="class-info">
                             <h3><a href="{{ route('class.detail', $class->id) }}"
-                                    title="">{{ $class->number }}-{{ $class->name }} Sinf</a>
+                                    title="">{{ $class->class }} Sinf</a>
                             </h3>
                             <span>Xarkuni</span> <span></span>
                             <div class="d-flex flex-wrap align-items-center">

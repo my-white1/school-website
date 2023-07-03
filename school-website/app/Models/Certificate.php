@@ -13,7 +13,7 @@ class Certificate extends Model
         'type',
         'degree',
         'ball',
-        'student_id'
+        'student_id',
     ];
 
     public function students()

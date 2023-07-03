@@ -24,9 +24,9 @@
                             <div class="row">
                                 <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">O'quvchi</h5>
-
+                                    
                                     <div class="card-body">
+                                        <h5 class="card-title mb-3">O'quvchi</h5>
                                         <select class="form-select" name="student_id" id="">
                                             <option disabled selected>O'qtuvchini tanlang</option>
                                             @foreach($students as $id=> $student)
@@ -37,9 +37,9 @@
                                 </div>
                                 <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">Olgan certificatlari</h5>
-
+                                    
                                     <div class="card-body">
+                                        <h5 class="card-title mb-3">Olgan certificatlari</h5>
                                         <select class="form-select" name="type" id="">
                                             <option disabled selected>Certificatni tanlang</option>
                                             @foreach(App\Models\Student::TYPES as $id=> $type)
@@ -50,18 +50,18 @@
                                 </div>
                                 <div class="col-6">
 
-                                    <h5 class="card-title mb-0">Olgan bali</h5>
-
+                                    
                                     <div class="card-body">
+                                        <h5 class="card-title mb-3">Olgan bali</h5>
                                         <input type="number" name="ball" class="form-control"
                                                placeholder="O'quvchini qancha olgan bali">
                                     </div>
                                 </div>
                                 <div class="col-6">
 
-                                    <h5 class="card-title mb-0">Olgan darajasi</h5>
-
+                                    
                                     <div class="card-body">
+                                        <h5 class="card-title mb-3">Olgan darajasi</h5>
                                         <select class="form-select" name="degree" id="">
                                             <option disabled selected>Certificatni tanlang</option>
                                             @foreach(App\Models\Student::DEGREE as $id=> $type)
