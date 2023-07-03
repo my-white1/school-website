@@ -16,7 +16,8 @@ class Student extends Model
     ];
     const TYPES=[
         '1'=>'IELTS',
-        '2'=>'CEFR'
+        '2'=>'CEFR',
+        '3'=>'IT',
     ];
     const DEGREE=[
         '1'=>'B1',
