@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/button.min.css') }}">
     @livewireStyles()
+    <link rel="stylesheet" href="{{asset('st.css')}}">
 </head>
 
 <body>
@@ -219,6 +220,7 @@
 
     @livewireScripts()
     <script src="{{ asset('assets/js/bundle.min.js') }}"></script>
+
     <script src="{{ asset('assets/js/button.min.js') }}"></script><!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180910402-1"></script>
     <script>

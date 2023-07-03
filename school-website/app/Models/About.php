@@ -43,4 +43,16 @@ class About extends Model
         return $this->hasMany(Student::class,'school_id');
     }
 
+
+    function GreatTeachers()
+    {
+        $c=0;
+
+        foreach ($this->teachers() as $t){
+        if($t->degrees[0]->type==1){
+
+        }
+        }
+    }
+
 }
