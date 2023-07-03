@@ -15,28 +15,29 @@
                         <form>
                             <div class="mb-3">
                                 <label class="form-label">Username</label>
-                                <input class="form-control form-control-lg" wire:model="username" type="text" name="username"
-                                       placeholder="Enter your username"/>
+                                <input class="form-control form-control-lg" wire:model="username" type="text"
+                                    name="username" placeholder="Enter your username" />
                                 @error('username')
-                                    <span style="color: red">{{$message}}</span>
+                                    <span style="color: red">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Password</label>
-                                <input class="form-control form-control-lg" type="password" wire:model="password" name="password"
-                                       placeholder="Enter your password"/>
+                                <input class="form-control form-control-lg" type="password" wire:model="password"
+                                    name="password" placeholder="Enter your password" />
                                 @error('password')
-                                <span style="color: red">{{$message}}</span>
+                                    <span style="color: red">{{ $message }}</span>
                                 @enderror
                             </div>
-                            @if($user_yoq)
+                            @if ($user_yoq)
                                 <span style="color: red">Bunday foydalanuvchi topilmadi</span>
                             @endif
-                            @if($null)
+                            @if ($null)
                                 <span style="color: red">Bunday foydalanuvchi topilmadi</span>
                             @endif
                             <div class="text-center mt-3">
-                                <button type="button" wire:click="login" class="btn btn-lg btn-primary">Sign in</button>
+                                <button type="button" wire:click="login" class="btn btn-lg btn-primary">Sign
+                                    in</button>
                             </div>
                         </form>
                     </div>

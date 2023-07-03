@@ -3,6 +3,7 @@
 use App\Models\Blog;
 use App\Models\Classes;
 use App\Models\Course;
+use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,11 @@ Route::get('/course-detail/{id}', function ($id) {
 Route::get('/teachers', function () {
     return view('frontend.teachers.index');
 })->name('teachers.index');
+
+// Students
+Route::get('/front/students', function () {
+    return view('frontend.students.index');
+})->name('front.students');
 
 
 // Contact

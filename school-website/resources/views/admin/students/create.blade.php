@@ -24,18 +24,18 @@
                             <div class="row">
                                 <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">Ism Familya</h5>
-
+                                    
                                     <div class="card-body">
+                                        <h5 class="card-title mb-3">Ism Familya</h5>
                                         <input type="text" name="fullname" class="form-control"
                                                placeholder="O'quvchi ism familyasi">
                                     </div>
                                 </div>
                                 <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">Sinifi</h5>
-
+                                    
                                     <div class="card-body">
+                                        <h5 class="card-title mb-3">Sinifi</h5>
                                        <select name="class_id" class="form-select">
                                            <option disabled selected>Sinifini tanlang</option>
                                            @foreach($classes as $id=>$item)

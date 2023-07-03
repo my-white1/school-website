@@ -19,8 +19,8 @@
 
     <link href="{{asset('back/css/app.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    @livewireStyles()
-
+    @livewireStyles
+    @livewireScripts
 </head>
 
 <body>
@@ -29,7 +29,6 @@
         @livewire('login')
     </div>
 </main>
-@livewireScripts()
 <script src="{{asset('back/js/app.js')}}"></script>
 
 </body>

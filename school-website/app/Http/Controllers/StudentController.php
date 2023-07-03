@@ -33,6 +33,8 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd("Post request", $request->all());
         $request->validate([
             'fullname' => 'required',
             'class_id' => 'required',
@@ -40,6 +42,9 @@ class StudentController extends Controller
             'fullname.required' => 'Ismni kiriting',
             'class_id.required' => 'Sinf kiriting',
         ]);
+
+        dd("Validation done");
+
         if (auth()->user()->school_id == null) {
             Student::create([
                 'fullname' => $request->firstname,
