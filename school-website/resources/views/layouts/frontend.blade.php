@@ -72,7 +72,7 @@
                                 </li>
 
                                 <li><a class="{{ request()->is('classes*') ? 'active' : '' }}"
-                                        href="{{ route('classes.index') }}" title="">Sinflar</a>
+                                        href="{{ route('statistika') }}" title="">statistika</a>
                                 </li>
                                 <li><a class="{{ request()->is('kurslar*') ? 'active' : '' }}"
                                         href="{{ route('course.index') }}" title="">Kurslar</a>

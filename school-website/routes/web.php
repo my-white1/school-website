@@ -43,6 +43,10 @@ Route::get('/classes', function () {
     return view('frontend.classes.index');
 })->name('classes.index');
 
+Route::get('/statistika', function () {
+    return view('frontend.statistika.index');
+})->name('statistika');
+
 // classes single
 Route::get('/class-detail/{id}', function ($id) {
     $class = Classes::find($id);
