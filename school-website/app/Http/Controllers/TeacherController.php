@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
+use App\Models\About;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -21,7 +22,8 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        return view('admin.teachers.create');
+        $school = About::pluck('name', 'id');
+        return view('admin.teachers.create', compact('school'));
     }
 
     /**
@@ -46,12 +48,23 @@ class TeacherController extends Controller
         $image_name = uniqid() . $file->getClientOriginalName();
         $data['image'] = $image_name;
         $file->move(public_path('images'), $image_name);
-        Teacher::create([
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
-            'category' => $request->category,
-            'image' => $data['image'],
-        ]);
+        if (auth()->user()->school_id == null) {
+            Teacher::create([
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'category' => $request->category,
+                'image' => $data['image'],
+                'school_id' => $request->school_id,
+            ]);
+        } else {
+            Teacher::create([
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'category' => $request->category,
+                'image' => $data['image'],
+                'school_id' => auth()->user()->school_id,
+            ]);
+        }
         return redirect()->route('teacher.index');
     }
 
@@ -60,7 +73,7 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        return view('admin.teachers.show',compact('teacher'));
+        return view('admin.teachers.show', compact('teacher'));
     }
 
     /**
@@ -68,7 +81,8 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        return view('admin.teachers.edit', compact('teacher'));
+        $school = About::pluck('name', 'id');
+        return view('admin.teachers.edit', compact('teacher', 'school'));
     }
 
     /**
@@ -93,23 +107,45 @@ class TeacherController extends Controller
             $file = $request->file('image');
             $image_name = uniqid() . $file->getClientOriginalName();
             $data['image'] = $image_name;
-            $teacher->update([
-                'firstname' => $request->firstname,
-                'lastname' => $request->lastname,
-                'category' => $request->category,
-                'image' => $image_name,
+            if (auth()->user()->school_id == null) {
+                $teacher->update([
+                    'firstname' => $request->firstname,
+                    'lastname' => $request->lastname,
+                    'category' => $request->category,
+                    'image' => $image_name,
+                    'school_id' => $request->school_id,
 
-            ]);
+                ]);
+            } else {
+                $teacher->update([
+                    'firstname' => $request->firstname,
+                    'lastname' => $request->lastname,
+                    'category' => $request->category,
+                    'image' => $image_name,
+                    'school_id' => auth()->user()->school_id,
+                ]);
+            }
 
             $file->move(public_path('images'), $image_name);
 
         } else {
-            $teacher->update([
-                'firstname' => $request->firstname,
-                'lastname' => $request->lastname,
-                'category' => $request->category,
-            ]);
+            if (auth()->user()->school_id == null) {
+                $teacher->update([
+                    'firstname' => $request->firstname,
+                    'lastname' => $request->lastname,
+                    'category' => $request->category,
+                    'school_id' => $request->school_id,
 
+
+                ]);
+            } else {
+                $teacher->update([
+                    'firstname' => $request->firstname,
+                    'lastname' => $request->lastname,
+                    'category' => $request->category,
+                    'school_id' => auth()->user()->school_id,
+                ]);
+            }
         }
 
         return redirect()->route('teacher.index');

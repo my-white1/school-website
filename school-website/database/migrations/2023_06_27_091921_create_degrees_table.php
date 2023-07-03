@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('degrees', function (Blueprint $table) {
             $table->id();
             $table->integer('year');
-            $table->unsignedBigInteger('type_id');
+            $table->integer('type_id');
             $table->unsignedBigInteger('teacher_id');
 
-            $table->foreign('type_id')->references('id')->on('types');
             $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->timestamps();
         });

@@ -24,20 +24,11 @@
                             <div class="row">
                                 <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">Sinf raqami</h5>
+                                    <h5 class="card-title mb-0">Sinf nomi</h5>
 
                                     <div class="card-body">
-                                        <input type="number" name="number" class="form-control"
-                                               placeholder="Sinf raqami">
-                                    </div>
-                                </div>
-                                <div class="col-6 ">
-
-                                    <h5 class="card-title mb-0">Sinf harifi</h5>
-
-                                    <div class="card-body">
-                                        <input type="text" name="name" class="form-control"
-                                               placeholder="Sinf harifi masalan: A yoki B">
+                                        <input type="text" name="class" class="form-control"
+                                               placeholder="Sinf nomi">
                                     </div>
                                 </div>
                                 <div class="col-6 ">

@@ -6,9 +6,16 @@
                 <div class="d-flex">
                     <div class="card flex-fill">
                         <div class="card-header">
-                            <h5 class="card-title 0">Sinflar</h5>
-                            <a class="btn btn-primary mb-3" href="{{route('class.create')}}">
-                                Sinf qo'shish
+                            <h5 class="card-title 0">O'quvchilar</h5>
+                            <a class="btn btn-primary mb-3" href="{{route('students.create')}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                    <path fill-rule="evenodd"
+                                          d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg>
+                                O'quvchi qo'shish
                             </a>
                         </div>
 
@@ -17,46 +24,36 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Sinf</th>
-                                <th>Sinf raxbari</th>
-                                <th class="d-none d-xl-table-cell">Tavsifi</th>
-                                <th class="d-none d-xl-table-cell">Rasimi</th>
+                                <th>Ism familyasi</th>
+                                <th>Sinifi</th>
                                 <th>Maktabi</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             @if(auth()->user()->school_id==null)
-
-                                @foreach($classes as $class)
+                                @foreach($students as $student)
                                     <tr>
-
-                                        <td>{{$class->id}}</td>
+                                        @php
+                                            $class=App\Models\Classes::find($student->class_id);
+                                        @endphp
+                                        <td>{{$student->id}}</td>
+                                        <td>{{$student->fullname}}</td>
                                         <td>{{$class->class}}</td>
                                         @php
-                                            $teacher=\App\Models\Teacher::find($class->teacher_id);
-                                        @endphp
-                                        <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
-                                        <td class="d-none d-xl-table-cell">
-                                            {{$class->description}}
-                                        </td>
-                                        <td class="d-none d-xl-table-cell">
-                                            <img width="100px" src="{{'images/'.$class->image}}"
-                                                 alt="{{$class->number}} {{$class->name}} sinf rasimi">
-                                        </td>
-                                        @php
-                                            $school=App\Models\About::find($class->school_id);
+                                            $school=App\Models\About::find($student->school_id);
                                         @endphp
                                         <td>{{$school->name}}</td>
                                         <td>
-                                            <a href="{{route('class.edit',[$class->id])}}" class="btn btn-info">
+
+                                            <a href="{{route('students.edit',[$student->id])}}" class="btn btn-info">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                      fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                                     <path
                                                         d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                                 </svg>
                                             </a>
-                                            <a href="{{route('class.show',[$class->id])}}" class="btn btn-success">
+                                            <a href="{{route('students.show',[$student->id])}}" class="btn btn-success">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                      fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
@@ -64,7 +61,8 @@
                                                         d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                                 </svg>
                                             </a>
-                                            <form class="d-inline" action="{{ route('class.destroy', $class->id) }}"
+                                            <form class="d-inline"
+                                                  action="{{ route('students.destroy', $student->id) }}"
                                                   method="post" onsubmit="return confirm('{{ trans('Ochirish') }}');">
                                                 @method('DELETE')
                                                 @csrf
@@ -86,35 +84,28 @@
                                 @php
                                     $about=App\Models\About::find(auth()->user()->school_id);
                                 @endphp
-                                @foreach($about->classes as $class)
+                                @foreach($about->students as $student)
                                     <tr>
-
-                                        <td>{{$class->id}}</td>
-                                        <td>{{$class->number}}"<sup>{{$class->name}}</sup>"</td>
                                         @php
-                                            $teacher=\App\Models\Teacher::find($class->teacher_id);
+                                            $class=App\Models\Classes::find($student->class_id);
                                         @endphp
-                                        <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
-                                        <td class="d-none d-xl-table-cell">
-                                            {{$class->description}}
-                                        </td>
-                                        <td class="d-none d-xl-table-cell">
-                                            <img width="100px" src="{{'images/'.$class->image}}"
-                                                 alt="{{$class->number}} {{$class->name}} sinf rasimi">
-                                        </td>
+                                        <td>{{$student->id}}</td>
+                                        <td>{{$student->fullname}}</td>
+                                       <td>{{$class->class}}</td>
                                         @php
-                                            $school=App\Models\About::find($class->school_id);
+                                            $school=App\Models\About::find($student->school_id);
                                         @endphp
                                         <td>{{$school->name}}</td>
                                         <td>
-                                            <a href="{{route('class.edit',[$class->id])}}" class="btn btn-info">
+
+                                            <a href="{{route('students.edit',[$student->id])}}" class="btn btn-info">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                      fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                                     <path
                                                         d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                                 </svg>
                                             </a>
-                                            <a href="{{route('class.show',[$class->id])}}" class="btn btn-success">
+                                            <a href="{{route('students.show',[$student->id])}}" class="btn btn-success">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                      fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
@@ -122,7 +113,8 @@
                                                         d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                                 </svg>
                                             </a>
-                                            <form class="d-inline" action="{{ route('class.destroy', $class->id) }}"
+                                            <form class="d-inline"
+                                                  action="{{ route('students.destroy', $student->id) }}"
                                                   method="post" onsubmit="return confirm('{{ trans('Ochirish') }}');">
                                                 @method('DELETE')
                                                 @csrf

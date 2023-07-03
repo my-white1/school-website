@@ -15,4 +15,9 @@ class Certificate extends Model
         'ball',
         'student_id'
     ];
+
+    public function students()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }

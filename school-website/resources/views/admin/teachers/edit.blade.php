@@ -67,6 +67,19 @@
                                         <img width="300px" src="{{asset('images/'.$teacher->image)}}" alt="">
                                     </div>
                                 </div>
+                                @if(auth()->user()->school_id==null)
+                                    <div class="col-6 ">
+                                        <h5 class="card-title mb-0">Maktabi</h5>
+                                        <div class="card-body">
+                                            <select class="form-select" name="school_id" id="">
+                                                <option disabled selected>Maktabni tanlang</option>
+                                                @foreach($school as $id=> $s)
+                                                    <option @if($teacher->school_id==$id) selected @endif value="{{$id}}">{{$s}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                             <button class="btn btn-primary mt-3" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

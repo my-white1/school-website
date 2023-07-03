@@ -80,14 +80,12 @@ class ClassesController extends Controller
     {
         $classes=Classes::find($id);
         $request->validate([
-            'number'=>'required',
-            'name'=>'required',
+            'class'=>'required',
             'teacher_id'=>'required',
             'description'=>'required',
 
         ],[
-            'number.required'=>'Sinf raqami kiritilmadi',
-            'name.required'=>'Sinf Harifi kiritilmadi',
+            'class.required'=>'Sinf nomi kiritilmadi',
             'teacher_id.required'=>'Sinf Raxbari tanlanmadi',
             'description.required'=>'Sinf Haqida ma\'lumot kiritilmadi',
             'description.min'=>'Sinf haqida ma\'lumot 10 ta so\'zdan kam b\'lmasligi kerak',

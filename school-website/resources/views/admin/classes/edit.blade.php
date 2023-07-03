@@ -25,23 +25,14 @@
                             <div class="row">
                                 <div class="col-6 ">
 
-                                    <h5 class="card-title mb-0">Sinf raqami</h5>
-
-                                    <div class="card-body">
-                                        <input type="number" name="number" class="form-control"
-                                               placeholder="Sinf raqami" value="{{$classes->number}}">
-                                    </div>
-                                </div>
-                                <div class="col-6 ">
-
                                     <h5 class="card-title mb-0">Sinf harifi</h5>
 
                                     <div class="card-body">
-                                        <input type="text" name="name" class="form-control"
-                                               placeholder="Sinf harifi masalan: A yoki B" value="{{$classes->name}}">
+                                        <input type="text" name="class" class="form-control"
+                                               placeholder="Sinf harifi masalan: 1A yoki 1B" value="{{$classes->class}}">
                                     </div>
                                 </div>
-                                <div>
+                                <div class="col-6">
 
                                     <h5 class="card-title mb-0">Sinf raxbari</h5>
 
@@ -94,7 +85,7 @@
                                     <path fill-rule="evenodd"
                                           d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
                                 </svg>
-                                Yaratish
+                                Saqlash
                             </button>
                             <a class="btn btn-secondary mt-3" href="{{ route('class.index') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

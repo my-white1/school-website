@@ -38,5 +38,9 @@ class About extends Model
     {
         return $this->hasMany(Blog::class,'school_id');
     }
+    public function students()
+    {
+        return $this->hasMany(Student::class,'school_id');
+    }
 
 }
