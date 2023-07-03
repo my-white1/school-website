@@ -12,12 +12,12 @@ class StudentsTable extends Component
 
     public function viewMore()
     {
-        $this->count = $this->count + 8;
+        $this->count = $this->count + 4;
     }
 
     public function render()
     {
-        $students = Student::take($this->count)->orderByDesc('id')->get();
+        $students = Student::where('school_id',env('SCHOOL_ID'))->take($this->count)->orderByDesc('id')->get();
         return view('livewire.frontend.students-table', compact('students'));
     }
 }

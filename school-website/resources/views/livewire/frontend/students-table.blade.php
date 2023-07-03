@@ -15,11 +15,11 @@
 
                                 @if (!empty($student->certificate))
                                     @if (App\Models\Student::TYPES[$student->certificate->type] == 1)
-                                        {{ App\Models\Student::TYPES[$student->certificate->type] }} 
-                                        {{ $student->certificate->ball }} 
+                                        {{ App\Models\Student::TYPES[$student->certificate->type] }}
+                                        {{ $student->certificate->ball }}
                                     @else
-                                        {{ App\Models\Student::TYPES[$student->certificate->type] }} 
-                                        {{ $student->certificate->degree }} 
+                                        {{ App\Models\Student::TYPES[$student->certificate->type] }}
+                                        {{ $student->certificate->degree }}
                                     @endif
                                 @else
                                     Sertifikat yo'q
@@ -43,7 +43,10 @@
     <div class="mdp-pagiation">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item"><a wire:click="viewMore" class="page-link" role="button" type="button">Yana</a>
+                @if(count(\App\Models\Student::where('school_id',env('SCHOOL_ID'))->get()->ToArray()) > $count)
+
+                <li class="page-item"><a wire:click="viewMore()" class="page-link" role="button" type="button">Yana</a>
+                @endif
                 </li>
             </ul>
         </nav>
