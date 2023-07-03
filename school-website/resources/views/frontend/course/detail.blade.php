@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 @section('content')
     @php
-  $a=\App\Models\About::find(1);
+  $a=\App\Models\About::find(env('SCHOOL_ID'));
 
   $s=explode(':',$course->start_time)[0];
   $e=explode(':',$course->end_time)[0];

@@ -20,7 +20,7 @@ class ClassesTable extends Component
 
     public function render()
     {
-        $classes = Classes::take($this->count)->orderByDesc('id')->get();
+        $classes = Classes::where('school_id',env('SCHOOL_ID'))->take($this->count)->orderByDesc('id')->get();
         return view('livewire.fronend.classes-table', compact('classes'));
     }
 }

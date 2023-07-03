@@ -22,18 +22,18 @@ use Illuminate\Support\Facades\Route;
 
 // Front
 Route::get('/', function () {
-    $blogs = Blog::take(3)->orderByDesc('id')->get();
-    $teachers = Teacher::take(4)->orderByDesc('id')->get();
-    $classes = Classes::take(7)->orderByDesc('id')->get();
-    $allClasses = Classes::take(7)->orderByDesc('id')->get();
-    $courses = Course::take(3)->orderByDesc('id')->get();
+    $blogs = Blog::take(3)->where('school_id',env('SCHOOL_ID'))->orderByDesc('id')->get();
+    $teachers = Teacher::take(4)->where('school_id',env('SCHOOL_ID'))->orderByDesc('id')->get();
+    $classes = Classes::take(7)->where('school_id',env('SCHOOL_ID'))->orderByDesc('id')->get();
+    $allClasses = Classes::take(7)->where('school_id',env('SCHOOL_ID'))->orderByDesc('id')->get();
+    $courses = Course::take(3)->where('school_id',env('SCHOOL_ID'))->orderByDesc('id')->get();
     return view('frontend.home.index', compact('blogs','teachers', 'classes', 'allClasses', 'courses'));
 })->name('home');
 
 // About
 Route::get('/about', function () {
-    $classes = Classes::take(8)->orderByDesc('id')->get();
-    $allClasses = Classes::all();
+    $classes = Classes::take(8)->where('school_id',env('SCHOOL_ID'))->orderByDesc('id')->get();
+    $allClasses = Classes::where('school_id',env('SCHOOL_ID'))->get();
     return view('frontend.about.index', compact('classes', 'allClasses'));
 })->name('about');
 
@@ -45,14 +45,14 @@ Route::get('/classes', function () {
 // classes single
 Route::get('/class-detail/{id}', function ($id) {
     $class = Classes::find($id);
-    $classes = Classes::all();
-    $course = Course::first();
+    $classes = Classes::where('school_id',env('SCHOOL_ID'))->get();
+    $course = Course::where('school_id',env('SCHOOL_ID'))->first();
     return view('frontend.classes.detail', compact('class', 'classes', 'course'));
 })->name('class.detail');
 
 // courses
 Route::get('/kurslar', function () {
-    $courses = Course::all();
+    $courses = Course::where('school_id',env('SCHOOL_ID'))->get();
     return view('frontend.course.index', compact('courses'));
 })->name('course.index');
 
@@ -71,7 +71,7 @@ Route::get('/teachers', function () {
 
 // Contact
 Route::get('/contact', function () {
-    $courses = Course::all();
+    $courses = Course::where('school_id',env('SCHOOL_ID'))->get();
     return view('frontend.contact.index', compact('courses'));
 })->name('contact');
 

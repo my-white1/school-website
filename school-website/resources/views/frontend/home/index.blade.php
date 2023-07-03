@@ -3,7 +3,7 @@
 @section('content')
     @php
         $a = \App\Models\About::find(env('SCHOOL_ID'));
-        $classes = \App\Models\Classes::all();
+        $classes = $a->classes;
     @endphp
     <section class="about-page-content">
         <div class="container">

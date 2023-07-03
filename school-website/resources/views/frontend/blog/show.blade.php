@@ -79,7 +79,7 @@
                     <div class="widget widget-posts">
                         <h3 class="widget-title">Ohirgi yangiliklar</h3>
                         <div class="wd-posts">
-                            @foreach(\App\Models\Blog::take(3)->orderByDesc('id')->get() as $b)
+                            @foreach(\App\Models\Blog::where('school_id',env('SCHOOL_ID'))->take(3)->orderByDesc('id')->get() as $b)
                                 <div class="wd-post d-flex flex-wrap">
                                     <div class="wd-thumb"><img style="width: 52px;height: 52px;border-radius: 18%" src="{{asset('images/'.$b->image)}}" alt=""></div>
                                     <div class="wd-info">

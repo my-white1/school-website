@@ -21,7 +21,7 @@ class BlogIndex extends Component
     function category($id)
     {
         if ($id!==0){
-        $this->blogs1=Blog::where('category_id',"$id")->get();
+        $this->blogs1=Blog::where('school_id',env('SCHOOL_ID'))->where('category_id',"$id")->get();
         }else{
             $this->blogs1=false;
         }
@@ -31,7 +31,7 @@ class BlogIndex extends Component
     {
         $this->categories=Category::all();
         if(!$this->blogs1){
-        $blogs =Blog::take($this->count)->orderByDesc('id')->get();
+        $blogs =Blog::where('school_id',env('SCHOOL_ID'))->take($this->count)->orderByDesc('id')->get();
         }else{
            $blogs=$this->blogs1;
         }
