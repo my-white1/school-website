@@ -40,15 +40,12 @@ class AboutController extends Controller
           'tuman'=>'required',
       ]);
 
-     $a= About::create(
-          $request->all()
-      );
-
-     if (!$request->image){
-         $a->update([
-             'image'=>'school.png'
-         ]);
-     }
+        $data=$request->all();
+        $file = $request->file('image');
+        $image_name = uniqid() . $file->getClientOriginalName();
+        $data['image'] = $image_name;
+        $file->move(public_path('images'), $image_name);
+        About::create($data);
         return redirect()->route('abouts.index');
 
     }

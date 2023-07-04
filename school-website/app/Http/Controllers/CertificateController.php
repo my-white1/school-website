@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Certificate;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -14,7 +15,9 @@ class CertificateController extends Controller
     public function index()
     {
         $certificates=Certificate::with('students')->get();
-        return view('admin.certificate.index',compact('certificates'));
+        $about=About::find(auth()->user()->school_id);
+        $students=$about->students;
+        return view('admin.certificate.index',compact('certificates','students'));
     }
 
     /**

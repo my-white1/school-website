@@ -32,11 +32,11 @@
                                             @foreach($teachers as $id=> $teacher)
                                                 <option value="{{$id}}">{{$teacher}}</option>
                                             @endforeach
+
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-6 ">
-
                                     <h5 class="card-title mb-0">Darajasi</h5>
 
                                     <div class="card-body">

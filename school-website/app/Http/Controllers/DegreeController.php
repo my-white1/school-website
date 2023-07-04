@@ -23,7 +23,8 @@ class DegreeController extends Controller
     public function create()
     {
         $teachers=Teacher::pluck('firstname','id');
-        return view('admin.degrees.create',compact('teachers'));
+        $t=Teacher::all();
+        return view('admin.degrees.create',compact('teachers','t'));
     }
 
     /**
