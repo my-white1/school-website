@@ -20,7 +20,24 @@
 
            foreach ($a->students as $s){
             if ($s->certificate){
-               if ()
+               if ($s->certificate->type==1 &&  (int) $s->certificate->ball >=5 || $s->certificate->type==2  ){
+                   if ($c ++ ==1)continue;
+               }
+            }
+
+           }
+
+           return $c;
+       }
+ function ItStudents($a)
+       {
+           $c=0;
+
+           foreach ($a->students as $s){
+            if ($s->certificate){
+               if ( $s->certificate->type==3 ){
+                   if ($c ++ ==1)continue;
+               }
             }
 
            }
@@ -69,7 +86,7 @@
                             <span>{{GreatStudents($a)}}</span>
                         </td>
                         <td>
-                            <span>20</span>
+                            <span>{{ItStudents($a)}}</span>
                         </td>
                     </tr>
                 @endforeach

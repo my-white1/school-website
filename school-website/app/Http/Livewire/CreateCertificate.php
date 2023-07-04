@@ -25,14 +25,14 @@ class CreateCertificate extends Component
                 'ball' => $this->band,
                 'student_id' => $this->student_id,
             ]);
-        } else if ($this->type = 2) {
+        } else if ($this->type == 2) {
             Certificate::create([
                 'type' => $this->type,
                 'degree' => $this->degree,
 
                 'student_id' => $this->student_id,
             ]);
-        } else if ($this->type = 3) {
+        } else if ($this->type == 3) {
             Certificate::create([
                 'type' => $this->type,
                 'student_id' => $this->student_id,
