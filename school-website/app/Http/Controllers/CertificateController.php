@@ -15,9 +15,7 @@ class CertificateController extends Controller
     public function index()
     {
         $certificates=Certificate::with('students')->get();
-        $about=About::find(auth()->user()->school_id);
-        $students=$about->students;
-        return view('admin.certificate.index',compact('certificates','students'));
+        return view('admin.certificate.index',compact('certificates'));
     }
 
     /**
