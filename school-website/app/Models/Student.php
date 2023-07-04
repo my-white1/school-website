@@ -15,14 +15,16 @@ class Student extends Model
         'school_id'
     ];
     const TYPES=[
+        '0'=>null,
         '1'=>'IELTS',
         '2'=>'CEFR',
         '3'=>'IT',
     ];
     const DEGREE=[
-        '1'=>'B1',
+        '0'=>null,
         '2'=>'B2',
-        '3'=>'C1'
+        '3'=>'C1',
+        '4'=>'C2'
     ];
     public function about()
     {

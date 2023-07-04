@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <h5 class="card-title mb-3">O'quvchi</h5>
                             <select wire:model="student_id" class="form-select" name="student_id" id="">
-                                <option disabled selected>O'qtuvchini tanlang</option>
+                                <option  selected >O'qtuvchini tanlang</option>
                                 @foreach ($students as $id => $student)
                                     <option value="{{ $id }}">{{ $student }}</option>
                                 @endforeach
@@ -33,7 +33,7 @@
                         <div class="card-body">
                             <h5 class="card-title mb-3">Olgan certificatlari</h5>
                             <select wire:change="updateType()" wire:model="type" class="form-select" name="type" id="">
-                                <option disabled selected>Certificatni tanlang</option>
+                                <option  selected >Certificatni tanlang</option>
                                 @foreach (App\Models\Student::TYPES as $id => $type)
                                     <option  value="{{ $id }}">{{ $type }}</option>
                                 @endforeach

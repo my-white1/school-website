@@ -1,3 +1,35 @@
+@php
+    function GreatTeachers($a)
+       {
+           $c=0;
+
+           foreach ($a->teachers as $t){
+            if (count($t->degrees)!==0){
+           if($t->degrees[0]->type_id ==1){
+                if($c++ == 1)continue;
+           }
+            }
+
+           }
+
+           return $c;
+       }
+       function GreatStudents($a)
+       {
+           $c=0;
+
+           foreach ($a->students as $s){
+            if ($s->certificate){
+               if ()
+            }
+
+           }
+
+           return $c;
+       }
+
+ @endphp
+
 <div class="container">
 
     <div class="row">
@@ -23,17 +55,18 @@
                 </tr>
                 </thead>
                 <tbody>
+
                 @foreach(\App\Models\About::all() as $c=>$a)
                     <tr class="text-dark">
                         <td>{{$c+1}}</td>
                         <td>
                             {{$a->name}}
                         </td>
-                        <td>@dd(\App\Models\Teacher::find(3)->degrees[0])
-                            <span>{{$a->GreatTeachers}}</span>
+                        <td>
+                            <span>{{GreatTeachers($a)}}</span>
                         </td>
                         <td>
-                            <span>20</span>
+                            <span>{{GreatStudents($a)}}</span>
                         </td>
                         <td>
                             <span>20</span>

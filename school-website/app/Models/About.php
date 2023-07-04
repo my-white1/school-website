@@ -48,11 +48,16 @@ class About extends Model
     {
         $c=0;
 
-        foreach ($this->teachers() as $t){
-        if($t->degrees[0]->type==1){
+        foreach ($this->teachers as $t){
+         if (count($t->degrees)!==0){
+        if($t->degrees[0]->type_id ==1){
+             if($c++ == 1)continue;
+        }
+         }
 
         }
-        }
+
+        return $c;
     }
 
 }

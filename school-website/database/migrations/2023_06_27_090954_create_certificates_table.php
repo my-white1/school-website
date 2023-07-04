@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->integer('degree')->default(null)->nullable();
-            $table->string('ball')->default(null)->nullable();
+            $table->integer('degree')->default(0);
+            $table->string('ball')->default(0);
             $table->unsignedBigInteger('student_id');
 
             $table->foreign('student_id')->references('id')->on('students');

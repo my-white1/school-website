@@ -22,7 +22,6 @@ class CreateCertificate extends Component
         if ($this->type == 1) {
             Certificate::create([
                 'type' => $this->type,
-                'degree' => null,
                 'ball' => $this->band,
                 'student_id' => $this->student_id,
             ]);
@@ -30,14 +29,12 @@ class CreateCertificate extends Component
             Certificate::create([
                 'type' => $this->type,
                 'degree' => $this->degree,
-                'ball' => null,
+
                 'student_id' => $this->student_id,
             ]);
         } else if ($this->type = 3) {
             Certificate::create([
                 'type' => $this->type,
-                'degree' => null,
-                'ball' => null,
                 'student_id' => $this->student_id,
             ]);
         }
