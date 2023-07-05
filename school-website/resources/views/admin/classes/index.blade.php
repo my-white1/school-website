@@ -90,7 +90,7 @@
                                     <tr>
 
                                         <td>{{$class->id}}</td>
-                                        <td>{{$class->number}}"<sup>{{$class->name}}</sup>"</td>
+                                        <td>{{$class->class}}</td>
                                         @php
                                             $teacher=\App\Models\Teacher::find($class->teacher_id);
                                         @endphp

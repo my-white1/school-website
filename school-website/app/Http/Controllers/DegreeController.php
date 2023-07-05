@@ -22,8 +22,8 @@ class DegreeController extends Controller
      */
     public function create()
     {
-        $teachers=Teacher::pluck('firstname','id');
-        $t=Teacher::all();
+        $teachers=Teacher::where('school_id',env('SCHOOL_ID'))->pluck('firstname','id');
+        $t=Teacher::where('school_id',env('SCHOOL_ID'));
         return view('admin.degrees.create',compact('teachers','t'));
     }
 
