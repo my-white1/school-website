@@ -44,8 +44,15 @@
 
            return $c;
        }
+           $r=[];
+           foreach(\App\Models\About::all() as $c=>$a){
+               $r[$a->id]=((int)GreatTeachers($a))+((int)GreatTeachers($a))+((int)GreatTeachers($a));
+           }
+
 
  @endphp
+
+
 
 <div class="container">
 
@@ -73,9 +80,12 @@
                 </thead>
                 <tbody>
 
-                @foreach(\App\Models\About::all() as $c=>$a)
+                @foreach($r as $c=>$b)
+                    @php
+                    $a=\App\Models\About::find($c);
+                    @endphp
                     <tr class="text-dark">
-                        <td>{{$c+1}}</td>
+                        <td>{{$c}}</td>
                         <td>
                             {{$a->name}}
                         </td>
