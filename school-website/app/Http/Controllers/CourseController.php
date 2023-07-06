@@ -48,7 +48,16 @@ class CourseController extends Controller
         $image_name = uniqid() . $file->getClientOriginalName();
         $data['image'] = $image_name;
         $file->move(public_path('images'), $image_name);
-        $c = Course::create($data);
+        $c = Course::create([
+            'school_id'=>auth()->user()->school_id,
+            'name'=>$data['name'],
+            'start_time'=>$data['start_time'],
+            'end_time'=>$data['end_time'],
+            'teacher_id'=>$data['teacher_id'],
+            'description'=>$data['description'],
+            'price'=>$data['price'],
+            'image'=>$data['image']
+            ]);
         $c->weeks()->sync($request->weeks);
         return redirect()->route('courses.index');
     }
@@ -92,9 +101,27 @@ class CourseController extends Controller
             $image_name = uniqid() . $file->getClientOriginalName();
             $data['image'] = $image_name;
             $file->move(public_path('images'), $image_name);
-            $course->update($data);
+            $course->update([
+                'school_id'=>auth()->user()->school_id,
+                'name'=>$data['name'],
+                'start_time'=>$data['start_time'],
+                'end_time'=>$data['end_time'],
+                'teacher_id'=>$data['teacher_id'],
+                'description'=>$data['description'],
+                'price'=>$data['price'],
+                'image'=>$data['image']
+            ]);
         }else{
-            $course->update($data);
+            $course->update([
+                'school_id'=>auth()->user()->school_id,
+                'name'=>$data['name'],
+                'start_time'=>$data['start_time'],
+                'end_time'=>$data['end_time'],
+                'teacher_id'=>$data['teacher_id'],
+                'description'=>$data['description'],
+                'price'=>$data['price'],
+                'image'=>$data['image']
+            ]);
         }
         $course->weeks()->sync($request->weeks);
         return redirect()->route('courses.index');

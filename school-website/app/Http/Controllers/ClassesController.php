@@ -33,13 +33,11 @@ class ClassesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           'number'=>'required',
-           'name'=>'required',
+           'class'=>'required',
            'teacher_id'=>'required',
            'description'=>'required|min:10',
         ],[
-            'number.required'=>'Sinf raqami kiritilmadi',
-            'name.required'=>'Sinf Harifi kiritilmadi',
+            'class.required'=>'Sinf Nomi kiritilmadi',
             'teacher_id.required'=>'Sinf Raxbari tanlanmadi',
 
             'description.required'=>'Sinf Haqida ma\'lumot kiritilmadi',
@@ -50,7 +48,13 @@ class ClassesController extends Controller
         $image_name = uniqid() . $file->getClientOriginalName();
         $data['image'] = $image_name;
         $file->move(public_path('images'), $image_name);
-        Classes::create($data);
+        Classes::create([
+            'school_id'=>auth()->user()->school_id,
+            'class'=>$data['class'],
+            'teacher_id'=>$data['teacher_id'],
+            'description'=>$data['description'],
+            'image'=>$data['image'],
+        ]);
         return redirect()->route('class.index');
     }
 
@@ -97,9 +101,22 @@ class ClassesController extends Controller
             $image_name = uniqid() . $file->getClientOriginalName();
             $data['image'] = $image_name;
             $file->move(public_path('images'), $image_name);
-            $classes->update($data);
+            $classes->update([
+                'school_id'=>auth()->user()->school_id,
+                'class'=>$data['class'],
+                'teacher_id'=>$data['teacher_id'],
+                'description'=>$data['description'],
+                'image'=>$data['image'],
+            ]);
         }else{
-            $classes->update($data);
+            $classes->update([
+                'school_id'=>auth()->user()->school_id,
+                'class'=>$data['class'],
+                'teacher_id'=>$data['teacher_id'],
+                'description'=>$data['description'],
+            ]);
+
+
         }
         return redirect()->route('class.index');
     }

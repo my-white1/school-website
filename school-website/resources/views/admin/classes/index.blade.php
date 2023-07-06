@@ -88,7 +88,6 @@
                                 @endphp
                                 @foreach($about->classes as $class)
                                     <tr>
-
                                         <td>{{$class->id}}</td>
                                         <td>{{$class->class}}</td>
                                         @php
