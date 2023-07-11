@@ -18,7 +18,11 @@
                                 @php
                                     $teacher=\App\Models\Teacher::find($classes->teacher_id);
                                 @endphp
+                                @if($teacher)
                                 <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
+                                @else
+                                    <td>Sinf raxbari yoq</td>
+                                @endif
                             </tr>
                             <tr>
                                 <th>Tavsifi</th>

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('instagram')->nullable('aniq emas');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

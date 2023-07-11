@@ -18,7 +18,11 @@
                                 @php
                                     $teacher=\App\Models\Teacher::find($course->teacher_id);
                                 @endphp
-                                <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
+                                @if($teacher)
+                                    <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
+                                @else
+                                    <td>Kurs raxbari yoq</td>
+                                @endif
                             </tr>
                             <tr>
                                 <th>Kurs kunlari</th>

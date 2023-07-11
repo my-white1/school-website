@@ -45,7 +45,7 @@ class StudentController extends Controller
 
         if (auth()->user()->school_id == null) {
             Student::create([
-                'fullname' => $request->firstname,
+                'fullname' => $request->fullname,
                 'class_id' => $request->class_id,
                 'school_id' => $request->school_id,
             ]);
@@ -111,6 +111,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
+        $student->certificate->delete();
         $student->delete();
         return back();
     }

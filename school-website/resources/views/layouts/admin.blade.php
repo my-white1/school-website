@@ -24,6 +24,9 @@
 </head>
 
 <body>
+@php
+    $school=\App\Models\About::find(auth()->user()->school_id);
+@endphp
 <div class="wrapper">
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
@@ -255,25 +258,35 @@
                         <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
                             <i class="align-middle" data-feather="settings"></i>
                         </a>
+                        @if(auth()->check())
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
+                               data-bs-toggle="dropdown">
+                                @if(auth()->user()->school_id)
+                                <img src="{{asset('images/'.$school->image)}}"
+                                     class="avatar img-fluid rounded me-1"
 
-                        <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                            <img src="{{asset('back/img/avatars/avatar.jpg')}}" class="avatar img-fluid rounded me-1"
-                                 alt="Charles Hall"/> <span class="text-dark">Charles Hall</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
-                                                                                  data-feather="user"></i> Profile</a>
-                            <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i>
-                                Analytics</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('admin')}}"><i class="align-middle me-1"
-                                                                                  data-feather="settings"></i> Settings
-                                & Privacy</a>
-                            <a class="dropdown-item" href="#"><i class="align-middle me-1"
-                                                                 data-feather="help-circle"></i> Help Center</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('logout')}}">Log out</a>
-                        </div>
+                                     alt="Charles Hall"/>
+
+                                    <span class="text-dark">{{$school->name}}</span>
+                                @else
+                                    @if(auth()->user()->school_id==null)
+                                        <img src="{{asset('images/admin.png')}}"
+                                             class="avatar img-fluid rounded me-1"
+
+                                             alt="Charles Hall"/>
+                                        <span class="text-dark">Admin</span>
+                                    @endif
+                                @endif
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="{{route('admin')}}"><i class="align-middle me-1"
+                                                                     data-feather="pie-chart"></i>
+                                    Analytics</a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{route('logout')}}">Log out</a>
+                            </div>
+                        @endif
                     </li>
                 </ul>
             </div>

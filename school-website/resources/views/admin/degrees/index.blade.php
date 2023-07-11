@@ -39,7 +39,11 @@
                                             $type=App\Models\Degree::TYPES[$deg->type_id];
                                         @endphp
                                         <td>{{$deg->id}}</td>
+                                        @if($teacher)
                                         <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
+                                        @else
+                                            <td>ff</td>
+                                        @endif
                                         <td>{{$type}}</td>
                                         <td>{{$deg->year}} yil</td>
 

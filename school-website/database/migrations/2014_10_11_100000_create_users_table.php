@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreign('school_id')->references('id')->on('abouts');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

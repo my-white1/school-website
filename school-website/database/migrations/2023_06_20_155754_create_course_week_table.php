@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreign('course_id')->references('id')->on('courses');
             $table->foreign('week_id')->references('id')->on('weeks');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

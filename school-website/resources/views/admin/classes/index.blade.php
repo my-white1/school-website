@@ -35,8 +35,13 @@
                                         <td>{{$class->class}}</td>
                                         @php
                                             $teacher=\App\Models\Teacher::find($class->teacher_id);
+
                                         @endphp
+                                        @if($teacher)
                                         <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
+                                        @else
+                                            <td>Sinf raxbari yo'q</td>
+                                        @endif
                                         <td class="d-none d-xl-table-cell">
                                             {{$class->description}}
                                         </td>
