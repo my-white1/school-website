@@ -128,3 +128,4 @@ Route::get('/logout', function () {
     Auth::logout();
     return view('admin.login');
 })->name('logout');
+
